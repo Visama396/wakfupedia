@@ -1,13 +1,18 @@
 ---
 import items from '@items'
 
-console.log(items[0]["title"].es)
+import Item from '@/components/Item.astro'
+
+console.log(items.length)
 ---
 
-<section>
+<section class="flex flex-wrap gap-3">
     {
-        items.map(item => (
-            <h2>{item["title"].es}</h2>
-        ))
+        items.map(item => {
+            if (item["definition"]["item"]["baseParameters"]["itemTypeId"] == 134)
+                return (
+                    <Item item={item} />
+                )
+        })
     }
 </section>

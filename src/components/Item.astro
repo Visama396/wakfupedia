@@ -1,0 +1,8 @@
+---
+const { item } = Astro.props
+---
+
+<div class="bg-zinc-600/80 rounded-md">
+  <h2>{item["title"].es}</h2>
+  <img src={`https://tmktahu.github.io/WakfuAssets/items/${item["definition"]["item"].graphicParameters.gfxId}.png`} />
+</div>
