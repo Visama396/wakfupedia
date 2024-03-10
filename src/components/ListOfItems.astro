@@ -1,0 +1,13 @@
+---
+import items from '@items'
+
+console.log(items[0]["title"].es)
+---
+
+<section>
+    {
+        items.map(item => (
+            <h2>{item["title"].es}</h2>
+        ))
+    }
+</section>
