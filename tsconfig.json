@@ -6,6 +6,21 @@
       "@items": [
         "src/data/items.json"
       ],
+      "@itemTypes": [
+        "src/data/itemTypes.json"
+      ],
+      "@actions" : [
+        "src/data/actions.json"
+      ],
+      "@recipeCategories": [
+        "src/data/recipeCategories.json"
+      ],
+      "@equipmentItemTypes": [
+        "src/data/equipmentItemTypes.json"
+      ],
+      "@states": [
+        "src/data/states.json"
+      ],
       "@/*": [
         "src/*"
       ]

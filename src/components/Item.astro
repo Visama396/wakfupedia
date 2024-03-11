@@ -1,8 +1,40 @@
 ---
+import actions from '@actions'
+import recipeCategories from '@recipeCategories'
+
+import { parseEffect } from '@/utils/parseEffect'
+
 const { item } = Astro.props
 ---
 
-<div class="bg-zinc-600/80 rounded-md">
-  <h2>{item["title"].es}</h2>
-  <img src={`https://tmktahu.github.io/WakfuAssets/items/${item["definition"]["item"].graphicParameters.gfxId}.png`} />
+<div class="bg-zinc-600/80 rounded-md p-2 flex flex-col gap-4">
+  <header>
+    <h2 class="text-xl mb-2">{item["title"].es}</h2>
+    <figure>
+      <img class="bg-zinc-800/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${item["definition"]["item"].graphicParameters.gfxId}.png`} />
+    </figure>
+  </header>
+  <footer class="bg-zinc-500/30 p-2 rounded-md basis-[100%]">
+    <div class="flex gap-1 mb-1">
+      <figure>
+        <img src={`https://tmktahu.github.io/WakfuAssets/itemTypes/${item["definition"]["item"]["baseParameters"]["itemTypeId"]}.png`} />
+      </figure>
+      <figure>
+        <img src={`https://tmktahu.github.io/WakfuAssets/rarities/${item["definition"]["item"]["baseParameters"]["rarity"]}.png`} />
+      </figure>
+    </div>
+      
+      {
+        item["definition"]["equipEffects"].map((effect) => {
+          let parsedEffect = parseEffect(effect["effect"], item["definition"]["item"]["level"])
+
+          return (
+            <div class="flex flex-row justify-between align-center">
+              <span>{parsedEffect.description.es}</span>
+              <span><img src="https://tmktahu.github.io/WakfuAssets/statistics/health_points.png" /></span>
+            </div>
+          )
+        })
+      }
+  </footer>
 </div>
