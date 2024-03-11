@@ -1,18 +1,23 @@
 ---
 import items from '@items'
+import itemTypes from '@itemTypes'
 
 import Item from '@/components/Item.astro'
 
-console.log(items.length)
+const { itemTypeId } = Astro.props
+const itemTypeName = itemTypes.find((item) => item["definition"]["id"] == itemTypeId )
 ---
 
-<section class="flex flex-wrap gap-3">
+<section>
+  <header>
+    <h2 class="text-3xl text-center font-semibold py-2">{itemTypeName["title"].en}</h2>
+  </header>
+  <div class="flex flex-col px-4 md:px-0 md:flex-row flex-wrap gap-3 align-center content-center">
     {
-        items.map(item => {
-            if (item["definition"]["item"]["baseParameters"]["itemTypeId"] == 134)
-                return (
-                    <Item item={item} />
-                )
-        })
+      items.map(item => {
+        if (item["definition"]["item"]["baseParameters"]["itemTypeId"] == itemTypeId)
+          return (<Item item={item} />)
+      })
     }
+  </div>
 </section>
