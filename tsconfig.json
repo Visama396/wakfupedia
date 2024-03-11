@@ -15,6 +15,12 @@
       "@recipeCategories": [
         "src/data/recipeCategories.json"
       ],
+      "@equipmentItemTypes": [
+        "src/data/equipmentItemTypes.json"
+      ],
+      "@states": [
+        "src/data/states.json"
+      ],
       "@/*": [
         "src/*"
       ]

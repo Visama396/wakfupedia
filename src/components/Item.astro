@@ -2,12 +2,14 @@
 import actions from '@actions'
 import recipeCategories from '@recipeCategories'
 
+import { parseEffect } from '@/utils/parseEffect'
+
 const { item } = Astro.props
 ---
 
 <div class="bg-zinc-600/80 rounded-md p-2 flex flex-col gap-4">
   <header>
-    <h2 class="text-xl mb-2">{item["title"].en}</h2>
+    <h2 class="text-xl mb-2">{item["title"].es}</h2>
     <figure>
       <img class="bg-zinc-800/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${item["definition"]["item"].graphicParameters.gfxId}.png`} />
     </figure>
@@ -24,31 +26,14 @@ const { item } = Astro.props
       
       {
         item["definition"]["equipEffects"].map((effect) => {
-          if (effect["effect"]["description"] == undefined) {
-            let actionId = effect["effect"]["definition"]["actionId"]
-            let actionDesc = actions.filter(action => action["definition"]["id"] == actionId)
-            let desc = actionDesc[0]["description"].en.replaceAll("[#1]", effect["effect"]["definition"]["params"][0])
-            
-            desc = desc.replace("[el1]", "Fire")
-            desc = desc.replace("[el2]", "Water")
-            desc = desc.replace("[el3]", "Earth")
-            desc = desc.replace("[el4]", "Air")
+          let parsedEffect = parseEffect(effect["effect"], item["definition"]["item"]["level"])
 
-            if (actionId == 1068) {
-              //desc = "3"
-            }
-
-            return (
-              <p>{desc}</p>
-            )
-          } else {
-            let desc = effect["effect"]["description"].en
-            desc = desc.replaceAll("[#1]", effect["effect"]["definition"]["params"][0])
-
-            return (
-              <p>{desc}</p>
-            )
-          }
+          return (
+            <div class="flex flex-row justify-between align-center">
+              <span>{parsedEffect.description.es}</span>
+              <span><img src="https://tmktahu.github.io/WakfuAssets/statistics/health_points.png" /></span>
+            </div>
+          )
         })
       }
   </footer>
