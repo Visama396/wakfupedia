@@ -11,11 +11,25 @@ const itemTypeId = item.definition.item.baseParameters.itemTypeId
 const rarity = item.definition.item.baseParameters.rarity
 const spriteId = item.definition.item.graphicParameters.gfxId
 
-function parseElement(description) {
-  if (description.includes("[el"))
-    console.log(description)
-  else 
-    return description
+function parseElement(description, language) {
+  if (description.includes("[el")) {
+    switch(language) {
+      case 0:
+        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].en)
+        break;
+      case 1:
+        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].pt)
+        break;
+      case 2:
+        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].fr)
+        break;
+      case 3:
+        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].es)
+        break;
+    }
+  }
+
+  return description
 }
 ---
 
@@ -39,11 +53,11 @@ function parseElement(description) {
         item.definition.equipEffects.map((effect) => {
           let parsedEffect = parseEffect(effect.effect, item.definition.item.level)
           let parsedIcon = parseEffectIcon(parsedEffect.definition.actionId)
-          parseElement(parsedEffect.description.es)
+          let description = parseElement(parsedEffect.description.es, 3)
 
           return (
             <div class="flex flex-row justify-between align-center">
-              <span>{parsedEffect.description.es}</span>
+              <span>{description}</span>
               {
                 parsedIcon ? (<span><img src={parsedIcon} alt="stat" /></span>) : ""
               }
