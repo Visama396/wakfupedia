@@ -14,6 +14,9 @@ dependencies:
   '@fontsource-variable/onest':
     specifier: ^5.0.3
     version: 5.0.3
+  '@fontsource/berkshire-swash':
+    specifier: ^5.0.19
+    version: 5.0.19
   astro:
     specifier: ^4.4.15
     version: 4.4.15(typescript@5.4.2)
@@ -606,6 +609,10 @@ packages:
 
   /@fontsource-variable/onest@5.0.3:
     resolution: {integrity: sha512-vqeDrKg3Ysl4rOepz2N6PnFZ+/EjrmhOv9/pJ+tCn0y00ralsEsCog0xPK6T1hx8Vt70agNR4Jb9C+KWr/K3sg==}
+    dev: false
+
+  /@fontsource/berkshire-swash@5.0.19:
+    resolution: {integrity: sha512-/uc1W1+YSF8Dp+01w0aWkuXJcIOIOVwFkUsVD+7tOjjp7plM+Apzf4khK+7C4whlaioQuz2NNk22BNmBGzpmYg==}
     dev: false
 
   /@isaacs/cliui@8.0.2:

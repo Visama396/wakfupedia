@@ -31,39 +31,49 @@ function parseElement(description, language) {
 
   return description
 }
+
+item.definition.equipEffects.sort((a, b) => a.effect.definition.actionId - b.effect.definition.actionId)
+
+let hasEffects = item.definition.equipEffects.length
 ---
 
-<div class="bg-zinc-600/80 rounded-md p-2 flex flex-col gap-4">
+<div class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70">
   <header>
     <h2 class="text-xl mb-2">{item["title"].es}</h2>
-    <figure>
-      <img class="bg-zinc-800/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${spriteId}.png`} alt="sprite" />
-    </figure>
-  </header>
-  <footer class="bg-zinc-500/30 p-2 rounded-md basis-[100%]">
-    <div class="flex gap-1 mb-1">
+    <div class="flex gap-2">
       <figure>
-        <img src={`https://tmktahu.github.io/WakfuAssets/itemTypes/${itemTypeId}.png`} alt="item type" />
+        <img class="bg-zinc-800/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${spriteId}.png`} alt="sprite" />
       </figure>
-      <figure>
-        <img src={`https://tmktahu.github.io/WakfuAssets/rarities/${rarity}.png`} alt="rarity" />
-      </figure>
+      <p>Nivel {item.definition.item.level}</p>
     </div>
-      {
-        item.definition.equipEffects.map((effect) => {
-          let parsedEffect = parseEffect(effect.effect, item.definition.item.level)
-          let parsedIcon = parseEffectIcon(parsedEffect.definition.actionId)
-          let description = parseElement(parsedEffect.description.es, 3)
-
-          return (
-            <div class="flex flex-row justify-between align-center">
-              <span>{description}</span>
-              {
-                parsedIcon ? (<span><img src={parsedIcon} alt="stat" /></span>) : ""
-              }
-            </div>
-          )
-        })
-      }
-  </footer>
+  </header>
+  <div class="flex gap-1 mb-1">
+    <figure>
+      <img src={`https://tmktahu.github.io/WakfuAssets/itemTypes/${itemTypeId}.png`} alt="item type" />
+    </figure>
+    <figure>
+      <img src={`https://tmktahu.github.io/WakfuAssets/rarities/${rarity}.png`} alt="rarity" />
+    </figure>
+  </div>
+  { hasEffects > 0? (
+    <footer class="flex flex-col gap-1 bg-slate-500/30 p-2 rounded-md basis-[100%]">
+        {
+          item.definition.equipEffects.map((effect) => {
+            let parsedEffect = parseEffect(effect.effect, item.definition.item.level)
+            let parsedIcon = parseEffectIcon(parsedEffect.definition.actionId)
+            let description = parseElement(parsedEffect.description.es, 3)
+  
+            return (
+              <div class="flex gap-2 flex-row">
+                {
+                  parsedIcon ? (<figure class="flex"><img src={parsedIcon} alt="stat" class="object-cover aspect-square size-[18px]" /></figure>) : ""
+                }
+                <span>{description}</span>
+              </div>
+            )
+          })
+        }
+    </footer>
+  ): <footer class="bg-slate-500/30 rounded-md basis-[100%]"></footer>
+  }
 </div>

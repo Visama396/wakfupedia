@@ -40,6 +40,10 @@ const STATISTICS = [
     {
         "actionId": 1053,
         "name": "distance_mastery"
+    },
+    {
+        "actionId": 1055,
+        "name": "berserk_mastery"
     }
 ]
 
