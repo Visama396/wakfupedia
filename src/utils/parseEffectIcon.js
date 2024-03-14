@@ -14,7 +14,15 @@ const STATISTICS = [
         "name": "action_points"
     },
     {
+        "actionId": 56,
+        "name": "action_points"
+    },
+    {
         "actionId": 41,
+        "name": "movement_points"
+    },
+    {
+        "actionId": 57,
         "name": "movement_points"
     },
     {
@@ -22,7 +30,15 @@ const STATISTICS = [
         "name": "wakfu_points"
     },
     {
+        "actionId": 192,
+        "name": "wakfu_points"
+    },
+    {
         "actionId": 175,
+        "name": "dodge"
+    },
+    {
+        "actionId": 176,
         "name": "dodge"
     },
     {
@@ -30,7 +46,15 @@ const STATISTICS = [
         "name": "lock"
     },
     {
+        "actionId": 174,
+        "name": "lock"
+    },
+    {
         "actionId": 875,
+        "name": "block"
+    },
+    {
+        "actionId": 876,
         "name": "block"
     },
     {
