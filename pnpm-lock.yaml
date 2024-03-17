@@ -14,9 +14,6 @@ dependencies:
   '@fontsource-variable/onest':
     specifier: ^5.0.3
     version: 5.0.3
-  '@fontsource/berkshire-swash':
-    specifier: ^5.0.19
-    version: 5.0.19
   '@fontsource/kolker-brush':
     specifier: ^5.0.19
     version: 5.0.19
@@ -610,13 +607,16 @@ packages:
     dev: false
     optional: true
 
+  /@fontsource-variable/dancing-script@5.0.17:
+    resolution: {integrity: sha512-UftL2fg2bR9LN0sYd6fzTO54TDKSapqjYVt8a0dld0lkireWq/ZM76ZED3ekaCVLJNl4w4CjXowt0ptS11WTZg==}
+    dev: false
+
   /@fontsource-variable/onest@5.0.3:
     resolution: {integrity: sha512-vqeDrKg3Ysl4rOepz2N6PnFZ+/EjrmhOv9/pJ+tCn0y00ralsEsCog0xPK6T1hx8Vt70agNR4Jb9C+KWr/K3sg==}
     dev: false
 
   /@fontsource/berkshire-swash@5.0.19:
     resolution: {integrity: sha512-/uc1W1+YSF8Dp+01w0aWkuXJcIOIOVwFkUsVD+7tOjjp7plM+Apzf4khK+7C4whlaioQuz2NNk22BNmBGzpmYg==}
-    dev: false
 
   /@fontsource/kolker-brush@5.0.19:
     resolution: {integrity: sha512-TJ8IUk44Ofu+LiGXWMoUty/+cUAw4+O0RW/kyIUNUftgaoo08664hJuxugIlJ875s1hOdHRbPoLPGS1QDEPPvg==}
