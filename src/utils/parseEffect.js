@@ -4,7 +4,7 @@ import actionsData from '@actions'
 import statesData from '@states'
 import jobsData from '@recipeCategories'
 
-const elementMap = {
+export const elementMap = {
   1: {
     en: 'Fire',
     pt: 'Fogo',

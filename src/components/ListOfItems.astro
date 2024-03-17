@@ -6,6 +6,8 @@ import Item from '@/components/Item.astro'
 
 const { itemTypeId } = Astro.props
 const itemTypeName = itemTypes.find((item) => item["definition"]["id"] == itemTypeId )
+
+items.sort((a,b) => b.definition.item.level - a.definition.item.level)
 ---
 
 <section>
