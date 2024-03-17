@@ -17,6 +17,9 @@ dependencies:
   '@fontsource/berkshire-swash':
     specifier: ^5.0.19
     version: 5.0.19
+  '@fontsource/kolker-brush':
+    specifier: ^5.0.19
+    version: 5.0.19
   astro:
     specifier: ^4.4.15
     version: 4.4.15(typescript@5.4.2)
@@ -613,6 +616,10 @@ packages:
 
   /@fontsource/berkshire-swash@5.0.19:
     resolution: {integrity: sha512-/uc1W1+YSF8Dp+01w0aWkuXJcIOIOVwFkUsVD+7tOjjp7plM+Apzf4khK+7C4whlaioQuz2NNk22BNmBGzpmYg==}
+    dev: false
+
+  /@fontsource/kolker-brush@5.0.19:
+    resolution: {integrity: sha512-TJ8IUk44Ofu+LiGXWMoUty/+cUAw4+O0RW/kyIUNUftgaoo08664hJuxugIlJ875s1hOdHRbPoLPGS1QDEPPvg==}
     dev: false
 
   /@isaacs/cliui@8.0.2:
