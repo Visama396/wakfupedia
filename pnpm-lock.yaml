@@ -11,9 +11,33 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.4.15)(tailwindcss@3.4.1)
+  '@fontsource-variable/dancing-script':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@fontsource-variable/onest':
     specifier: ^5.0.3
     version: 5.0.3
+  '@fontsource/charmonman':
+    specifier: ^5.0.12
+    version: 5.0.12
+  '@fontsource/comforter':
+    specifier: ^5.0.19
+    version: 5.0.19
+  '@fontsource/kolker-brush':
+    specifier: ^5.0.19
+    version: 5.0.19
+  '@fontsource/oregano':
+    specifier: ^5.0.19
+    version: 5.0.19
+  '@fontsource/princess-sofia':
+    specifier: ^5.0.20
+    version: 5.0.20
+  '@fontsource/sedgwick-ave-display':
+    specifier: ^5.0.19
+    version: 5.0.19
+  '@fontsource/zhi-mang-xing':
+    specifier: ^5.0.11
+    version: 5.0.11
   astro:
     specifier: ^4.4.15
     version: 4.4.15(typescript@5.4.2)
@@ -604,8 +628,40 @@ packages:
     dev: false
     optional: true
 
+  /@fontsource-variable/dancing-script@5.0.17:
+    resolution: {integrity: sha512-UftL2fg2bR9LN0sYd6fzTO54TDKSapqjYVt8a0dld0lkireWq/ZM76ZED3ekaCVLJNl4w4CjXowt0ptS11WTZg==}
+    dev: false
+
   /@fontsource-variable/onest@5.0.3:
     resolution: {integrity: sha512-vqeDrKg3Ysl4rOepz2N6PnFZ+/EjrmhOv9/pJ+tCn0y00ralsEsCog0xPK6T1hx8Vt70agNR4Jb9C+KWr/K3sg==}
+    dev: false
+
+  /@fontsource/charmonman@5.0.12:
+    resolution: {integrity: sha512-z364u6307WnaJtF/NseJQ0nJWxBhb5XPJTFfeMcE6XRWON/Tz1Nttx4VuE9rBpCpxWW/yQ5+uHBAXGWdWNw8OQ==}
+    dev: false
+
+  /@fontsource/comforter@5.0.19:
+    resolution: {integrity: sha512-OU4OUz7eZeekJ+o+qgRMLv8YJ4AN3H/ODcDp8GwrWjCBq2XAQpel03t2tjGThepepcCsBge/W0J/W5jvcM0BXQ==}
+    dev: false
+
+  /@fontsource/kolker-brush@5.0.19:
+    resolution: {integrity: sha512-TJ8IUk44Ofu+LiGXWMoUty/+cUAw4+O0RW/kyIUNUftgaoo08664hJuxugIlJ875s1hOdHRbPoLPGS1QDEPPvg==}
+    dev: false
+
+  /@fontsource/oregano@5.0.19:
+    resolution: {integrity: sha512-PmNrj4yfuaVXLW2GE9E/McAx+MjN55HHeI9o/r0gde5J6ONJGmJV8D9donTTnWGYC7XwhmoFupNrvaq3Tr8nLw==}
+    dev: false
+
+  /@fontsource/princess-sofia@5.0.20:
+    resolution: {integrity: sha512-HhGxurNxJWFw31cGFIfsmud52htjViuDbS/MluE07dZpZmXo0UnLNro50+QjpfIHYitJGvduvIcf8UeLD5B2MQ==}
+    dev: false
+
+  /@fontsource/sedgwick-ave-display@5.0.19:
+    resolution: {integrity: sha512-PBIssR+63ew6U0Fqzd/hEaK2ybRFVCv7HypWT5SskBDjl+qILzaaVNRQFdALCGMtKeHX3t5utM2mnbFe4eamtg==}
+    dev: false
+
+  /@fontsource/zhi-mang-xing@5.0.11:
+    resolution: {integrity: sha512-7cFCtH+ZenUVR8QT2nr14txU0FR3dNcaiP74TQ+iWguyj9Yy0SWnKDXbe5UrKJ5NIaE5GdBnGHIycaBG+wkXhg==}
     dev: false
 
   /@isaacs/cliui@8.0.2:
