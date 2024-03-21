@@ -1,22 +1,8 @@
----
-import items from '@items'
-import itemTypes from '@itemTypes'
-import equipmentItemTypes from '@equipmentItemTypes'
-
-const itemsTypes = [100, 118, 537, 646]
-const equipmentTypes = [611, 582]
-let arrayTypes = itemTypes.filter(Type => itemsTypes.includes(Type.definition.id))
-arrayTypes = arrayTypes.concat(equipmentItemTypes.filter(Type => equipmentTypes.includes(Type.definition.id)))
----
-
-
 <section>
-    <header>
-        <h2 class="text-3xl text-center font-semibold py-2"></h2>
-    </header>
-    <div class="flex justify-center gap-x-5">
-        {
-            arrayTypes.map(Type => <a class="bg-slate-600/80 flex-1 rounded-md p-6 text-center hover:bg-slate-800/80" href={`/${Type.definition.id}`}>{Type.title.es}</a>)
-        }
+    <div class="px-3 flex flex-wrap justify-center gap-5">
+        <a class="bg-slate-600/80 flex-1 rounded-md p-6 text-center hover:bg-slate-800/80" href="armas">Armas y Escudos</a>
+        <a class="bg-slate-600/80 flex-1 rounded-md p-6 text-center hover:bg-slate-800/80" href="armaduras">Armaduras</a>
+        <a class="bg-slate-600/80 flex-1 rounded-md p-6 text-center hover:bg-slate-800/80" href="accesorios">Accesorios</a>
+        <a class="bg-slate-600/80 flex-1 rounded-md p-6 text-center hover:bg-slate-800/80" href="familiares">Familiares</a>
     </div>
 </section>

@@ -68,6 +68,70 @@ const STATISTICS = [
     {
         "actionId": 1055,
         "name": "berserk_mastery"
+    },
+    {
+        "actionId": 150,
+        "name": "critical_hit"
+    },
+    {
+        "actionId": 168,
+        "name": "critical_hit"
+    },
+    {
+        "actionId": 171,
+        "name": "initiative"
+    },
+    {
+        "actionId": 172,
+        "name": "initiative"
+    },
+    {
+        "actionId": 160,
+        "name": "range"
+    },
+    {
+        "actionId": 161,
+        "name": "range"
+    },
+    {
+        "actionId": 180,
+        "name": "rear_mastery"
+    },
+    {
+        "actionId": 181,
+        "name": "rear_mastery"
+    },
+    {
+        "actionId": 82,
+        "name": "fire_coin"
+    },
+    {
+        "actionId": 83,
+        "name": "water_coin"
+    },
+    {
+        "actionId": 85,
+        "name": "air_coin"
+    },
+    {
+        "actionId": 84,
+        "name": "earth_coin"
+    },
+    {
+        "actionId": 149,
+        "name": "critical_mastery"
+    },
+    {
+        "actionId": 1056,
+        "name": "critical_mastery"
+    },
+    {
+        "actionId": 71,
+        "name": "rear_resistance"
+    },
+    {
+        "actionId": 1063,
+        "name": "rear_resistance"
     }
 ]
 

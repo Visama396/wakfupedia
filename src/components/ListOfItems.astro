@@ -4,22 +4,445 @@ import itemTypes from '@itemTypes'
 
 import Item from '@/components/Item.astro'
 
-const { itemTypeId } = Astro.props
-const itemTypeName = itemTypes.find((item) => item["definition"]["id"] == itemTypeId )
+const { title, itemTypeIds } = Astro.props
 
-items.sort((a,b) => b.definition.item.level - a.definition.item.level)
+items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 ---
 
-<section>
+<section class="flex flex-col gap-4 px-2">
   <header>
-    <h2 class="text-3xl text-center font-semibold py-2">{itemTypeName["title"].es}</h2>
+    <h2 class="text-3xl text-center font-semibold py-2">{title}</h2>
   </header>
-  <div class="flex flex-col px-4 md:px-0 md:flex-row flex-wrap gap-3 align-center content-center">
-    {
-      items.map(item => {
-        if (item["definition"]["item"]["baseParameters"]["itemTypeId"] == itemTypeId)
-          return (<Item item={item} />)
-      })
-    }
-  </div>
+  <footer class="flex flex-col md:flex-row gap-2 justify-center">
+    <div id="items" class="order-2 md:order-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 md:px-4 md:flex-row gap-4">
+      {
+        items.map(item => {
+          if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId) && item.definition.equipEffects.length > 0)
+            return (<Item item={item} itemTypeIds={itemTypeIds} />)
+        })
+      }
+    </div>
+    <aside id="filters" class="order-1 md:order-2 rounded-md flex flex-col gap-2 md:gap-4 bg-slate-800/80 p-4 md:self-start">
+      <div>
+        <h4>Buscar</h4>
+        <input id="filterName" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
+      </div>
+      <div></div>
+        <h4>Nivel del objeto</h4>
+        <div class="flex gap-2 items-center">
+          <span>De</span>
+          <input id="filterLevelMin" value="0" min="0" max="230" type="number" class="text-black outline-none rounded-sm p-1" />
+          <span>A</span>
+          <input id="filterLevelMax" value="230" min="0" max="230" type="number" class="text-black outline-none rounded-sm p-1" />
+        </div>
+      </div>
+      <div>
+        <h4>Franja de nivel</h4>
+        <div class="flex flex-col gap-2">
+          <div>
+            <input id="levelRange" type="checkbox" />
+            <label for="levelRange">0 - 5</label>
+          </div>
+          <div>
+            <input id="levelRange1" type="checkbox" />
+            <label for="levelRange1">6 - 20</label>
+          </div>
+          <div>
+            <input id="levelRange2" type="checkbox" />
+            <label for="levelRange2">21 - 35</label>
+          </div>
+          <div>
+            <input id="levelRange3" type="checkbox" />
+            <label for="levelRange3">36 - 50</label>
+          </div>
+          <div>
+            <input id="levelRange4" type="checkbox" />
+            <label for="levelRange4">51 - 65</label>
+          </div>
+          <div>
+            <input id="levelRange5" type="checkbox" />
+            <label for="levelRange5">66 - 80</label>
+          </div>
+          <div>
+            <input id="levelRange6" type="checkbox" />
+            <label for="levelRange6">81 - 95</label>
+          </div>
+          <div>
+            <input id="levelRange7" type="checkbox" />
+            <label for="levelRange7">96 - 110</label>
+          </div>
+          <div>
+            <input id="levelRange8" type="checkbox" />
+            <label for="levelRange8">111 - 125</label>
+          </div>
+          <div>
+            <input id="levelRange9" type="checkbox" />
+            <label for="levelRange9">126 - 140</label>
+          </div>
+          <div>
+            <input id="levelRange10" type="checkbox" />
+            <label for="levelRange10">141 - 155</label>
+          </div>
+          <div>
+            <input id="levelRange11" type="checkbox" />
+            <label for="levelRange11">156 - 170</label>
+          </div>
+          <div>
+            <input id="levelRange12" type="checkbox" />
+            <label for="levelRange12">171 - 185</label>
+          </div>
+          <div>
+            <input id="levelRange13" type="checkbox" />
+            <label for="levelRange13">186 - 200</label>
+          </div>
+          <div>
+            <input id="levelRange14" type="checkbox" />
+            <label for="levelRange14">201 - 215</label>
+          </div>
+          <div>
+            <input id="levelRange15" type="checkbox" />
+            <label for="levelRange15">216 - 230</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Tipo de {title}</h4>
+      </div>
+      <div>
+        <h4>Rareza</h4>
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-2 order-7">
+            <input id="rarity1" type="checkbox" />
+            <label for="rarity1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/1.png" /></figure></label>
+          </div>
+          <div class="flex gap-2 order-6">
+            <input id="rarity2" type="checkbox" />
+            <label for="rarity2"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/2.png" /></figure></label>
+          </div>
+          <div class="flex gap-2 order-5">
+            <input id="rarity3" type="checkbox" />
+            <label for="rarity3"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/3.png" /></figure></label>
+          </div>
+          <div class="flex gap-2 order-4">
+            <input id="rarity4" type="checkbox" />
+            <label for="rarity4"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/4.png" /></figure></label>
+          </div>
+          <div class="flex gap-2 order-1">
+            <input id="rarity5" type="checkbox" />
+            <label for="rarity5"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/5.png" /></figure></label>
+          </div>
+          <div class="flex gap-2 order-3">
+            <input id="rarity6" type="checkbox" />
+            <label for="rarity6"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/6.png" /></figure></label>
+          </div>
+          <div class="flex gap-2 order-2">
+            <input id="rarity7" type="checkbox" />
+            <label for="rarity7"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/7.png" /></figure></label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Bonus</h4>
+      </div>
+    </aside>
+  </footer>
 </section>
+
+<script>
+const items = document.querySelector("#items")
+
+const nameFilter = document.querySelector("#filterName")
+const minLevelFilter = document.querySelector("#filterLevelMin")
+const maxLevelFilter = document.querySelector("#filterLevelMax")
+const range0 = document.querySelector("#levelRange")
+const range1 = document.querySelector("#levelRange1")
+const range2 = document.querySelector("#levelRange2")
+const range3 = document.querySelector("#levelRange3")
+const range4 = document.querySelector("#levelRange4")
+const range5 = document.querySelector("#levelRange5")
+const range6 = document.querySelector("#levelRange6")
+const range7 = document.querySelector("#levelRange7")
+const range8 = document.querySelector("#levelRange8")
+const range9 = document.querySelector("#levelRange9")
+const range10 = document.querySelector("#levelRange10")
+const range11 = document.querySelector("#levelRange11")
+const range12 = document.querySelector("#levelRange12")
+const range13 = document.querySelector("#levelRange13")
+const range14 = document.querySelector("#levelRange14")
+const range15 = document.querySelector("#levelRange15")
+const rarity1 = document.querySelector("#rarity1")
+const rarity2 = document.querySelector("#rarity2")
+const rarity3 = document.querySelector("#rarity3")
+const rarity4 = document.querySelector("#rarity4")
+const rarity5 = document.querySelector("#rarity5")
+const rarity6 = document.querySelector("#rarity6")
+const rarity7 = document.querySelector("#rarity7")
+
+let min = 0
+let max = 230
+let ranges: number = []
+let rarities: number[] = []
+
+const updateFilter = () => {
+  let name = nameFilter?.value.toLowerCase() || ""
+  let minLevel = minLevelFilter?.value || 0
+  let maxLevel = maxLevelFilter?.value || 230
+
+  if (items != null) {
+    for (let item of items.children) {
+      item.classList.remove("hidden") // Resets the whole list by removing hidden to all items
+
+      if (name.length >= 2) { // If the name filter is long enough to be used
+        if (item.getAttribute('data-name') && !item.getAttribute('data-name')?.toLowerCase().includes(name)) {
+          item.classList.add("hidden")
+        }
+      }
+
+      if (ranges.length > 0) {
+        minLevelFilter.disabled = true
+        maxLevelFilter.disabled = true
+        if ((min >= 0 && min < max) && (max <= 230)) { // Level range is correct
+          if (item.getAttribute('data-level') && (item.getAttribute('data-level') < min || item.getAttribute('data-level') > max)) {
+            item.classList.add("hidden")
+          }
+        }
+      } else {
+        minLevelFilter.disabled = false
+        maxLevelFilter.disabled = false 
+        if ((minLevel >= 0 && minLevel < maxLevel) && (maxLevel <= 230)) { // Level range is correct
+          if (item.getAttribute('data-level') && (item.getAttribute('data-level') < minLevel || item.getAttribute('data-level') > maxLevel)) {
+            item.classList.add("hidden")
+          }
+        }
+      }
+
+      if (rarities.length > 0) {
+        if (item.getAttribute('data-rarity') && !rarities.includes(parseInt(item.getAttribute('data-rarity') || 0))) {
+          item.classList.add("hidden")
+        }
+      }
+    }
+  }
+}
+
+const updateRange = () => {
+  if (range0?.checked) {
+    if (!ranges.includes(0)) ranges.push(0)
+    if (!ranges.includes(5)) ranges.push(5)
+  }
+  else {
+    if (ranges.includes(0)) ranges.splice(ranges.indexOf(0), 1)
+    if (ranges.includes(5)) ranges.splice(ranges.indexOf(0), 1)
+  }
+
+  if (range1?.checked) {
+    if (!ranges.includes(6)) ranges.push(6)
+    if (!ranges.includes(20)) ranges.push(20)
+  }
+  else {
+    if (ranges.includes(6)) ranges.splice(ranges.indexOf(6), 1)
+    if (ranges.includes(20)) ranges.splice(ranges.indexOf(20), 1)
+  }
+
+  if (range2?.checked) {
+    if (!ranges.includes(21)) ranges.push(21)
+    if (!ranges.includes(35)) ranges.push(35)
+  }
+  else {
+    if (ranges.includes(21)) ranges.splice(ranges.indexOf(21), 1)
+    if (ranges.includes(35)) ranges.splice(ranges.indexOf(35), 1)
+  }
+
+  if (range3?.checked) {
+    if (!ranges.includes(36)) ranges.push(36)
+    if (!ranges.includes(50)) ranges.push(50)
+  }
+  else {
+    if (ranges.includes(36)) ranges.splice(ranges.indexOf(36), 1)
+    if (ranges.includes(50)) ranges.splice(ranges.indexOf(50), 1)
+  }
+
+  if (range4?.checked) {
+    if (!ranges.includes(51)) ranges.push(51)
+    if (!ranges.includes(65)) ranges.push(65)
+  }
+  else {
+    if (ranges.includes(51)) ranges.splice(ranges.indexOf(51), 1)
+    if (ranges.includes(65)) ranges.splice(ranges.indexOf(65), 1)
+  }
+
+  if (range5?.checked) {
+    if (!ranges.includes(66)) ranges.push(66)
+    if (!ranges.includes(80)) ranges.push(80)
+  }
+  else {
+    if (ranges.includes(66)) ranges.splice(ranges.indexOf(66), 1)
+    if (ranges.includes(80)) ranges.splice(ranges.indexOf(80), 1)
+  }
+
+  if (range6?.checked) {
+    if (!ranges.includes(81)) ranges.push(81);
+    if (!ranges.includes(95)) ranges.push(95);
+  } else {
+    if (ranges.includes(81)) ranges.splice(ranges.indexOf(81), 1);
+    if (ranges.includes(95)) ranges.splice(ranges.indexOf(95), 1);
+  }
+  
+  if (range7?.checked) {
+    if (!ranges.includes(96)) ranges.push(96);
+    if (!ranges.includes(110)) ranges.push(110);
+  } else {
+    if (ranges.includes(96)) ranges.splice(ranges.indexOf(96), 1);
+    if (ranges.includes(110)) ranges.splice(ranges.indexOf(110), 1);
+  }
+
+  if (range8?.checked) {
+    if (!ranges.includes(111)) ranges.push(111);
+    if (!ranges.includes(125)) ranges.push(125);
+  } else {
+    if (ranges.includes(111)) ranges.splice(ranges.indexOf(111), 1);
+    if (ranges.includes(125)) ranges.splice(ranges.indexOf(125), 1);
+  }
+
+  if (range9?.checked) {
+    if (!ranges.includes(126)) ranges.push(126);
+    if (!ranges.includes(140)) ranges.push(140);
+  } else {
+    if (ranges.includes(126)) ranges.splice(ranges.indexOf(126), 1);
+    if (ranges.includes(140)) ranges.splice(ranges.indexOf(140), 1);
+  }
+  
+  if (range10?.checked) {
+    if (!ranges.includes(141)) ranges.push(141);
+    if (!ranges.includes(155)) ranges.push(155);
+  } else {
+    if (ranges.includes(141)) ranges.splice(ranges.indexOf(141), 1);
+    if (ranges.includes(155)) ranges.splice(ranges.indexOf(155), 1);
+  }
+
+  if (range11?.checked) {
+    if (!ranges.includes(156)) ranges.push(156);
+    if (!ranges.includes(170)) ranges.push(170);
+  } else {
+    if (ranges.includes(156)) ranges.splice(ranges.indexOf(156), 1);
+    if (ranges.includes(170)) ranges.splice(ranges.indexOf(170), 1);
+  }
+
+  if (range12?.checked) {
+    if (!ranges.includes(171)) ranges.push(171);
+    if (!ranges.includes(185)) ranges.push(185);
+  } else {
+    if (ranges.includes(171)) ranges.splice(ranges.indexOf(171), 1);
+    if (ranges.includes(185)) ranges.splice(ranges.indexOf(185), 1);
+  }
+
+  if (range13?.checked) {
+    if (!ranges.includes(186)) ranges.push(186);
+    if (!ranges.includes(200)) ranges.push(200);
+  } else {
+    if (ranges.includes(186)) ranges.splice(ranges.indexOf(186), 1);
+    if (ranges.includes(200)) ranges.splice(ranges.indexOf(200), 1);
+  }
+
+  if (range14?.checked) {
+    if (!ranges.includes(201)) ranges.push(201);
+    if (!ranges.includes(215)) ranges.push(215);
+  } else {
+    if (ranges.includes(201)) ranges.splice(ranges.indexOf(201), 1);
+    if (ranges.includes(215)) ranges.splice(ranges.indexOf(215), 1);
+  }
+
+  if (range15?.checked) {
+    if (!ranges.includes(216)) ranges.push(216);
+    if (!ranges.includes(230)) ranges.push(230);
+  } else {
+    if (ranges.includes(216)) ranges.splice(ranges.indexOf(216), 1);
+    if (ranges.includes(230)) ranges.splice(ranges.indexOf(230), 1);
+  }
+
+  ranges.sort((a, b) => a - b)
+  min = ranges[0]
+  max = ranges[ranges.length - 1]
+  updateFilter()
+}
+
+const updateRarities = () => {
+  if (rarity1?.checked) {
+    if (!rarities.includes(1)) rarities.push(1)
+  }
+  else {
+    if (rarities.includes(1)) rarities.splice(rarities.indexOf(1), 1) 
+  }
+
+  if (rarity2?.checked) {
+    if (!rarities.includes(2)) rarities.push(2)
+  }
+  else {
+    if (rarities.includes(2)) rarities.splice(rarities.indexOf(2), 1) 
+  }
+
+  if (rarity3?.checked) {
+    if (!rarities.includes(3)) rarities.push(3)
+  }
+  else {
+    if (rarities.includes(3)) rarities.splice(rarities.indexOf(3), 1) 
+  }
+
+  if (rarity4?.checked) {
+    if (!rarities.includes(4)) rarities.push(4)
+  }
+  else {
+    if (rarities.includes(4)) rarities.splice(rarities.indexOf(4), 1) 
+  }
+
+  if (rarity5?.checked) {
+    if (!rarities.includes(5)) rarities.push(5)
+  }
+  else {
+    if (rarities.includes(5)) rarities.splice(rarities.indexOf(5), 1) 
+  }
+
+  if (rarity6?.checked) {
+    if (!rarities.includes(6)) rarities.push(6)
+  }
+  else {
+    if (rarities.includes(6)) rarities.splice(rarities.indexOf(6), 1) 
+  }
+
+  if (rarity7?.checked) {
+    if (!rarities.includes(7)) rarities.push(7)
+  }
+  else {
+    if (rarities.includes(7)) rarities.splice(rarities.indexOf(7), 1) 
+  }
+
+  updateFilter()
+}
+
+nameFilter?.addEventListener("input", updateFilter)
+minLevelFilter?.addEventListener("input", updateFilter)
+maxLevelFilter?.addEventListener("input", updateFilter)
+range0?.addEventListener("change", updateRange)
+range1?.addEventListener("change", updateRange)
+range2?.addEventListener("change", updateRange)
+range3?.addEventListener("change", updateRange)
+range4?.addEventListener("change", updateRange)
+range5?.addEventListener("change", updateRange)
+range6?.addEventListener("change", updateRange)
+range7?.addEventListener("change", updateRange)
+range8?.addEventListener("change", updateRange)
+range9?.addEventListener("change", updateRange)
+range10?.addEventListener("change", updateRange)
+range11?.addEventListener("change", updateRange)
+range12?.addEventListener("change", updateRange)
+range13?.addEventListener("change", updateRange)
+range14?.addEventListener("change", updateRange)
+range15?.addEventListener("change", updateRange)
+rarity1?.addEventListener("change", updateRarities)
+rarity2?.addEventListener("change", updateRarities)
+rarity3?.addEventListener("change", updateRarities)
+rarity4?.addEventListener("change", updateRarities)
+rarity5?.addEventListener("change", updateRarities)
+rarity6?.addEventListener("change", updateRarities)
+rarity7?.addEventListener("change", updateRarities)
+</script>
