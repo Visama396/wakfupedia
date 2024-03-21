@@ -1,30 +1,39 @@
 ---
-import actions from '@actions'
-import recipeCategories from '@recipeCategories'
-
 import { parseEffect, elementMap } from '@/utils/parseEffect'
 import { parseEffectIcon } from '@/utils/parseEffectIcon'
 
-const { item, itemTypeIds } = Astro.props
+const { item } = Astro.props
 
 const itemTypeId = item.definition.item.baseParameters.itemTypeId
 const rarity = item.definition.item.baseParameters.rarity
 const spriteId = item.definition.item.graphicParameters.gfxId
 
-function parseElement(description, language) {
+function parseElement(description: string, language: number) {
   if (description.includes("[el")) {
     switch(language) {
       case 0:
-        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].en)
+        description = description.replace("[el1]", "Fire")
+        description = description.replace("[el2]", "Water")
+        description = description.replace("[el3]", "Earth")
+        description = description.replace("[el4]", "Air")
         break;
       case 1:
-        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].pt)
+        description = description.replace("[el1]", "Fuego")
+        description = description.replace("[el2]", "Agua")
+        description = description.replace("[el3]", "Tierra")
+        description = description.replace("[el4]", "Aire")
         break;
       case 2:
-        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].fr)
+        description = description.replace("[el1]", "Fuego")
+        description = description.replace("[el2]", "Agua")
+        description = description.replace("[el3]", "Tierra")
+        description = description.replace("[el4]", "Aire")
         break;
       case 3:
-        description = description.replace(description.substring(description.indexOf("[")), elementMap[description.substring(description.indexOf("[")).charAt(3)].es)
+        description = description.replace("[el1]", "Fuego")
+        description = description.replace("[el2]", "Agua")
+        description = description.replace("[el3]", "Tierra")
+        description = description.replace("[el4]", "Aire")
         break;
     }
   }
@@ -32,7 +41,7 @@ function parseElement(description, language) {
   return description
 }
 
-item.definition.equipEffects.sort((a, b) => a.effect.definition.actionId - b.effect.definition.actionId)
+item.definition.equipEffects.sort((a: { effect: { definition: { actionId: number } } }, b: { effect: { definition: { actionId: number } } }) => a.effect.definition.actionId - b.effect.definition.actionId)
 
 let hasEffects = item.definition.equipEffects.length
 ---
@@ -60,8 +69,8 @@ let hasEffects = item.definition.equipEffects.length
   { hasEffects > 0? (
     <footer class="flex flex-col gap-1 bg-slate-500/30 p-2 rounded-md basis-[100%]">
         {
-          item.definition.equipEffects.map((effect) => {
-            let parsedEffect = parseEffect(effect.effect, item.definition.item.level)
+          item.definition.equipEffects.map((effect: { effect: object }) => {
+            let parsedEffect: any = parseEffect(effect.effect, item.definition.item.level)
             let parsedIcon = parseEffectIcon(parsedEffect.definition.actionId)
             let description = parseElement(parsedEffect.description.es, 3)
   

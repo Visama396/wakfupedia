@@ -1,6 +1,5 @@
 ---
 import items from '@items'
-import itemTypes from '@itemTypes'
 
 import Item from '@/components/Item.astro'
 
@@ -18,14 +17,14 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
       {
         items.map(item => {
           if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId) && item.definition.equipEffects.length > 0)
-            return (<Item item={item} itemTypeIds={itemTypeIds} />)
+            return (<Item item={item} />)
         })
       }
     </div>
     <aside id="filters" class="order-1 md:order-2 rounded-md flex flex-col gap-2 md:gap-4 bg-slate-800/80 p-4 md:self-start">
       <div>
         <h4>Buscar</h4>
-        <input id="filterName" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
+        <input id="filterName" value="" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
       </div>
       <div></div>
         <h4>Nivel del objeto</h4>
@@ -180,13 +179,13 @@ const rarity7 = document.querySelector("#rarity7")
 
 let min = 0
 let max = 230
-let ranges: number = []
+let ranges: number[] = []
 let rarities: number[] = []
 
 const updateFilter = () => {
-  let name = nameFilter?.value.toLowerCase() || ""
-  let minLevel = minLevelFilter?.value || 0
-  let maxLevel = maxLevelFilter?.value || 230
+  let name: string = nameFilter?.getAttribute("value")?.toLowerCase() || ""
+  let minLevel: number = parseInt((minLevelFilter as any)?.value) || 0
+  let maxLevel: number = parseInt((maxLevelFilter as any)?.value) || 230
 
   if (items != null) {
     for (let item of items.children) {
@@ -199,26 +198,48 @@ const updateFilter = () => {
       }
 
       if (ranges.length > 0) {
-        minLevelFilter.disabled = true
-        maxLevelFilter.disabled = true
+        if (minLevelFilter) {
+          minLevelFilter.setAttribute("disabled", "true")
+        }
+        if (maxLevelFilter) {
+          maxLevelFilter.setAttribute("disabled", "true")
+        }
+
         if ((min >= 0 && min < max) && (max <= 230)) { // Level range is correct
-          if (item.getAttribute('data-level') && (item.getAttribute('data-level') < min || item.getAttribute('data-level') > max)) {
-            item.classList.add("hidden")
+          const level = item.getAttribute('data-level') 
+          if (level) {
+            if (item.getAttribute('data-level') 
+              && (parseInt(level) < min 
+              || parseInt(level) > max)) {
+              item.classList.add("hidden")
+            }
           }
         }
       } else {
-        minLevelFilter.disabled = false
-        maxLevelFilter.disabled = false 
+        if (minLevelFilter) {
+          minLevelFilter.setAttribute("disabled", "false")
+        }
+        if (maxLevelFilter) {
+          maxLevelFilter.setAttribute("disabled", "false")
+        }
         if ((minLevel >= 0 && minLevel < maxLevel) && (maxLevel <= 230)) { // Level range is correct
-          if (item.getAttribute('data-level') && (item.getAttribute('data-level') < minLevel || item.getAttribute('data-level') > maxLevel)) {
-            item.classList.add("hidden")
+          const level = item.getAttribute('data-level')
+          if (level) {
+            if (item.getAttribute('data-level') 
+              && (parseInt(level) < minLevel 
+              || parseInt(level) > maxLevel)) {
+              item.classList.add("hidden")
+            }
           }
         }
       }
 
       if (rarities.length > 0) {
-        if (item.getAttribute('data-rarity') && !rarities.includes(parseInt(item.getAttribute('data-rarity') || 0))) {
-          item.classList.add("hidden")
+        const rarity = item.getAttribute('data-rariry')
+        if (rarity) {
+          if (!rarities.includes(parseInt(rarity))) {
+            item.classList.add("hidden")
+          }
         }
       }
     }
@@ -226,7 +247,7 @@ const updateFilter = () => {
 }
 
 const updateRange = () => {
-  if (range0?.checked) {
+  if (range0?.getAttribute('checked') == "true") {
     if (!ranges.includes(0)) ranges.push(0)
     if (!ranges.includes(5)) ranges.push(5)
   }
@@ -235,7 +256,7 @@ const updateRange = () => {
     if (ranges.includes(5)) ranges.splice(ranges.indexOf(0), 1)
   }
 
-  if (range1?.checked) {
+  if (range1?.getAttribute('checked') == "true") {
     if (!ranges.includes(6)) ranges.push(6)
     if (!ranges.includes(20)) ranges.push(20)
   }
@@ -244,7 +265,7 @@ const updateRange = () => {
     if (ranges.includes(20)) ranges.splice(ranges.indexOf(20), 1)
   }
 
-  if (range2?.checked) {
+  if (range2?.getAttribute('checked') == "true") {
     if (!ranges.includes(21)) ranges.push(21)
     if (!ranges.includes(35)) ranges.push(35)
   }
@@ -253,7 +274,7 @@ const updateRange = () => {
     if (ranges.includes(35)) ranges.splice(ranges.indexOf(35), 1)
   }
 
-  if (range3?.checked) {
+  if (range3?.getAttribute('checked') == "true") {
     if (!ranges.includes(36)) ranges.push(36)
     if (!ranges.includes(50)) ranges.push(50)
   }
@@ -262,7 +283,7 @@ const updateRange = () => {
     if (ranges.includes(50)) ranges.splice(ranges.indexOf(50), 1)
   }
 
-  if (range4?.checked) {
+  if (range4?.getAttribute('checked') == "true") {
     if (!ranges.includes(51)) ranges.push(51)
     if (!ranges.includes(65)) ranges.push(65)
   }
@@ -271,7 +292,7 @@ const updateRange = () => {
     if (ranges.includes(65)) ranges.splice(ranges.indexOf(65), 1)
   }
 
-  if (range5?.checked) {
+  if (range5?.getAttribute('checked') == "true") {
     if (!ranges.includes(66)) ranges.push(66)
     if (!ranges.includes(80)) ranges.push(80)
   }
@@ -280,7 +301,7 @@ const updateRange = () => {
     if (ranges.includes(80)) ranges.splice(ranges.indexOf(80), 1)
   }
 
-  if (range6?.checked) {
+  if (range6?.getAttribute('checked') == "true") {
     if (!ranges.includes(81)) ranges.push(81);
     if (!ranges.includes(95)) ranges.push(95);
   } else {
@@ -288,7 +309,7 @@ const updateRange = () => {
     if (ranges.includes(95)) ranges.splice(ranges.indexOf(95), 1);
   }
   
-  if (range7?.checked) {
+  if (range7?.getAttribute('checked') == "true") {
     if (!ranges.includes(96)) ranges.push(96);
     if (!ranges.includes(110)) ranges.push(110);
   } else {
@@ -296,7 +317,7 @@ const updateRange = () => {
     if (ranges.includes(110)) ranges.splice(ranges.indexOf(110), 1);
   }
 
-  if (range8?.checked) {
+  if (range8?.getAttribute('checked') == "true") {
     if (!ranges.includes(111)) ranges.push(111);
     if (!ranges.includes(125)) ranges.push(125);
   } else {
@@ -304,7 +325,7 @@ const updateRange = () => {
     if (ranges.includes(125)) ranges.splice(ranges.indexOf(125), 1);
   }
 
-  if (range9?.checked) {
+  if (range9?.getAttribute('checked') == "true") {
     if (!ranges.includes(126)) ranges.push(126);
     if (!ranges.includes(140)) ranges.push(140);
   } else {
@@ -312,7 +333,7 @@ const updateRange = () => {
     if (ranges.includes(140)) ranges.splice(ranges.indexOf(140), 1);
   }
   
-  if (range10?.checked) {
+  if (range10?.getAttribute('checked') == "true") {
     if (!ranges.includes(141)) ranges.push(141);
     if (!ranges.includes(155)) ranges.push(155);
   } else {
@@ -320,7 +341,7 @@ const updateRange = () => {
     if (ranges.includes(155)) ranges.splice(ranges.indexOf(155), 1);
   }
 
-  if (range11?.checked) {
+  if (range11?.getAttribute('checked') == "true") {
     if (!ranges.includes(156)) ranges.push(156);
     if (!ranges.includes(170)) ranges.push(170);
   } else {
@@ -328,7 +349,7 @@ const updateRange = () => {
     if (ranges.includes(170)) ranges.splice(ranges.indexOf(170), 1);
   }
 
-  if (range12?.checked) {
+  if (range12?.getAttribute('checked') == "true") {
     if (!ranges.includes(171)) ranges.push(171);
     if (!ranges.includes(185)) ranges.push(185);
   } else {
@@ -336,7 +357,7 @@ const updateRange = () => {
     if (ranges.includes(185)) ranges.splice(ranges.indexOf(185), 1);
   }
 
-  if (range13?.checked) {
+  if (range13?.getAttribute('checked') == "true") {
     if (!ranges.includes(186)) ranges.push(186);
     if (!ranges.includes(200)) ranges.push(200);
   } else {
@@ -344,7 +365,7 @@ const updateRange = () => {
     if (ranges.includes(200)) ranges.splice(ranges.indexOf(200), 1);
   }
 
-  if (range14?.checked) {
+  if (range14?.getAttribute('checked') == "true") {
     if (!ranges.includes(201)) ranges.push(201);
     if (!ranges.includes(215)) ranges.push(215);
   } else {
@@ -352,7 +373,7 @@ const updateRange = () => {
     if (ranges.includes(215)) ranges.splice(ranges.indexOf(215), 1);
   }
 
-  if (range15?.checked) {
+  if (range15?.getAttribute('checked') == "true") {
     if (!ranges.includes(216)) ranges.push(216);
     if (!ranges.includes(230)) ranges.push(230);
   } else {
@@ -367,49 +388,49 @@ const updateRange = () => {
 }
 
 const updateRarities = () => {
-  if (rarity1?.checked) {
+  if (rarity1?.getAttribute('checked') == "true") {
     if (!rarities.includes(1)) rarities.push(1)
   }
   else {
     if (rarities.includes(1)) rarities.splice(rarities.indexOf(1), 1) 
   }
 
-  if (rarity2?.checked) {
+  if (rarity2?.getAttribute('checked') == "true") {
     if (!rarities.includes(2)) rarities.push(2)
   }
   else {
     if (rarities.includes(2)) rarities.splice(rarities.indexOf(2), 1) 
   }
 
-  if (rarity3?.checked) {
+  if (rarity3?.getAttribute('checked') == "true") {
     if (!rarities.includes(3)) rarities.push(3)
   }
   else {
     if (rarities.includes(3)) rarities.splice(rarities.indexOf(3), 1) 
   }
 
-  if (rarity4?.checked) {
+  if (rarity4?.getAttribute('checked') == "true") {
     if (!rarities.includes(4)) rarities.push(4)
   }
   else {
     if (rarities.includes(4)) rarities.splice(rarities.indexOf(4), 1) 
   }
 
-  if (rarity5?.checked) {
+  if (rarity5?.getAttribute('checked') == "true") {
     if (!rarities.includes(5)) rarities.push(5)
   }
   else {
     if (rarities.includes(5)) rarities.splice(rarities.indexOf(5), 1) 
   }
 
-  if (rarity6?.checked) {
+  if (rarity6?.getAttribute('checked') == "true") {
     if (!rarities.includes(6)) rarities.push(6)
   }
   else {
     if (rarities.includes(6)) rarities.splice(rarities.indexOf(6), 1) 
   }
 
-  if (rarity7?.checked) {
+  if (rarity7?.getAttribute('checked') == "true") {
     if (!rarities.includes(7)) rarities.push(7)
   }
   else {

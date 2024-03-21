@@ -4,32 +4,32 @@ import actionsData from '@actions'
 import statesData from '@states'
 import jobsData from '@recipeCategories'
 
-export const elementMap = {
-  1: {
+export const elementMap = [
+  {
     en: 'Fire',
     pt: 'Fogo',
     fr: 'Feu',
     es: 'Fuego'
   },
-  2: {
+  {
     en: 'Water',
     pt: 'Água',
     fr: 'Eau',
     es: 'Agua'
   },
-  3: {
+  {
     en: 'Earth',
     pt: 'Terra',
     fr: 'Terre',
     es: 'Tierra'
   },
-  4: {
+  {
     en: 'Air',
     pt: 'Ar',
     fr: 'Air',
     es: 'Aire'
   }
-}
+]
 
 /**
  * Parse effect to enrich it with a description with all languages.
