@@ -5,7 +5,7 @@ import recipeCategories from '@recipeCategories'
 import { parseEffect, elementMap } from '@/utils/parseEffect'
 import { parseEffectIcon } from '@/utils/parseEffectIcon'
 
-const { item } = Astro.props
+const { item, itemTypeIds } = Astro.props
 
 const itemTypeId = item.definition.item.baseParameters.itemTypeId
 const rarity = item.definition.item.baseParameters.rarity
@@ -37,9 +37,9 @@ item.definition.equipEffects.sort((a, b) => a.effect.definition.actionId - b.eff
 let hasEffects = item.definition.equipEffects.length
 ---
 
-<div class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70">
+<div data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 self-start">
   <header>
-    <h2 class="text-xl font-semibold mb-2">{item["title"].es}</h2>
+    <h2 class="text-xl font-semibold mb-2">{item.title.es}</h2>
     <div class="flex gap-2">
       <figure>
         <img class="bg-zinc-800/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${spriteId}.png`} alt="sprite" />
@@ -68,7 +68,11 @@ let hasEffects = item.definition.equipEffects.length
             return (
               <div class="flex gap-2 flex-row">
                 {
-                  parsedIcon ? (<figure class="flex"><img src={parsedIcon} alt="stat" class="object-cover aspect-square size-[18px]" /></figure>) : ""
+                  parsedIcon ? (
+                    <figure class="flex bg-slate-500 p-1 rounded-md self-start">
+                      <img class="h-[18px]" src={parsedIcon} alt="stat" />
+                    </figure>
+                  ) : ""
                 }
                 <span>{description}</span>
               </div>

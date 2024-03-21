@@ -1,4 +1,35 @@
 ---
-const {id} = Astro.params
+import Layout from '@/layouts/Layout.astro'
+
+import ListOfItems from '@/components/ListOfItems.astro'
+
+const { id } = Astro.params
+
+const ids = [
+  {
+    "name": "armas",
+    "ids": [101, 108, 110, 111, 113, 114, 115, 117, 223, 253, 254]
+  }, 
+  {
+    "name": "armaduras",
+    "ids": [103, 119, 120, 132, 133, 118, 136, 138]
+  }, 
+  {
+    "name": "accesorios", 
+    "ids": [537, 646]
+  }, 
+  {
+    "name": "familiares",
+    "ids": [110]
+  }
+]
+
+const title = id[0].toUpperCase() + id.substring(1)
+
 ---
-<h2>{id}</h2>
+
+<Layout title={title}>
+  <main>
+    <ListOfItems title={title} itemTypeIds={ids.find(item => item.name === id).ids} />
+  </main>
+</Layout>
