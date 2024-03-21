@@ -1,4 +1,13 @@
 ---
+import type { GetStaticPaths } from "astro";
+export const getStaticPaths = (() => {
+  return [
+    {params: {id: 'armas'}},
+    {params: {id: 'armaduras'}},
+    {params: {id: 'accesorios'}},
+    {params: {id: 'familiares'}}
+  ];
+}) satisfies GetStaticPaths;
 import Layout from '@/layouts/Layout.astro'
 
 import ListOfItems from '@/components/ListOfItems.astro'
