@@ -148,34 +148,34 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 </section>
 
 <script>
-const items = document.querySelector("#items")
+const items = document.getElementById("items")
 
-const nameFilter = document.querySelector("#filterName")
-const minLevelFilter = document.querySelector("#filterLevelMin")
-const maxLevelFilter = document.querySelector("#filterLevelMax")
-const range0 = document.querySelector("#levelRange")
-const range1 = document.querySelector("#levelRange1")
-const range2 = document.querySelector("#levelRange2")
-const range3 = document.querySelector("#levelRange3")
-const range4 = document.querySelector("#levelRange4")
-const range5 = document.querySelector("#levelRange5")
-const range6 = document.querySelector("#levelRange6")
-const range7 = document.querySelector("#levelRange7")
-const range8 = document.querySelector("#levelRange8")
-const range9 = document.querySelector("#levelRange9")
-const range10 = document.querySelector("#levelRange10")
-const range11 = document.querySelector("#levelRange11")
-const range12 = document.querySelector("#levelRange12")
-const range13 = document.querySelector("#levelRange13")
-const range14 = document.querySelector("#levelRange14")
-const range15 = document.querySelector("#levelRange15")
-const rarity1 = document.querySelector("#rarity1")
-const rarity2 = document.querySelector("#rarity2")
-const rarity3 = document.querySelector("#rarity3")
-const rarity4 = document.querySelector("#rarity4")
-const rarity5 = document.querySelector("#rarity5")
-const rarity6 = document.querySelector("#rarity6")
-const rarity7 = document.querySelector("#rarity7")
+const nameFilter = document.getElementById("filterName")
+const minLevelFilter = document.getElementById("filterLevelMin")
+const maxLevelFilter = document.getElementById("filterLevelMax")
+const range0 = document.getElementById("levelRange")
+const range1 = document.getElementById("levelRange1")
+const range2 = document.getElementById("levelRange2")
+const range3 = document.getElementById("levelRange3")
+const range4 = document.getElementById("levelRange4")
+const range5 = document.getElementById("levelRange5")
+const range6 = document.getElementById("levelRange6")
+const range7 = document.getElementById("levelRange7")
+const range8 = document.getElementById("levelRange8")
+const range9 = document.getElementById("levelRange9")
+const range10 = document.getElementById("levelRange10")
+const range11 = document.getElementById("levelRange11")
+const range12 = document.getElementById("levelRange12")
+const range13 = document.getElementById("levelRange13")
+const range14 = document.getElementById("levelRange14")
+const range15 = document.getElementById("levelRange15")
+const rarity1 = document.getElementById("rarity1")
+const rarity2 = document.getElementById("rarity2")
+const rarity3 = document.getElementById("rarity3")
+const rarity4 = document.getElementById("rarity4")
+const rarity5 = document.getElementById("rarity5")
+const rarity6 = document.getElementById("rarity6")
+const rarity7 = document.getElementById("rarity7")
 
 let min = 0
 let max = 230
@@ -198,11 +198,12 @@ const updateFilter = () => {
       }
 
       if (ranges.length > 0) {
+        console.log(ranges)
         if (minLevelFilter) {
-          minLevelFilter.setAttribute("disabled", "true")
+          minLevelFilter.setAttribute("disabled", "")
         }
         if (maxLevelFilter) {
-          maxLevelFilter.setAttribute("disabled", "true")
+          maxLevelFilter.setAttribute("disabled", "")
         }
 
         if ((min >= 0 && min < max) && (max <= 230)) { // Level range is correct
@@ -217,10 +218,10 @@ const updateFilter = () => {
         }
       } else {
         if (minLevelFilter) {
-          minLevelFilter.setAttribute("disabled", "false")
+          minLevelFilter.removeAttribute("disabled")
         }
         if (maxLevelFilter) {
-          maxLevelFilter.setAttribute("disabled", "false")
+          maxLevelFilter.removeAttribute("disabled")
         }
         if ((minLevel >= 0 && minLevel < maxLevel) && (maxLevel <= 230)) { // Level range is correct
           const level = item.getAttribute('data-level')
@@ -235,7 +236,7 @@ const updateFilter = () => {
       }
 
       if (rarities.length > 0) {
-        const rarity = item.getAttribute('data-rariry')
+        const rarity = item.getAttribute('data-rarity')
         if (rarity) {
           if (!rarities.includes(parseInt(rarity))) {
             item.classList.add("hidden")
@@ -246,8 +247,12 @@ const updateFilter = () => {
   }
 }
 
-const updateRange = () => {
+const updateRange = (e) => {
+  if (e.target.getAttribute('checked') == "true") e.target.setAttribute('checked', "false")
+  else e.target.setAttribute('checked', "true")
+  
   if (range0?.getAttribute('checked') == "true") {
+    console.log(range0)
     if (!ranges.includes(0)) ranges.push(0)
     if (!ranges.includes(5)) ranges.push(5)
   }
@@ -387,7 +392,10 @@ const updateRange = () => {
   updateFilter()
 }
 
-const updateRarities = () => {
+const updateRarities = (e) => {
+  if (e.target.getAttribute('checked') == "true") e.target.setAttribute('checked', "false")
+  else e.target.setAttribute('checked', "true")
+
   if (rarity1?.getAttribute('checked') == "true") {
     if (!rarities.includes(1)) rarities.push(1)
   }
