@@ -108,7 +108,7 @@ export function parseEffect (effect, level) {
       }
     ]
   }, [])
-  let stack = 0
+  eval('var stack = 0')
   const replacements = [
     {
       regex: /\[~(\d+)\]/g,
