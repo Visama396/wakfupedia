@@ -150,7 +150,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 <script>
 const items = document.getElementById("items")
 
-const nameFilter = document.getElementById("filterName")
+const nameFilter = document.querySelector<HTMLInputElement>("#filterName")
 const minLevelFilter = document.getElementById("filterLevelMin")
 const maxLevelFilter = document.getElementById("filterLevelMax")
 const range0 = document.getElementById("levelRange")
