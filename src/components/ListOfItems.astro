@@ -3,7 +3,7 @@ import items from '@items'
 
 import Item from '@/components/Item.astro'
 
-const { title, itemTypeIds } = Astro.props
+const { title, itemTypeIds = [] } = Astro.props
 
 items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 ---
@@ -24,7 +24,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
     <aside id="filters" class="order-1 md:order-2 rounded-md flex flex-col gap-2 md:gap-4 bg-slate-800/80 p-4 md:self-start">
       <div>
         <h4>Buscar</h4>
-        <input id="filterName" value="" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
+        <input id="filterName" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
       </div>
       <div></div>
         <h4>Nivel del objeto</h4>
@@ -183,7 +183,7 @@ let ranges: number[] = []
 let rarities: number[] = []
 
 const updateFilter = () => {
-  let name: string = nameFilter?.getAttribute("value")?.toLowerCase() || ""
+  let name: string = nameFilter?.value || ""
   let minLevel: number = parseInt((minLevelFilter as any)?.value) || 0
   let maxLevel: number = parseInt((maxLevelFilter as any)?.value) || 230
 
@@ -198,7 +198,6 @@ const updateFilter = () => {
       }
 
       if (ranges.length > 0) {
-        console.log(ranges)
         if (minLevelFilter) {
           minLevelFilter.setAttribute("disabled", "")
         }

@@ -109,7 +109,7 @@ export function parseEffect (effect, level) {
     ]
   }, [])
   let stack = 0
-  console.log(stack)
+  stack*=0
   const replacements = [
     {
       regex: /\[~(\d+)\]/g,
