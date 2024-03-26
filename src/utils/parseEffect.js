@@ -109,7 +109,7 @@ export function parseEffect (effect, level) {
     ]
   }, [])
   let stack = 0
-  console.log((new Date().getTime() + stack > 0)? '' : 'cómo?')
+  console.log(stack)
   const replacements = [
     {
       regex: /\[~(\d+)\]/g,
