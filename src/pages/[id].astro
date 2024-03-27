@@ -1,14 +1,22 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-
 import ListOfItems from '@/components/ListOfItems.astro'
+
+export function getStaticPaths() {
+  return [
+    {params: {id: 'armas'}},
+    {params: {id: 'armaduras'}},
+    {params: {id: 'accesorios'}},
+    {params: {id: 'familiares'}}
+  ]
+}
 
 const { id } = Astro.params
 
 const ids = [
   {
     "name": "armas",
-    "ids": [101, 108, 110, 111, 113, 114, 115, 117, 223, 253, 254]
+    "ids": [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254]
   }, 
   {
     "name": "armaduras",

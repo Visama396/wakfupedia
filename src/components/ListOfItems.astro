@@ -1,5 +1,6 @@
 ---
 import items from '@items'
+import itemTypes from '@itemTypes'
 
 import Item from '@/components/Item.astro'
 
@@ -106,6 +107,16 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
       </div>
       <div>
         <h4>Tipo de {title}</h4>
+        <div class="flex flex-col gap-2">
+          {
+            itemTypeIds.map(id => {
+              let type = itemTypes.find(type => type.definition.id == id)
+              return (
+                <p>{type?.title?.es}</p>
+              )
+            })
+          }
+        </div>
       </div>
       <div>
         <h4>Rareza</h4>
