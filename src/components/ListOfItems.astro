@@ -24,11 +24,11 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
     </div>
     <aside id="filters" class="order-1 md:order-2 rounded-md flex flex-col gap-2 md:gap-4 bg-slate-800/80 p-4 md:self-start">
       <div>
-        <h4>Buscar</h4>
+        <h4 class="font-semibold text-lg text-slate-600">Buscar</h4>
         <input id="filterName" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
       </div>
       <div></div>
-        <h4>Nivel del objeto</h4>
+        <h4 class="font-semibold text-lg text-slate-600">Nivel del objeto</h4>
         <div class="flex gap-2 items-center">
           <span>De</span>
           <input id="filterLevelMin" value="0" min="0" max="230" type="number" class="text-black outline-none rounded-sm p-1" />
@@ -37,122 +37,151 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
         </div>
       </div>
       <div>
-        <h4>Franja de nivel</h4>
-        <div class="flex flex-col gap-2">
-          <div>
-            <input id="levelRange" type="checkbox" />
-            <label for="levelRange">0 - 5</label>
+        <h4 class="font-semibold text-lg text-slate-600">Franja de nivel</h4>
+        <div class="flex flex-row justify-between">
+          <div class="flex flex-col gap-2">
+            <div>
+              <input id="levelRange" type="checkbox" />
+              <label for="levelRange">0 - 5</label>
+            </div>
+            <div>
+              <input id="levelRange1" type="checkbox" />
+              <label for="levelRange1">6 - 20</label>
+            </div>
+            <div>
+              <input id="levelRange2" type="checkbox" />
+              <label for="levelRange2">21 - 35</label>
+            </div>
+            <div>
+              <input id="levelRange3" type="checkbox" />
+              <label for="levelRange3">36 - 50</label>
+            </div>
+            <div>
+              <input id="levelRange4" type="checkbox" />
+              <label for="levelRange4">51 - 65</label>
+            </div>
+            <div>
+              <input id="levelRange5" type="checkbox" />
+              <label for="levelRange5">66 - 80</label>
+            </div>
+            <div>
+              <input id="levelRange6" type="checkbox" />
+              <label for="levelRange6">81 - 95</label>
+            </div>
+            <div>
+              <input id="levelRange7" type="checkbox" />
+              <label for="levelRange7">96 - 110</label>
+            </div>
           </div>
-          <div>
-            <input id="levelRange1" type="checkbox" />
-            <label for="levelRange1">6 - 20</label>
-          </div>
-          <div>
-            <input id="levelRange2" type="checkbox" />
-            <label for="levelRange2">21 - 35</label>
-          </div>
-          <div>
-            <input id="levelRange3" type="checkbox" />
-            <label for="levelRange3">36 - 50</label>
-          </div>
-          <div>
-            <input id="levelRange4" type="checkbox" />
-            <label for="levelRange4">51 - 65</label>
-          </div>
-          <div>
-            <input id="levelRange5" type="checkbox" />
-            <label for="levelRange5">66 - 80</label>
-          </div>
-          <div>
-            <input id="levelRange6" type="checkbox" />
-            <label for="levelRange6">81 - 95</label>
-          </div>
-          <div>
-            <input id="levelRange7" type="checkbox" />
-            <label for="levelRange7">96 - 110</label>
-          </div>
-          <div>
-            <input id="levelRange8" type="checkbox" />
-            <label for="levelRange8">111 - 125</label>
-          </div>
-          <div>
-            <input id="levelRange9" type="checkbox" />
-            <label for="levelRange9">126 - 140</label>
-          </div>
-          <div>
-            <input id="levelRange10" type="checkbox" />
-            <label for="levelRange10">141 - 155</label>
-          </div>
-          <div>
-            <input id="levelRange11" type="checkbox" />
-            <label for="levelRange11">156 - 170</label>
-          </div>
-          <div>
-            <input id="levelRange12" type="checkbox" />
-            <label for="levelRange12">171 - 185</label>
-          </div>
-          <div>
-            <input id="levelRange13" type="checkbox" />
-            <label for="levelRange13">186 - 200</label>
-          </div>
-          <div>
-            <input id="levelRange14" type="checkbox" />
-            <label for="levelRange14">201 - 215</label>
-          </div>
-          <div>
-            <input id="levelRange15" type="checkbox" />
-            <label for="levelRange15">216 - 230</label>
+          <div class="flex flex-col gap-2">
+            <div>
+              <input id="levelRange8" type="checkbox" />
+              <label for="levelRange8">111 - 125</label>
+            </div>
+            <div>
+              <input id="levelRange9" type="checkbox" />
+              <label for="levelRange9">126 - 140</label>
+            </div>
+            <div>
+              <input id="levelRange10" type="checkbox" />
+              <label for="levelRange10">141 - 155</label>
+            </div>
+            <div>
+              <input id="levelRange11" type="checkbox" />
+              <label for="levelRange11">156 - 170</label>
+            </div>
+            <div>
+              <input id="levelRange12" type="checkbox" />
+              <label for="levelRange12">171 - 185</label>
+            </div>
+            <div>
+              <input id="levelRange13" type="checkbox" />
+              <label for="levelRange13">186 - 200</label>
+            </div>
+            <div>
+              <input id="levelRange14" type="checkbox" />
+              <label for="levelRange14">201 - 215</label>
+            </div>
+            <div>
+              <input id="levelRange15" type="checkbox" />
+              <label for="levelRange15">216 - 230</label>
+            </div>
           </div>
         </div>
       </div>
       <div>
-        <h4>Tipo de {title}</h4>
+        <h4 class="font-semibold text-lg text-slate-600">Tipo de {title}</h4>
         <div class="flex flex-col gap-2">
           {
-            itemTypeIds.map(id => {
+            itemTypeIds.map((id, index) => {
               let type = itemTypes.find(type => type.definition.id == id)
               return (
-                <p>{type?.title?.es}</p>
+                <div>
+                  <input id={"itemType"+index} class="itemTypeCheckbox" type="checkbox" />
+                  <label for="">{type?.title?.es}</label>
+                </div>
               )
             })
           }
         </div>
       </div>
       <div>
-        <h4>Rareza</h4>
+        <h4 class="font-semibold text-lg text-slate-600">Rareza</h4>
         <div class="flex flex-col gap-2">
           <div class="flex gap-2 order-7">
             <input id="rarity1" type="checkbox" />
-            <label for="rarity1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/1.png" /></figure></label>
+            <label for="rarity1" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/1.png" /></figure> Común</label>
           </div>
           <div class="flex gap-2 order-6">
             <input id="rarity2" type="checkbox" />
-            <label for="rarity2"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/2.png" /></figure></label>
+            <label for="rarity2" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/2.png" /></figure> Raro</label>
           </div>
           <div class="flex gap-2 order-5">
             <input id="rarity3" type="checkbox" />
-            <label for="rarity3"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/3.png" /></figure></label>
+            <label for="rarity3" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/3.png" /></figure> Mítico</label>
           </div>
           <div class="flex gap-2 order-4">
             <input id="rarity4" type="checkbox" />
-            <label for="rarity4"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/4.png" /></figure></label>
+            <label for="rarity4" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/4.png" /></figure> Legendario</label>
           </div>
           <div class="flex gap-2 order-1">
             <input id="rarity5" type="checkbox" />
-            <label for="rarity5"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/5.png" /></figure></label>
+            <label for="rarity5" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/5.png" /></figure> Reliquia</label>
           </div>
           <div class="flex gap-2 order-3">
             <input id="rarity6" type="checkbox" />
-            <label for="rarity6"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/6.png" /></figure></label>
+            <label for="rarity6" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/6.png" /></figure> Recuerdo</label>
           </div>
           <div class="flex gap-2 order-2">
             <input id="rarity7" type="checkbox" />
-            <label for="rarity7"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/7.png" /></figure></label>
+            <label for="rarity7" class="flex items-center gap-1"><figure><img src="https://tmktahu.github.io/WakfuAssets/rarities/7.png" /></figure> Épico</label>
           </div>
         </div>
       </div>
       <div>
-        <h4>Bonus</h4>
+        <h4 class="font-semibold text-lg text-slate-600">Bonus</h4>
+        <div class="flex flex-col gap-2">
+          <div>
+            <input id="bonus0" type="checkbox" />
+            <label for="bonus0">Bonus PdV</label>
+          </div>
+          <div>
+            <input id="bonus1" type="checkbox" />
+            <label for="bonus1">Dominio Distancia</label>
+          </div>
+          <div>
+            <input id="bonus2" type="checkbox" />
+            <label for="bonus2">Dominio Melée</label>
+          </div>
+          <div>
+            <input id="bonus3" type="checkbox" />
+            <label for="bonus3">Dominio Berserker</label>
+          </div>
+          <div>
+            <input id="bonus4" type="checkbox" />
+            <label for="bonus4">Dominio Curas</label>
+          </div>
+        </div>
       </div>
     </aside>
   </footer>
@@ -187,6 +216,7 @@ const rarity4 = document.getElementById("rarity4")
 const rarity5 = document.getElementById("rarity5")
 const rarity6 = document.getElementById("rarity6")
 const rarity7 = document.getElementById("rarity7")
+const itemTypeCheckboxes = document.querySelectorAll(".itemTypeCheckbox")
 
 let min = 0
 let max = 230
@@ -458,6 +488,10 @@ const updateRarities = (e) => {
   updateFilter()
 }
 
+const updateItemTypes = (e) => {
+  console.log(e)
+}
+
 nameFilter?.addEventListener("input", updateFilter)
 minLevelFilter?.addEventListener("input", updateFilter)
 maxLevelFilter?.addEventListener("input", updateFilter)
@@ -484,4 +518,8 @@ rarity4?.addEventListener("change", updateRarities)
 rarity5?.addEventListener("change", updateRarities)
 rarity6?.addEventListener("change", updateRarities)
 rarity7?.addEventListener("change", updateRarities)
+
+if (itemTypeCheckboxes.length > 0) {
+  itemTypeCheckboxes.forEach(checkbox => checkbox.addEventListener("change", updateItemTypes))
+}
 </script>
