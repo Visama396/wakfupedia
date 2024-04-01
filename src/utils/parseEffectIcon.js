@@ -62,11 +62,23 @@ const STATISTICS = [
         "name": "melee_mastery"
     },
     {
+        "actionId": 1059,
+        "name": "melee_mastery"
+    },
+    {
         "actionId": 1053,
         "name": "distance_mastery"
     },
     {
+        "actionId": 1060,
+        "name": "distance_mastery"
+    },
+    {
         "actionId": 1055,
+        "name": "berserk_mastery"
+    },
+    {
+        "actionId": 1061,
         "name": "berserk_mastery"
     },
     {
@@ -132,6 +144,10 @@ const STATISTICS = [
     {
         "actionId": 1063,
         "name": "rear_resistance"
+    },
+    {
+        "actionId": 26,
+        "name": "healing_mastery"
     }
 ]
 
