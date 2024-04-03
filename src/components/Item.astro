@@ -44,9 +44,14 @@ function parseElement(description: string, language: number) {
 item.definition.equipEffects.sort((a: { effect: { definition: { actionId: number } } }, b: { effect: { definition: { actionId: number } } }) => a.effect.definition.actionId - b.effect.definition.actionId)
 
 let hasEffects = item.definition.equipEffects.length
+let effects: number[] = []
+
+if (hasEffects) {
+  effects = item.definition.equipEffects.map(effect => effect.effect.definition.actionId)
+}
 ---
 
-<div data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 min-h-[500px]">
+<div data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 min-h-[500px]">
   <header>
     <h2 class="text-2xl font-semibold mb-2">{item.title.es}</h2>
     <div class="flex gap-2">

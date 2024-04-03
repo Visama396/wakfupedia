@@ -117,7 +117,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
               let type = itemTypes.find(type => type.definition.id == id)
               return (
                 <div>
-                  <input id={"itemType"+index} class="itemTypeCheckbox" type="checkbox" />
+                  <input id={"itemType"+index} class="itemTypeCheckbox" value={id} type="checkbox" />
                   <label for="">{type?.title?.es}</label>
                 </div>
               )
@@ -162,39 +162,39 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
         <h4 class="font-semibold text-lg text-slate-600">Bonus</h4>
         <div class="flex flex-col gap-2">
           <div>
-            <input id="bonus1" type="checkbox" value="1053" />
+            <input id="bonus1" type="checkbox" class="bonusCheckbox" value="1053" />
             <label for="bonus1">Dominio Distancia</label>
           </div>
           <div>
-            <input id="bonus2" type="checkbox" value="1052" />
+            <input id="bonus2" type="checkbox" class="bonusCheckbox" value="1052" />
             <label for="bonus2">Dominio Melé</label>
           </div>
           <div>
-            <input id="bonus3" type="checkbox" value="1055" />
+            <input id="bonus3" type="checkbox" class="bonusCheckbox" value="1055" />
             <label for="bonus3">Dominio Berserker</label>
           </div>
           <div>
-            <input id="bonus4" type="checkbox" value="26" />
+            <input id="bonus4" type="checkbox" class="bonusCheckbox" value="26" />
             <label for="bonus4">Dominio Cura</label>
           </div>
           <div>
-            <input id="bonus5" type="checkbox" value="149" />
+            <input id="bonus5" type="checkbox" class="bonusCheckbox" value="149" />
             <label for="bonus5">Dominio Crítico</label>
           </div>
           <div>
-            <input id="bonus6" type="checkbox" value="180" />
+            <input id="bonus6" type="checkbox" class="bonusCheckbox" value="180" />
             <label for="bonus6">Dominio Espalda</label>
           </div>
           <div>
-            <input id="bonus7" type="checkbox" value="31" />
+            <input id="bonus7" type="checkbox" class="bonusCheckbox" value="31" />
             <label for="bonus7">Bonus PA</label>
           </div>
           <div>
-            <input id="bonus8" type="checkbox" value="41" />
+            <input id="bonus8" type="checkbox" class="bonusCheckbox" value="41" />
             <label for="bonus8">Bonus PM</label>
           </div>
           <div>
-            <input id="bonus9" type="checkbox" value="191" />
+            <input id="bonus9" type="checkbox" class="bonusCheckbox" value="191" />
             <label for="bonus9">Bonus PW</label>
           </div>
         </div>
@@ -233,11 +233,14 @@ const rarity5 = document.getElementById("rarity5")
 const rarity6 = document.getElementById("rarity6")
 const rarity7 = document.getElementById("rarity7")
 const itemTypeCheckboxes = document.querySelectorAll(".itemTypeCheckbox")
+const bonusCheckboxes = document.querySelectorAll(".bonusCheckbox")
 
 let min = 0
 let max = 230
 let ranges: number[] = []
 let rarities: number[] = []
+let types: number[] = []
+let bonuses: number[] = []
 
 const updateFilter = () => {
   let name: string = nameFilter?.value || ""
@@ -295,6 +298,25 @@ const updateFilter = () => {
         const rarity = item.getAttribute('data-rarity')
         if (rarity) {
           if (!rarities.includes(parseInt(rarity))) {
+            item.classList.add("hidden")
+          }
+        }
+      }
+
+      if (types.length > 0) {
+        const typeId = item.getAttribute('data-type')
+        if (typeId) {
+          if (!types.includes(parseInt(typeId))) {
+            item.classList.add("hidden")
+          }
+        }
+      }
+
+      if (bonuses.length > 0) {
+        const bonus = item.getAttribute('data-bonus')
+        if (bonus) {
+          const bonusArray = bonus.split(",").map(bon => parseInt(bon))
+          if (!bonuses.some(bon => bonusArray.includes(bon))) {
             item.classList.add("hidden")
           }
         }
@@ -505,7 +527,26 @@ const updateRarities = (e) => {
 }
 
 const updateItemTypes = (e) => {
-  console.log(e)
+  let value = parseInt(e.target.value)
+  if (types.includes(value)) {
+    types.splice(types.indexOf(value), 1)
+  } else {
+    types.push(value)
+  }
+  
+  updateFilter()
+}
+
+const updateBonuses = (e) => {
+  const value = parseInt(e.target.value)
+
+  if (bonuses.includes(value)) {
+    bonuses.splice(bonuses.indexOf(value), 1)
+  } else {
+    bonuses.push(value)
+  }
+
+  updateFilter()
 }
 
 nameFilter?.addEventListener("input", updateFilter)
@@ -537,5 +578,9 @@ rarity7?.addEventListener("change", updateRarities)
 
 if (itemTypeCheckboxes.length > 0) {
   itemTypeCheckboxes.forEach(checkbox => checkbox.addEventListener("change", updateItemTypes))
+}
+
+if (bonusCheckboxes.length > 0) {
+  bonusCheckboxes.forEach(bon => bon.addEventListener("change", updateBonuses))
 }
 </script>
