@@ -14,7 +14,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
     <h2 class="text-3xl text-center font-semibold py-2">{title}</h2>
   </header>
   <footer class="flex flex-col md:flex-row gap-2 xl:max-w-[80vw] xl:mx-auto justify-center">
-    <div id="items" class="order-2 md:order-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 md:px-4 md:flex-row gap-4 self-start">
+    <div id="items" class="order-2 md:order-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:px-4 md:flex-row gap-4 self-start">
       {
         items.map(item => {
           if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId) && item.definition.equipEffects.length > 0)
