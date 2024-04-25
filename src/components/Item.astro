@@ -2,7 +2,7 @@
 import { parseEffect } from '@/utils/parseEffect'
 import { parseEffectIcon } from '@/utils/parseEffectIcon'
 
-const { item } = Astro.props
+const { item, itemTypeName } = Astro.props
 
 const itemTypeId = item.definition.item.baseParameters.itemTypeId
 const rarity = item.definition.item.baseParameters.rarity
@@ -49,9 +49,11 @@ let effects: number[] = []
 if (hasEffects) {
   effects = item.definition.equipEffects.map(effect => effect.effect.definition.actionId)
 }
+
+const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll(`'`,'-')}`
 ---
 
-<div data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 min-h-[500px]">
+<a href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${itemTypeName}/${slug}`} target="_blank" data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 min-h-[500px]">
   <header>
     <h2 class="text-2xl font-semibold mb-2">{item.title.es}</h2>
     <div class="flex gap-2">
@@ -96,4 +98,4 @@ if (hasEffects) {
     </footer>
   ): <footer class="bg-slate-500/30 rounded-md basis-[100%]"></footer>
   }
-</div>
+</a>

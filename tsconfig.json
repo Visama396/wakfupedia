@@ -24,6 +24,9 @@
       "@states": [
         "src/data/states.json"
       ],
+      "@recipes": [
+        "src/data/recipes.json"
+      ],
       "@/*": [
         "src/*"
       ]

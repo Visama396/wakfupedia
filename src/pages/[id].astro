@@ -38,6 +38,6 @@ const title = id? String(id)[0].toUpperCase() + String(id).substring(1) : ''
 
 <Layout title={title}>
   <main>
-    <ListOfItems title={title} itemTypeIds={ids.find(item => item.name === id)?.ids} />
+    <ListOfItems title={title} itemTypeName={id} itemTypeIds={ids.find(item => item.name === id)?.ids} />
   </main>
 </Layout>

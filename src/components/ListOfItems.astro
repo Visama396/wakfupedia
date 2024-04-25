@@ -4,7 +4,7 @@ import itemTypes from '@itemTypes'
 
 import Item from '@/components/Item.astro'
 
-const { title, itemTypeIds = [] } = Astro.props
+const { title, itemTypeIds = [], itemTypeName } = Astro.props
 
 items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 ---
@@ -18,7 +18,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
       {
         items.map(item => {
           if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId) && item.definition.equipEffects.length > 0)
-            return (<Item item={item} />)
+            return (<Item item={item} itemTypeName={itemTypeName} />)
         })
       }
     </div>
