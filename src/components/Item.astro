@@ -53,7 +53,7 @@ if (hasEffects) {
 const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll(`'`,'-')}`
 ---
 
-<a href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${itemTypeName}/${slug}`} target="_blank" data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class={`bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 min-h-[500px] hover:row-span-2`}>
+<a href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${itemTypeName}/${slug}`} target="_blank" data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 hover:bg-slate-900/70 min-h-[500px] hover:row-span-2">
   <header>
     <h2 class="text-2xl font-semibold mb-2">{item.title.es}</h2>
     <div class="flex gap-2">
