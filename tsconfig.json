@@ -18,6 +18,12 @@
       "@recipeCategories": [
         "src/data/recipeCategories.json"
       ],
+      "@recipes": [
+        "src/data/recipes.json"
+      ],
+      "@recipeResults": [
+        "src/data/recipeResults.json"
+      ],
       "@equipmentItemTypes": [
         "src/data/equipmentItemTypes.json"
       ],
