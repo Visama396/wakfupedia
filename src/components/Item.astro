@@ -1,8 +1,13 @@
 ---
 import { parseEffect } from '@/utils/parseEffect'
 import { parseEffectIcon } from '@/utils/parseEffectIcon'
-import recipeResults from '@recipeResults'
 import recipes from '@recipes'
+import resources from '@resources'
+import jobsItems from '@jobsItems'
+import recipeIngredients from '@recipeIngredients'
+import recipeCategories from '@recipeCategories'
+import recipeResults from '@recipeResults'
+
 
 const { item, itemTypeName } = Astro.props
 
@@ -10,6 +15,23 @@ const itemTypeId = item.definition.item.baseParameters.itemTypeId
 const rarity = item.definition.item.baseParameters.rarity
 const spriteId = item.definition.item.graphicParameters.gfxId
 const hasRecipe = recipeResults.find(recipeResult => recipeResult.productedItemId == item.definition.item.id)
+const recipe = recipes.find(r => r.id == hasRecipe?.recipeId)
+const recipeCategory = recipeCategories.find(category => category.definition.id == recipe?.categoryId)
+const ingredients = []
+recipeIngredients.filter(recipeIngredient => 
+  recipe?.id == recipeIngredient.recipeId
+).sort((a, b) => 
+  a.ingredientOrder - b.ingredientOrder
+).forEach(recipeIngredient => {
+  const jobItem = jobsItems.find(jobItem => jobItem.definition.id == recipeIngredient.itemId)
+  ingredients.push({"name": jobItem?.title.es, "quantity": recipeIngredient.quantity, "spriteId": jobItem?.definition.graphicParameters.gfxId})
+        /*if (jobsItems.find(jobItem => jobItem.definition.id == recipeIngredient.itemId)) {
+          console.log("Is Job Item")
+        } else if (resources.find(resource => resource.definition.id == recipeIngredient.itemId)) {
+          console.log("Is Resource")
+        }*/
+  }
+)
 
 function parseElement(description: string, language: number) {
   if (description.includes("[el")) {
@@ -60,7 +82,7 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
     <h2 class="text-2xl font-semibold mb-2">{item.title.es}</h2>
     <div class="flex gap-2">
       <figure>
-        <img class="bg-zinc-800/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${spriteId}.png`} alt="sprite" />
+        <img class="bg-slate-50/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${spriteId}.png`} alt="sprite" />
       </figure>
       <div class="flex flex-col gap-2">
         <p class="text-slate-300">Nivel {item.definition.item.level}</p>
@@ -75,8 +97,15 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
       </div>
     </div>
   </header>
+  <article class="hidden group-hover:flex flex-col">
+    <h2 class="text-lg font-semibold">Descripción</h2>
+    <p class="text-pretty text-slate-400">
+      {item.description?.es}
+    </p>
+  </article>
   { hasEffects > 0? (
     <footer class="flex flex-col gap-1 bg-slate-500/30 p-2 rounded-md basis-[100%] group-hover:basis-0">
+      <h2 class="text-lg font-semibold">Características</h2>
         {
           item.definition.equipEffects.map((effect: { effect: object }) => {
             let parsedEffect: any = parseEffect(effect.effect, item.definition.item.level)
@@ -100,10 +129,30 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
     </footer>
   ): <footer class="bg-slate-500/30 rounded-md basis-[100%]"></footer>
   }
-  <aside class="hidden group-hover:flex">
-    <h2 class="text-lg font-semibold">Receta</h2>
-    <div>
-
-    </div>
+  <aside class="hidden group-hover:flex flex-col">
+    {
+      (!!hasRecipe)? (
+        <h2 class="text-lg font-semibold">Receta de {recipeCategory?.title.es} de nivel {recipe?.level}:</h2>
+        <div class="flex flex-col gap-2">
+          {
+            ingredients.map(ingredient => 
+              (
+                <div class="flex items-center gap-2">
+                  <span class="font-semibold text-lg min-w-[40px] text-right">{ingredient.quantity}</span>
+                  <span>x</span>
+                  <div class="flex gap-2 bg-slate-400/30 p-2 items-center rounded-md basis-full">
+                    <img src={`https://tmktahu.github.io/WakfuAssets/items/${ingredient.spriteId}.png`} alt="ingredient sprite" width="40" height="40" />
+                    {ingredient.name}
+                  </div>
+                </div>
+              )
+            )
+          }
+        </div>
+      ): 
+      (
+        <h2 class="text-lg font-semibold">No tiene receta.</h2>
+      )
+    }
   </aside>
 </a>

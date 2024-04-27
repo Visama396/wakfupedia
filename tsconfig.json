@@ -21,8 +21,17 @@
       "@recipes": [
         "src/data/recipes.json"
       ],
+      "@resources": [
+        "src/data/resources.json"
+      ],
+      "@recipeIngredients": [
+        "src/data/recipeIngredients.json"
+      ],
       "@recipeResults": [
         "src/data/recipeResults.json"
+      ],
+      "@jobsItems": [
+        "src/data/jobsItems.json"
       ],
       "@equipmentItemTypes": [
         "src/data/equipmentItemTypes.json"
