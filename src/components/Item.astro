@@ -76,8 +76,10 @@ if (hasEffects) {
 }
 
 const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll("'", "-")}`
+
+// href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${(itemTypeName == 'familiares')? 'mascotas' : itemTypeName}/${slug}`} target="_blank"
 ---
-<a href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${(itemTypeName == 'familiares')? 'mascotas' : itemTypeName}/${slug}`} target="_blank" data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="group bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 min-h-[500px] hover:bg-slate-900/70 hover:row-span-2">
+<button data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="group bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 cursor-pointer min-h-[500px] hover:bg-slate-900/70 focus:row-span-2 text-left">
   <header>
     <h2 class="text-2xl font-semibold mb-2">{item.title.es}</h2>
     <div class="flex gap-2">
@@ -97,14 +99,14 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
       </div>
     </div>
   </header>
-  <article class="hidden group-hover:flex flex-col">
+  <article class="hidden group-focus:flex flex-col">
     <h2 class="text-lg font-semibold">Descripción</h2>
     <p class="text-pretty text-slate-400">
       {item.description?.es}
     </p>
   </article>
   { hasEffects > 0? (
-    <footer class="flex flex-col gap-1 bg-slate-500/30 p-2 rounded-md basis-[100%] group-hover:basis-0">
+    <footer class="flex flex-col w-full gap-1 bg-slate-500/30 p-2 rounded-md basis-[100%] group-focus:basis-0">
       <h2 class="text-lg font-semibold">Características</h2>
         {
           item.definition.equipEffects.map((effect: { effect: object }) => {
@@ -129,7 +131,7 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
     </footer>
   ): <footer class="bg-slate-500/30 rounded-md basis-[100%]"></footer>
   }
-  <aside class="hidden group-hover:flex flex-col">
+  <aside class="hidden group-focus:flex flex-col">
     {
       (!!hasRecipe)? (
         <h2 class="text-lg font-semibold">Receta de {recipeCategory?.title.es} de nivel {recipe?.level}:</h2>
@@ -155,4 +157,4 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
       )
     }
   </aside>
-</a>
+</button>
