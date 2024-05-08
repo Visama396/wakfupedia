@@ -8,6 +8,8 @@ import recipeIngredients from '@recipeIngredients'
 import recipeCategories from '@recipeCategories'
 import recipeResults from '@recipeResults'
 
+import Compass from '../components/icons/compass.astro'
+
 
 const { item, itemTypeName } = Astro.props
 
@@ -76,8 +78,6 @@ if (hasEffects) {
 }
 
 const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll("'", "-")}`
-
-// href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${(itemTypeName == 'familiares')? 'mascotas' : itemTypeName}/${slug}`} target="_blank"
 ---
 <button data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="group bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 cursor-pointer min-h-[500px] hover:bg-slate-900/70 focus:row-span-2 text-left">
   <header>
@@ -87,8 +87,13 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
         <img class="bg-slate-50/70 p-2 rounded-md" src={`https://tmktahu.github.io/WakfuAssets/items/${spriteId}.png`} alt="sprite" />
       </figure>
       <div class="flex flex-col gap-2">
-        <p class="text-slate-300">Nivel {item.definition.item.level}</p>
-        <div class="flex gap-2 mb-1">
+        <div class="flex items-center gap-4">
+          <p class="text-slate-300">Nivel {item.definition.item.level}</p>
+          <div>
+            <a href={`https://www.wakfu.com/es/mmorpg/enciclopedia/${(itemTypeName == 'familiares')? 'mascotas' : itemTypeName}/${slug}`} target="_blank" title="Go to this item website"><Compass /></a>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 mb-1">
           <figure>
             <img src={`https://tmktahu.github.io/WakfuAssets/itemTypes/${itemTypeId}.png`} alt="item type" />
           </figure>
