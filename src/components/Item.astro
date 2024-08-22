@@ -19,19 +19,21 @@ const spriteId = item.definition.item.graphicParameters.gfxId
 const hasRecipe = recipeResults.find(recipeResult => recipeResult.productedItemId == item.definition.item.id)
 const recipe = recipes.find(r => r.id == hasRecipe?.recipeId)
 const recipeCategory = recipeCategories.find(category => category.definition.id == recipe?.categoryId)
-const ingredients = []
+const ingredients : any[] = []
 recipeIngredients.filter(recipeIngredient => 
   recipe?.id == recipeIngredient.recipeId
 ).sort((a, b) => 
   a.ingredientOrder - b.ingredientOrder
 ).forEach(recipeIngredient => {
-  const jobItem = jobsItems.find(jobItem => jobItem.definition.id == recipeIngredient.itemId)
-  ingredients.push({"name": jobItem?.title.es, "quantity": recipeIngredient.quantity, "spriteId": jobItem?.definition.graphicParameters.gfxId})
-        /*if (jobsItems.find(jobItem => jobItem.definition.id == recipeIngredient.itemId)) {
-          console.log("Is Job Item")
-        } else if (resources.find(resource => resource.definition.id == recipeIngredient.itemId)) {
-          console.log("Is Resource")
-        }*/
+    const jobItem = jobsItems.find(jobItem => jobItem.definition.id == recipeIngredient.itemId)
+    if (jobItem != null && recipeIngredient != null) {
+      ingredients.push(
+        {
+          "name": jobItem.title.es, 
+          "quantity": recipeIngredient.quantity, 
+          "spriteId": jobItem.definition.graphicParameters.gfxId
+        })
+    }
   }
 )
 
