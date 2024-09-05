@@ -2,7 +2,6 @@
 import { parseEffect } from '@/utils/parseEffect'
 import { parseEffectIcon } from '@/utils/parseEffectIcon'
 import recipes from '@recipes'
-import resources from '@resources'
 import jobsItems from '@jobsItems'
 import recipeIngredients from '@recipeIngredients'
 import recipeCategories from '@recipeCategories'
@@ -117,7 +116,7 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
       <h2 class="text-lg font-semibold">Características</h2>
         {
           item.definition.equipEffects.map((effect: { effect: object }) => {
-            let parsedEffect: any = parseEffect(effect.effect, item.definition.item.level)
+            let parsedEffect: any = parseEffect(effect.effect, item.definition.item.level, item.title.es)
             let parsedIcon = parseEffectIcon(parsedEffect.definition.actionId)
             let description = parseElement(parsedEffect.description.es, 3)
   

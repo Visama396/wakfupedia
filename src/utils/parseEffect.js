@@ -38,7 +38,7 @@ export const elementMap = {
  * @param {number} level
  * @returns {object}
  */
-export function parseEffect (effect, level) {
+export function parseEffect (effect, level, name) {
   const actionId = effect.definition.actionId
   const isMakabrakfire = actionId === 1020 // Hardcoded
   if (isMakabrakfire) {
@@ -109,7 +109,7 @@ export function parseEffect (effect, level) {
     ]
   }, [])
   let stack = 0
-  console.log(stack)
+  //console.log(stack)
   const replacements = [
     {
       regex: /\[~(\d+)\]/g,
@@ -165,6 +165,7 @@ export function parseEffect (effect, level) {
     },
     ...parsedParams
   ]
+  
   const newDescription = Object.keys(description).reduce((newDescription, lang) => {
     let langDescription = description[lang]
     replacements.forEach(({ regex, value, rawValue }) => {
@@ -174,9 +175,12 @@ export function parseEffect (effect, level) {
       }
       langDescription = langDescription.replace(regex, value)
     })
+    //console.log(name, " ", langDescription);
+    //let func = new Function('a', 'eval(a)')
     return {
       ...newDescription,
       [lang]: eval(`\`${langDescription}\``)
+      //[lang]: `${func(langDescription)}`
     }
   }, {})
   return {
