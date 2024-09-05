@@ -118,7 +118,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
               return (
                 <div>
                   <input id={"itemType"+index} class="itemTypeCheckbox" value={id} type="checkbox" />
-                  <label for="">{type?.title?.es}</label>
+                  <label for="">{type?.title?.es || ""}</label>
                 </div>
               )
             })
@@ -186,32 +186,36 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
             <label for="bonus6">Dominio Espalda</label>
           </div>
           <div>
-            <input id="bonus7" type="checkbox" class="bonusCheckbox" value="31" />
-            <label for="bonus7">Bonus PA</label>
+            <input id="bonus7" type="checkbox" class="bonusCheckbox" value="120" />
+            <label for="bonus7">Dominio Elemental</label>
           </div>
           <div>
-            <input id="bonus8" type="checkbox" class="bonusCheckbox" value="41" />
-            <label for="bonus8">Bonus PM</label>
+            <input id="bonus8" type="checkbox" class="bonusCheckbox" value="31" />
+            <label for="bonus8">Bonus PA</label>
           </div>
           <div>
-            <input id="bonus9" type="checkbox" class="bonusCheckbox" value="191" />
-            <label for="bonus9">Bonus PW</label>
+            <input id="bonus9" type="checkbox" class="bonusCheckbox" value="41" />
+            <label for="bonus9">Bonus PM</label>
           </div>
           <div>
-            <input id="bonus10" type="checkbox" class="bonusCheckbox" value="160" />
-            <label for="bonus10">Alcance</label>
+            <input id="bonus10" type="checkbox" class="bonusCheckbox" value="191" />
+            <label for="bonus10">Bonus PW</label>
           </div>
           <div>
-            <input id="bonus11" type="checkbox" class="bonusCheckbox" value="39" />
-            <label for="bonus10">% Armadura dada</label>
+            <input id="bonus11" type="checkbox" class="bonusCheckbox" value="160" />
+            <label for="bonus11">Alcance</label>
           </div>
           <div>
-            <input id="bonus12" type="checkbox" class="bonusCheckbox" value="150" />
-            <label for="bonus11">% Golpe crítico</label>
+            <input id="bonus12" type="checkbox" class="bonusCheckbox" value="39" />
+            <label for="bonus12">% Armadura dada</label>
           </div>
           <div>
-            <input id="bonus13" type="checkbox" class="bonusCheckbox" value="875" />
-            <label for="bonus12">% Anticipación</label>
+            <input id="bonus13" type="checkbox" class="bonusCheckbox" value="150" />
+            <label for="bonus13">% Golpe crítico</label>
+          </div>
+          <div>
+            <input id="bonus14" type="checkbox" class="bonusCheckbox" value="875" />
+            <label for="bonus14">% Anticipación</label>
           </div>
         </div>
       </div>
