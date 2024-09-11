@@ -1,50 +1,52 @@
 ---
-import '@fontsource/kolker-brush'
-import '@fontsource-variable/onest'
-import '@fontsource/kolker-brush'
+import "@fontsource/kolker-brush";
+import "@fontsource-variable/onest";
 
-import Hero from '@/components/Hero.astro'
+import Hero from "@/components/Hero.astro";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Encyclopedia of Wakfu" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<Hero />
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Enciclopedia de Wakfu" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="generator"
+      content="Página de ayuda para jugadores de Wakfu en español"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Hero />
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	html {
-		font-family: 'Onest Variable', sans-serif;
-	}
+  html {
+    font-family: "Onest Variable", sans-serif;
+  }
 
-	h1 {
-		font-family: 'Kolker Brush', sans-serif;
-	}
+  h1 {
+    font-family: "Kolker Brush", sans-serif;
+  }
 
-	body {
-		background-color: #334;
-		color: white;
-	}
+  body {
+    background-color: #334;
+    color: white;
+  }
 
-	@media (prefers-color-scheme: light) {
-		body {
-			background-color: #bcd;
-			color: #334;
-		}
-	}
+  @media (prefers-color-scheme: light) {
+    body {
+      background-color: #bcd;
+      color: #334;
+    }
+  }
 </style>

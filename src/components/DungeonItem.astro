@@ -1,0 +1,17 @@
+---
+const { dungeon } = Astro.props;
+
+const slug = dungeon.name.toLowerCase().replaceAll(" ", "-");
+---
+
+<article class="bg-[#330] rounded-md p-3 shadow">
+  <img
+    src={`/dungeon_thumbnails/${slug}.webp`}
+    alt={`Foto de la mazmorra ${dungeon.name}`}
+    class="absolute w-[100%]"
+  />
+  <h3 class="text-xl font-semibold">
+    {dungeon.name}
+  </h3>
+  <p>Nivel {dungeon.level}</p>
+</article>

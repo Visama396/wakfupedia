@@ -39,6 +39,9 @@
       "@states": [
         "src/data/states.json"
       ],
+      "@dungeons": [
+        "src/data/dungeons.json"
+      ],
       "@/*": [
         "src/*"
       ]

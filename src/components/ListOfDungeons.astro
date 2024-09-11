@@ -1,0 +1,9 @@
+---
+import DungeonItem from "@/components/DungeonItem.astro";
+
+import dungeons from "@dungeons";
+---
+
+<section class="grid grid-cols-4 gap-4 px-4">
+  {dungeons.map((dungeon) => <DungeonItem dungeon={dungeon} />)}
+</section>

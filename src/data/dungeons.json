@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "name": "Casa de la Miaubuelita",
+    "level": 9,
+    "rooms": 3,
+    "isThreePlayerDungeon": true,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 1,
+    "name": "Pastos de los Jalatós",
+    "level": 12,
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 2,
+    "name": "Tofullero",
+    "level": 12,
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 3,
+    "name": "Larventura",
+    "level": 12,
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 4,
+    "name": "Mazmorra Abrakna",
+    "level": 21,
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 5,
+    "name": "Panteón Viviente",
+    "level": 21,
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 6,
+    "name": "Mazmorra Pío Lajop",
+    "level": 21,
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 7,
+    "name": "Brecha Dimensional de Tainela",
+    "level": 21,
+    "rooms": 1,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": true
+  }
+]
