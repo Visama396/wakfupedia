@@ -4,14 +4,18 @@ const { dungeon } = Astro.props;
 const slug = dungeon.name.toLowerCase().replaceAll(" ", "-");
 ---
 
-<article class="bg-[#330] rounded-md p-3 shadow">
-  <img
+<article class="group bg-[#330] rounded-md shadow h-[10rem] flex flex-col flex-1">
+  <figure class="filter sepia">
+    <img
     src={`/dungeon_thumbnails/${slug}.webp`}
     alt={`Foto de la mazmorra ${dungeon.name}`}
-    class="absolute w-[100%]"
+    class="group-hover:zoom rounded-md object-cover h-[10rem] w-[100%] transition"
   />
-  <h3 class="text-xl font-semibold">
-    {dungeon.name}
-  </h3>
-  <p>Nivel {dungeon.level}</p>
+  </figure>
+  <div class="absolute h-[10rem] p-4 rounded-md">
+    <h3 class="text-xl font-semibold w-[100%] bg-black/75 px-1">
+      {dungeon.name}
+    </h3>
+    <p class="bg-black/75 px-1">Nivel {dungeon.level}</p>
+  </div>
 </article>
