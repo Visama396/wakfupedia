@@ -1,5 +1,21 @@
 ---
+import Dungeon from "@/layouts/Dungeon.astro";
+import DungeonDetails from "@/components/DungeonDetails.astro";
+import dungeons from "@dungeons";
+
 const { id } = Astro.params;
+
+if (!id) {
+  return {
+    status: 404,
+  };
+}
+
+let dungeonID = parseInt(id.slice(0, id.indexOf("-")));
+
+const dungeon = dungeons.find((d) => d.id === dungeonID);
 ---
 
-<h3>{id}</h3>
+<Dungeon title={id || ""}>
+  <DungeonDetails dungeonObject={dungeon} />
+</Dungeon>

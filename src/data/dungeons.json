@@ -2,15 +2,34 @@
   {
     "id": 0,
     "name": "Casa de la Miaubuelita",
-    "level": 9,
+    "level": "9 - 11",
     "rooms": 3,
     "isThreePlayerDungeon": true,
-    "isDimensionalRift": false
+    "isDimensionalRift": false,
+    "guide": {
+      "rooms": [
+        {
+          "description": "",
+          "enemies": [0, 1],
+          "image": "/dungeon_rooms/dungeon_0_0.webp"
+        },
+        {
+          "description": "",
+          "enemies": [0, 1],
+          "image": "/dungeon_rooms/dungeon_0_1.webp"
+        },
+        {
+          "description": "",
+          "enemies": [0, 1],
+          "image": "/dungeon_rooms/dungeon_0_2.webp"
+        }
+      ]
+    }
   },
   {
     "id": 1,
     "name": "Pastos de los Jalatós",
-    "level": 12,
+    "level": "12 - 20",
     "rooms": 3,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": false
@@ -18,7 +37,7 @@
   {
     "id": 2,
     "name": "Tofullero",
-    "level": 12,
+    "level": "12 - 20",
     "rooms": 3,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": false
@@ -26,7 +45,7 @@
   {
     "id": 3,
     "name": "Larventura",
-    "level": 12,
+    "level": "12 - 20",
     "rooms": 3,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": false
@@ -34,7 +53,7 @@
   {
     "id": 4,
     "name": "Mazmorra Abrakna",
-    "level": 21,
+    "level": "21 - 35",
     "rooms": 3,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": false
@@ -42,7 +61,7 @@
   {
     "id": 5,
     "name": "Panteón Viviente",
-    "level": 21,
+    "level": "21 - 35",
     "rooms": 3,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": false
@@ -50,7 +69,7 @@
   {
     "id": 6,
     "name": "Mazmorra Pío Lajop",
-    "level": 21,
+    "level": "21 - 35",
     "rooms": 3,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": false
@@ -58,9 +77,105 @@
   {
     "id": 7,
     "name": "Brecha Dimensional de Tainela",
-    "level": 21,
+    "level": "21 - 65",
     "rooms": 1,
     "isThreePlayerDungeon": false,
     "isDimensionalRift": true
+  },
+  {
+    "id": 8,
+    "name": "Pasto Real",
+    "level": "36 - 50",
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 9,
+    "name": "Montaña Conohos",
+    "level": "36 - 50",
+    "rooms": 4,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 10,
+    "name": "Campos Hupremos",
+    "level": "36 - 50",
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 11,
+    "name": "La Torre Mineral",
+    "level": "36 - 50",
+    "rooms": 1,
+    "isThreePlayerDungeon": true,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 12,
+    "name": "Mazmorra Tripulación del Pulpo",
+    "level": "36 - 50",
+    "rooms": 1,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": true
+  },
+  {
+    "id": 13,
+    "name": "Mazmorra Fallecinerados",
+    "level": "36 - 50",
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 14,
+    "name": "Antro Olvidado",
+    "level": "51 - 65",
+    "rooms": 2,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 15,
+    "name": "Trinchera de Huelguerreros",
+    "level": "51 - 65",
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 16,
+    "name": "Dique Eskuálido",
+    "level": "51 - 65",
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 17,
+    "name": "Mazmorra Kaskarlusca",
+    "level": "51 - 65",
+    "rooms": 3,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 18,
+    "name": "Torre de las Miss Adefesio",
+    "level": "51 - 65",
+    "rooms": 1,
+    "isThreePlayerDungeon": true,
+    "isDimensionalRift": false
+  },
+  {
+    "id": 19,
+    "name": "Kokolost Island",
+    "level": "51 - 65",
+    "rooms": 4,
+    "isThreePlayerDungeon": false,
+    "isDimensionalRift": false
   }
 ]
