@@ -5,5 +5,19 @@ console.log(dungeonObject);
 ---
 
 <section>
-  <h1>{dungeonObject.name}</h1>
+  <header>
+    <h1>{dungeonObject.name}</h1>
+  </header>
+
+  <section>
+    <h3>Guía</h3>
+    {
+      dungeonObject.guide.rooms.map((room) => (
+        <div>
+          <img src={room.image} alt={room.description} />
+          <p>{room.description}</p>
+        </div>
+      ))
+    }
+  </section>
 </section>
