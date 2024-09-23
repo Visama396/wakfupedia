@@ -1,0 +1,31 @@
+---
+// https://www.wakfu.com/en/forum/332-development/239038-string-logical-template-how-do-i-interpret-these-operators-translations?poid=1087235
+// https://dev.to/heymarkkop/decoding-wakfu-s-action-effects-with-javascript-1nm2
+import Layout from "@/layouts/Layout.astro";
+
+import items from "@items";
+import actions from "@actions";
+console.log(items[0].definition.equipEffects[0].effect.definition.actionId);
+
+const defintion =
+  actions.find(
+    (action) =>
+      action.definition.id ===
+      items[0].definition.equipEffects[0].effect.definition.actionId
+  ).description.es || "";
+
+console.log(
+  defintion.includes("[#1]") ? "Pide un argumento" : "No pide argumento"
+);
+---
+
+<Layout title="Test">
+  <h2 class="text-3xl font-bold">Test</h2>
+  <!-- <section class="grid grid-cols-4 gap-4">
+    {
+      items.map((item) => {
+        return <div class="shadow rounded-md bg-[#224]">{item.title.es}</div>;
+      })
+    }
+  </section>-->
+</Layout>
