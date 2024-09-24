@@ -5,18 +5,26 @@ import Layout from "@/layouts/Layout.astro";
 
 import items from "@items";
 import actions from "@actions";
-console.log(items[0].definition.equipEffects[0].effect.definition.actionId);
 
-const defintion =
-  actions.find(
-    (action) =>
-      action.definition.id ===
-      items[0].definition.equipEffects[0].effect.definition.actionId
-  ).description.es || "";
+let item1 = items[516]
+console.log(item1.title.es)
 
-console.log(
-  defintion.includes("[#1]") ? "Pide un argumento" : "No pide argumento"
-);
+for (const effect of item1.definition.equipEffects) {
+  const effectParams = effect.effect.definition.params
+  const numgerOfParams = effectParams.length / 2
+  const effectActionId = effect.effect.definition.actionId
+  const action = actions.find(action => action.definition.id === effectActionId)
+  const actionDesc = action.description.es
+  let actionDescription = action.description.es
+  if (actionDescription.includes("[#1]"))
+    actionDescription = actionDescription.replaceAll("[#1]", `${effectParams[0] + effectParams[1] * item1.definition.item.level}`)
+  else if(actionDescription.includes("[#2]"))
+    actionDescription = actionDescription.replaceAll("[#2]", `${effectParams[2] + effectParams[3] * item1.definition.item.level}`)
+  else if(actionDescription.includes("[#3]"))
+    actionDescription = actionDescription.replaceAll("", "")
+  actionDescription = actionDescription.replace("[~3]", `${numgerOfParams >= 3}`)
+  console.log(actionDescription)
+}
 ---
 
 <Layout title="Test">
