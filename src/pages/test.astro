@@ -6,22 +6,47 @@ import Layout from "@/layouts/Layout.astro";
 import items from "@items";
 import actions from "@actions";
 
-let descriptions = []
+let descriptions: string[] = []
 let item1 = items[516]
 
 for (const effect of item1.definition.equipEffects) {
+  let stack = 0
+
   const effectParams = effect.effect.definition.params
-  const numberOfParams = effectParams.length / 2
+
+  const hasThreeOrMoreArguments = effectParams.length >= 6 // [~3]
+
+  const firstParam = () => {
+    const value = effectParams[0] + effectParams[1] * item1.definition.item.level
+    stack = value
+    return value
+  }
+
+  const secondParam = () => {
+    const value = effectParams[2] + effectParams[3] * item1.definition.item.level
+    stack = value
+    return value
+  }
+
+  const thirdParam = () => {
+    const value = effectParams[4] + effectParams[5] * item1.definition.item.level
+    stack = value
+    return value
+  }
+
+  const isLastStackValueGreaterThanTwo = () => stack > 2 // [>2]
+  const plural = () => isLastStackValueGreaterThanTwo() ? 's' : '' // [>2]?s:
+
   const effectActionId = effect.effect.definition.actionId
   const action = actions.find(action => action.definition.id === effectActionId)
-  const actionDesc = action.description.es
   let actionDescription = action.description.es
 
-  console.log("Number of Params ", numberOfParams)
+  if (actionDescription == undefined) {continue}
 
-  actionDescription = actionDescription.replaceAll("{", "").replaceAll("}", "")
+  //actionDescription = actionDescription.replaceAll("{", "").replaceAll("}", "")
 
-  if (actionDescription.includes("[#1]") && numberOfParams >= 1)
+
+  /*if (actionDescription.includes("[#1]") && numberOfParams >= 1)
     actionDescription = actionDescription.replaceAll("[#1]", `${effectParams[0] + effectParams[1] * item1.definition.item.level}`)
 
   if(actionDescription.includes("[#2]") && numberOfParams >= 2)
@@ -32,7 +57,7 @@ for (const effect of item1.definition.equipEffects) {
 
   if (actionDescription.includes("[~3]") && numberOfParams < 3) {
     actionDescription = actionDescription.substring(actionDescription.indexOf(":")+1)
-  }
+  }*/
   //actionDescription = actionDescription.replace("[~3]", `${numberOfParams >= 3}`)
 
   actionDescription = actionDescription.replace("[el1]", "Fuego")
