@@ -7,7 +7,8 @@ import items from "@items";
 import actions from "@actions";
 
 let descriptions: string[] = []
-let item1 = items[516]
+let item1 = items[4]
+console.log(item1.definition.item.baseParameters)
 
 for (const effect of item1.definition.equipEffects) {
   let stack = 0
@@ -34,7 +35,7 @@ for (const effect of item1.definition.equipEffects) {
     return value
   }
 
-  const isLastStackValueGreaterThanTwo = () => stack > 2 // [>2]
+  const isLastStackValueGreaterThanTwo = () => stack >= 2 // [>2]
   const plural = () => isLastStackValueGreaterThanTwo() ? 's' : '' // [>2]?s:
 
   const effectActionId = effect.effect.definition.actionId
@@ -43,22 +44,70 @@ for (const effect of item1.definition.equipEffects) {
 
   if (actionDescription == undefined) {continue}
 
-  //actionDescription = actionDescription.replaceAll("{", "").replaceAll("}", "")
+  let computedParamNotFound = true
 
+  function detectFirstCondition(actionDesc) {
 
-  /*if (actionDescription.includes("[#1]") && numberOfParams >= 1)
-    actionDescription = actionDescription.replaceAll("[#1]", `${effectParams[0] + effectParams[1] * item1.definition.item.level}`)
+    const conditions = [
+      {
+        name: "{[~3]?",
+        regex: /\{\[~3]\?/
+      },
+      {
+        name: "{[>2]?s:}",
+        regex: /\{\[>2]\?s:}/
+      },
+      {
+        name: "[#1]",
+        regex: /\[#1]/
+      },
+      {
+        name: "[#2]",
+        regex: /\[#2]/
+      },
+      {
+        name: "[#3]",
+        regex: /\[#3]/
+      }
+    ]
 
-  if(actionDescription.includes("[#2]") && numberOfParams >= 2)
-    actionDescription = actionDescription.replaceAll("[#2]", `${effectParams[2] + effectParams[3] * item1.definition.item.level}`)
+    let firstCondition = null
+    let firstIndex = actionDesc.length
 
-  if(actionDescription.includes("[#3]") && numberOfParams >= 3)
-    actionDescription = actionDescription.replaceAll("[#3]", `${effectParams[4] + effectParams[5] * item1.definition.item.level}`)
+    for (const condition of conditions) {
+      const match = actionDesc.match(condition.regex)
 
-  if (actionDescription.includes("[~3]") && numberOfParams < 3) {
-    actionDescription = actionDescription.substring(actionDescription.indexOf(":")+1)
-  }*/
-  //actionDescription = actionDescription.replace("[~3]", `${numberOfParams >= 3}`)
+      if (match && match.index < firstIndex) {
+        firstIndex = match.index
+        firstCondition = condition.name
+      }
+    }
+
+    return firstCondition
+  }
+
+  while (computedParamNotFound) {
+    computedParamNotFound = false
+
+    let firstCondition = detectFirstCondition(actionDescription)
+
+    if (firstCondition != null) {
+      computedParamNotFound = true
+      if (firstCondition == "{[~3]?") {
+        if (!hasThreeOrMoreArguments) {
+          actionDescription = actionDescription.substring(actionDescription.indexOf(":")+1, actionDescription.length-1)
+        }
+      } else if (firstCondition == "{[>2]?s:}") {
+        actionDescription = actionDescription.replace("{[>2]?s:}", plural())
+      } else if (firstCondition == "[#1]") {
+        actionDescription = actionDescription.replace("[#1]", firstParam())
+      } else if (firstCondition == "[#2]") {
+        actionDescription = actionDescription.replace("[#2]", secondParam())
+      } else if (firstCondition == "[#3]") {
+        actionDescription = actionDescription.replace("[#3]", thirdParam())
+      }
+    }
+  }
 
   actionDescription = actionDescription.replace("[el1]", "Fuego")
   actionDescription = actionDescription.replace("[el2]", "Agua")
