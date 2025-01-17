@@ -84,7 +84,6 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
           item.definition.equipEffects.map((effect) => {
             let parsedEffect = parseEffect(effect, item.definition.item.level)
             let parsedIcon = parseEffectIcon(effect.effect.definition.actionId)
-            //let description = parsedEffect
   
             return (
               <div class="flex gap-2 flex-row">
