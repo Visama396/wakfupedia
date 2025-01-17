@@ -1,190 +1,120 @@
-// The following raw data is obtained from Wakfu's CDN
-// https://www.wakfu.com/en/forum/332-development/236779-json-data
-import actionsData from '@actions'
-import statesData from '@states'
-import jobsData from '@recipeCategories'
+import actions from "@actions";
+import states from "@states";
 
-export const elementMap = {
-  1: {
-    en: 'Fire',
-    pt: 'Fogo',
-    fr: 'Feu',
-    es: 'Fuego'
-  },
-  2: {
-    en: 'Water',
-    pt: 'Água',
-    fr: 'Eau',
-    es: 'Agua'
-  },
-  3: {
-    en: 'Earth',
-    pt: 'Terra',
-    fr: 'Terre',
-    es: 'Tierra'
-  },
-  4: {
-    en: 'Air',
-    pt: 'Ar',
-    fr: 'Air',
-    es: 'Aire'
+export function parseEffect (effect, level) {
+  let actionId = effect.effect.definition.actionId
+  const action = actions.find(action => action.definition.id === actionId)
+
+  if (!action) { return effect }
+
+  const effectParams = effect.effect.definition.params
+  let stack = 0
+  
+  const hasThreeOrMoreArguments = effectParams.length >= 6 // [~3]
+
+  const firstParam = () => {
+    const value = effectParams[0] + effectParams[1] * level
+    stack = value
+    return value
   }
-}
 
-/**
- * Parse effect to enrich it with a description with all languages.
- *
- * @param {object} effect
- * @param {number} level
- * @returns {object}
- */
-export function parseEffect (effect, level, name) {
-  const actionId = effect.definition.actionId
-  const isMakabrakfire = actionId === 1020 // Hardcoded
-  if (isMakabrakfire) {
-    effect.description = {
-      fr: 'Renvoie 10% des dégâts',
-      en: 'Reflects 10% of damage',
-      es: 'Devuelve un 10% de los daños',
-      pt: 'Reenvia 10% dos danos'
-    }
+  const secondParam = () => {
+    const value = effectParams[2] + effectParams[3] * level
+    stack = value
+    return value
   }
-  const originalParams = effect.definition.params
-  const action = actionsData.find(actionDataId => actionDataId.definition.id === actionId)
-  const description = action.description
-  if (!description) {
-    return effect
+
+  const thirdParam = () => {
+    const value = effectParams[4] + effectParams[5] * level
+    stack = value
+    return value
   }
-  const parsedParams = originalParams.reduce((params, param, index) => {
-    const isOddIndex = Boolean(index % 2)
-    if (isOddIndex) {
-      return params
-    }
-    const paramNumber = (index / 2) + 1
-    const paramKey = `\\[#${paramNumber}\\]`
-    let paramValue = Math.floor(param + originalParams[index + 1] * level)
 
-    if (actionId === 304 && index === 0) {
-      const statedId = originalParams[0]
-      const state = statesData.find(state => statedId === state.definition.id)
-      paramValue = state.title ? state.title : '\'Unknown effect\''
-    }
+  const isLastStackValueGreaterThanTwo = () => stack >= 2 // [>2]
 
-    if (actionId === 832 && index === 0) {
-      const elementId = originalParams[0]
-      paramValue = elementMap[elementId]
-    }
+  const plural = () => isLastStackValueGreaterThanTwo() ? 's' : '' // [>2]?s:
 
-    if (actionId === 2001 && index === 2) {
-      const jobId = originalParams[2]
-      const job = jobsData.find(job => jobId === job.definition.id)
-      paramValue = job.title
-    }
+  let actionDescription = action.description.es
 
-    if (actionId === 39 && index === 4) {
-      const characteristicId = originalParams[4]
-      const characteristicMap = {
-        120: {
-          fr: 'Armure reçue',
-          en: 'Armor received',
-          es: 'Armadura recibida',
-          pt: 'de Armadura recebida'
-        },
-        121: {
-          fr: 'Armure donnée',
-          en: 'Armor given',
-          es: 'Armadura dada',
-          pt: 'de Armadura concedida'
-        }
-      }
-      paramValue = characteristicMap[characteristicId]
-    }
-    return [
-      ...params,
+  let computedParamNotFound = true
+
+  if (action.definition.id === 304) {
+
+    const state = states.find(state => state.definition.id === effect.effect.definition.params[0])
+
+    return `${state.title.es} ${effectParams[2]}%`
+  }
+
+  if (action.definition.id === 39) {
+    actionDescription = effect.effect.description.es
+  }
+
+  function detectFirstCondition(actionDesc) {
+    const conditions = [
       {
-        regex: new RegExp(paramKey, 'g'),
-        value: `\${stack = ${paramValue}}`,
-        rawValue: paramValue
+        name: "{[~3]?",
+        regex: /\{\[~3]\?/
+      },
+      {
+        name: "{[>2]?s:}",
+        regex: /\{\[>2]\?s:}/
+      },
+      {
+        name: "[#1]",
+        regex: /\[#1]/
+      },
+      {
+        name: "[#2]",
+        regex: /\[#2]/
+      },
+      {
+        name: "[#3]",
+        regex: /\[#3]/
       }
     ]
-  }, [])
-  let stack = 0
-  console.log(stack)
-  const replacements = [
-    {
-      regex: /\[~(\d+)\]/g,
-      value: 'parsedParams.length >= $1'
-    },
-    {
-      regex: /\[\+(\d+)\]/g,
-      value: 'parsedParams.length > $1'
-    },
-    {
-      regex: /\[-(\d+)\]/g,
-      value: 'parsedParams.length < $1'
-    },
-    {
-      regex: /\[>(\d+)\]/g,
-      value: 'stack >= $1'
-    },
-    {
-      regex: /\[<(\d+)\]/g,
-      value: 'stack <= $1'
-    },
-    {
-      regex: /\[=(\d+)\]/g,
-      value: 'stack == $1'
-    },
-    {
-      regex: /\[(\d+)=(\d+)\]/g,
-      value: 'Object(parsedParams[$2 - 1]).rawValue == $1'
-    },
-    {
-      regex: /\[(\d+)<(\d+)\]/g,
-      value: 'Object(parsedParams[$2 - 1]).rawValue < $1'
-    },
-    {
-      regex: /\[(\d+)>(\d+)\]/g,
-      value: 'Object(parsedParams[$2 - 1]).rawValue > $1'
-    },
-    {
-      regex: /{/g,
-      value: '${('
-    },
-    {
-      regex: /\?/g,
-      value: ') ? `'
-    },
-    {
-      regex: /:(\S)/g,
-      value: '` : `$1'
-    },
-    {
-      regex: /}/g,
-      value: '`}'
-    },
-    ...parsedParams
-  ]
-  
-  const newDescription = Object.keys(description).reduce((newDescription, lang) => {
-    let langDescription = description[lang]
-    replacements.forEach(({ regex, value, rawValue }) => {
-      if (rawValue && rawValue.en) {
-        langDescription = langDescription.replace(regex, rawValue[lang])
-        return
+
+    let firstCondition = ""
+    let firstIndex = actionDesc.length
+
+    for (const condition of conditions) {
+      const match = actionDesc.match(condition.regex)
+
+      if (match && match.index < firstIndex) {
+        firstIndex = match.index
+        firstCondition = condition.name
       }
-      langDescription = langDescription.replace(regex, value)
-    })
-    //console.log(name, " ", langDescription);
-    //let func = new Function('a', 'eval(a)')
-    return {
-      ...newDescription,
-      [lang]: eval(`\`${langDescription}\``)
-      //[lang]: `${func(langDescription)}`
     }
-  }, {})
-  return {
-    ...effect,
-    description: newDescription
+
+    return firstCondition
   }
+
+  while (computedParamNotFound) {
+    computedParamNotFound = false
+
+    let firstCondition = detectFirstCondition(actionDescription)
+
+    if (firstCondition.length > 0) {
+      computedParamNotFound = true
+      if (firstCondition == "{[~3]?") {
+        if (!hasThreeOrMoreArguments) {
+          actionDescription = actionDescription.substring(actionDescription.indexOf(":")+1, actionDescription.length-1)
+        }
+      } else if (firstCondition == "{[>2]?s:}") {
+        actionDescription = actionDescription.replace("{[>2]?s:}", plural())
+      } else if (firstCondition == "[#1]") {
+        actionDescription = actionDescription.replace("[#1]", firstParam())
+      } else if (firstCondition == "[#2]") {
+        actionDescription = actionDescription.replace("[#2]", secondParam())
+      } else if (firstCondition == "[#3]") {
+        actionDescription = actionDescription.replace("[#3]", thirdParam())
+      }
+    }
+  }
+
+  actionDescription = actionDescription.replace("[el1]", "Fuego")
+  actionDescription = actionDescription.replace("[el2]", "Agua")
+  actionDescription = actionDescription.replace("[el3]", "Tierra")
+  actionDescription = actionDescription.replace("[el4]", "Aire")
+
+  return actionDescription
 }

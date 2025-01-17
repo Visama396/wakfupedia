@@ -9,7 +9,6 @@ import recipeResults from '@recipeResults'
 
 import Compass from '../components/icons/compass.astro'
 
-
 const { item, itemTypeName } = Astro.props
 
 const itemTypeId = item.definition.item.baseParameters.itemTypeId
@@ -35,39 +34,6 @@ recipeIngredients.filter(recipeIngredient =>
     }
   }
 )
-
-function parseElement(description: string, language: number) {
-  if (description.includes("[el")) {
-    switch(language) {
-      case 0:
-        description = description.replace("[el1]", "Fire")
-        description = description.replace("[el2]", "Water")
-        description = description.replace("[el3]", "Earth")
-        description = description.replace("[el4]", "Air")
-        break;
-      case 1:
-        description = description.replace("[el1]", "Fuego")
-        description = description.replace("[el2]", "Agua")
-        description = description.replace("[el3]", "Tierra")
-        description = description.replace("[el4]", "Aire")
-        break;
-      case 2:
-        description = description.replace("[el1]", "Fuego")
-        description = description.replace("[el2]", "Agua")
-        description = description.replace("[el3]", "Tierra")
-        description = description.replace("[el4]", "Aire")
-        break;
-      case 3:
-        description = description.replace("[el1]", "Fuego")
-        description = description.replace("[el2]", "Agua")
-        description = description.replace("[el3]", "Tierra")
-        description = description.replace("[el4]", "Aire")
-        break;
-    }
-  }
-
-  return description
-}
 
 item.definition.equipEffects.sort((a: { effect: { definition: { actionId: number } } }, b: { effect: { definition: { actionId: number } } }) => a.effect.definition.actionId - b.effect.definition.actionId)
 
@@ -115,10 +81,10 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
     <footer class="flex flex-col w-full gap-1 bg-slate-500/30 p-2 rounded-md basis-[100%] group-focus:basis-0">
       <h2 class="text-lg font-semibold">Características</h2>
         {
-          item.definition.equipEffects.map((effect: { effect: object }) => {
-            let parsedEffect: any = parseEffect(effect.effect, item.definition.item.level, item.title.es)
-            let parsedIcon = parseEffectIcon(parsedEffect.definition.actionId)
-            let description = parseElement(parsedEffect.description.es, 3)
+          item.definition.equipEffects.map((effect) => {
+            let parsedEffect = parseEffect(effect, item.definition.item.level)
+            let parsedIcon = parseEffectIcon(effect.effect.definition.actionId)
+            //let description = parsedEffect
   
             return (
               <div class="flex gap-2 flex-row">
@@ -129,7 +95,7 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
                     </figure>
                   ) : ""
                 }
-                <span>{description}</span>
+                <span>{parsedEffect}</span>
               </div>
             )
           })

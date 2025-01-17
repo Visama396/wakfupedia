@@ -1,5 +1,3 @@
-
-
 const STATISTICS = [
     {
         "actionId": 20,
