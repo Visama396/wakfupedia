@@ -210,6 +210,15 @@
     }
   },
   {
+    "definition": { "id": 1020, "effect": "Makabrak Fire"},
+    "description": {
+      "fr": "Renvoie 10% des dégâts",
+      "en": "Reflects 10% of damage",
+      "es": "Devuelve el 10% de los daños",
+      "pt": "Reenvia 10% dos danos"
+    }
+  },
+  {
     "definition": { "id": 120, "effect": "Gain : Maîtrise Élémentaire" },
     "description": {
       "fr": "[#1] Maîtrise Élémentaire",
@@ -472,13 +481,6 @@
   },
   {
     "definition": {
-      "id": 330,
-      "effect": "REG : execute le groupe d\u0027effets"
-    }
-  },
-  { "definition": { "id": 400, "effect": "NullEffect : Effet Vide" } },
-  {
-    "definition": {
       "id": 832,
       "effect": "Spell : Gain de niveaux de sorts dans une branche"
     },
@@ -487,18 +489,6 @@
       "en": "[#2] Lvl. to [#1] spells",
       "es": "[#2] niv. a hechizos [#1]",
       "pt": "[#2] nv. aos feitiços [#1]"
-    }
-  },
-  {
-    "definition": {
-      "id": 843,
-      "effect": "Area : Retire une zone en sélectionnant la zone comme cible"
-    }
-  },
-  {
-    "definition": {
-      "id": 865,
-      "effect": "REG : valeur du second effet fonction de celle du premier (2 effets enfants max)"
     }
   },
   {
@@ -538,12 +528,6 @@
       "en": "[#1] Critical Resistance",
       "es": "[#1] resistencia crítica",
       "pt": "[#1] de Resistência a crítico"
-    }
-  },
-  {
-    "definition": {
-      "id": 1020,
-      "effect": "REG : niveau des enfants fonction de la valeur de l\u0027effet déclencheur"
     }
   },
   {

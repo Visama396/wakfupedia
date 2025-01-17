@@ -1,55 +1,43 @@
----
-// https://www.wakfu.com/en/forum/332-development/239038-string-logical-template-how-do-i-interpret-these-operators-translations?poid=1087235
-// https://dev.to/heymarkkop/decoding-wakfu-s-action-effects-with-javascript-1nm2
-import Layout from "@/layouts/Layout.astro";
-
-import items from "@items";
 import actions from "@actions";
 
-let descriptions: string[] = []
-let item1 = items[750]
-console.log(item1.definition.equipEffects[0])
+export function parseEffect (effect, level) {
+  let actionId = effect.effect.definition.actionId
+  const action = actions.find(action => action.definition.id === actionId)
 
-for (const effect of item1.definition.equipEffects) {
-
-  const effectActionId = effect.effect.definition.actionId
-  const action = actions.find(action => action.definition.id === effectActionId)
-
-  if (!action) {continue}
-
-  let stack = 0
+  if (!action) { return effect }
 
   const effectParams = effect.effect.definition.params
-
+  let stack = 0
+  
   const hasThreeOrMoreArguments = effectParams.length >= 6 // [~3]
 
   const firstParam = () => {
-    const value = effectParams[0] + effectParams[1] * item1.definition.item.level
+    const value = effectParams[0] + effectParams[1] * level
     stack = value
     return value
   }
 
   const secondParam = () => {
-    const value = effectParams[2] + effectParams[3] * item1.definition.item.level
+    const value = effectParams[2] + effectParams[3] * level
     stack = value
     return value
   }
 
   const thirdParam = () => {
-    const value = effectParams[4] + effectParams[5] * item1.definition.item.level
+    const value = effectParams[4] + effectParams[5] * level
     stack = value
     return value
   }
 
   const isLastStackValueGreaterThanTwo = () => stack >= 2 // [>2]
+
   const plural = () => isLastStackValueGreaterThanTwo() ? 's' : '' // [>2]?s:
-  
+
   let actionDescription = action.description.es
 
   let computedParamNotFound = true
 
   function detectFirstCondition(actionDesc) {
-
     const conditions = [
       {
         name: "{[~3]?",
@@ -116,17 +104,5 @@ for (const effect of item1.definition.equipEffects) {
   actionDescription = actionDescription.replace("[el3]", "Tierra")
   actionDescription = actionDescription.replace("[el4]", "Aire")
 
-  descriptions.push(actionDescription)
+  return actionDescription
 }
----
-
-<Layout title="Test">
-  <h2 class="text-3xl font-bold">{item1.title.es}</h2>
-  <section>
-    {
-      descriptions.map((description) => {
-        return <p>{description}</p>
-      })
-    }
-  </section>
-</Layout>
