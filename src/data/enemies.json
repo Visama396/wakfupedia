@@ -1,10 +1,14 @@
 [
   {
     "id": 0,
-    "name": "Miaumiau blanco"
+    "name": "Miaumiau"
   },
   {
     "id": 1,
-    "name": "Miaumiau marrón"
+    "name": "Miaumiau blanco"
+  },
+  {
+    "id": 2,
+    "name": "Miaumiau angora"
   }
 ]

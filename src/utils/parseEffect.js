@@ -1,5 +1,6 @@
 import actions from "@actions";
 import states from "@states";
+import recipeCategories from "@recipeCategories";
 
 export function parseEffect (effect, level) {
   let actionId = effect.effect.definition.actionId
@@ -7,7 +8,7 @@ export function parseEffect (effect, level) {
 
   if (!action) { return effect }
 
-  const effectParams = effect.effect.definition.params
+  let effectParams = effect.effect.definition.params
   let stack = 0
   
   const hasThreeOrMoreArguments = effectParams.length >= 6 // [~3]
@@ -49,11 +50,21 @@ export function parseEffect (effect, level) {
     actionDescription = effect.effect.description.es
   }
 
+  if (action.definition.id === 2001) {
+    const recipeCategory = recipeCategories.find(recipeCategory => recipeCategory.definition.id === effectParams[2])
+    if (recipeCategory != undefined)
+    effectParams[2] = recipeCategory.title.es
+  }
+
   function detectFirstCondition(actionDesc) {
     const conditions = [
       {
         name: "{[~3]?",
         regex: /\{\[~3]\?/
+      },
+      {
+        name: "{[~2]?",
+        regex: /\{\[~2]\?/
       },
       {
         name: "{[>2]?s:}",
@@ -99,14 +110,18 @@ export function parseEffect (effect, level) {
         if (!hasThreeOrMoreArguments) {
           actionDescription = actionDescription.substring(actionDescription.indexOf(":")+1, actionDescription.length-1)
         }
+      } else if (firstCondition == "{[~2]?") {
+        actionDescription = actionDescription.replace("{[~2]?", " ")
+        actionDescription = actionDescription.replace(":}", "")
       } else if (firstCondition == "{[>2]?s:}") {
         actionDescription = actionDescription.replace("{[>2]?s:}", plural())
       } else if (firstCondition == "[#1]") {
-        actionDescription = actionDescription.replace("[#1]", firstParam())
+        actionDescription = actionDescription.replace("[#1]", Math.floor(firstParam()))
       } else if (firstCondition == "[#2]") {
-        actionDescription = actionDescription.replace("[#2]", secondParam())
+        if (action.definition.id===2001) actionDescription = actionDescription.replace("[#2]", effectParams[2])
+        else actionDescription = actionDescription.replace("[#2]", Math.floor(secondParam()))
       } else if (firstCondition == "[#3]") {
-        actionDescription = actionDescription.replace("[#3]", thirdParam())
+        actionDescription = actionDescription.replace("[#3]", Math.floor(thirdParam()))
       }
     }
   }

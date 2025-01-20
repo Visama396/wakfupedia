@@ -12,6 +12,7 @@ import Compass from '../components/icons/compass.astro'
 const { item, itemTypeName } = Astro.props
 
 const itemTypeId = item.definition.item.baseParameters.itemTypeId
+if (itemTypeId === 582) item.definition.item.level = 50 // Makes pets be max level
 const rarity = item.definition.item.baseParameters.rarity
 const spriteId = item.definition.item.graphicParameters.gfxId
 const hasRecipe = recipeResults.find(recipeResult => recipeResult.productedItemId == item.definition.item.id)
