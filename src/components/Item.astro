@@ -45,8 +45,9 @@ let effects: number[] = []
 if (hasEffects) {
   effects = item.definition.equipEffects.map(effect => effect.effect.definition.actionId)
 }
+const itemId = item.definition.item.id
+const slug = `${itemId}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll("'", "-")}`
 
-const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll("'", "-")}`
 
 const hasState = (effect) => {
   if (effect.effect.definition.actionId == 304) {
@@ -105,7 +106,7 @@ const hasState = (effect) => {
                   ) : ""
                 }
                 {
-                  (hasState(effect)!=null) ? <span>{parsedEffect}</span> : <span>{parsedEffect}</span>
+                  (hasState(effect)!=null) ? <span data-tooltip-target={`tooltip-${itemId}`} class="font-semibold">{parsedEffect}</span> : <span>{parsedEffect}</span>
                 }
               </div>
             )
@@ -140,4 +141,9 @@ const hasState = (effect) => {
       )
     }
   </aside>
+  <div id={`tooltip-${itemId}`} role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-slate-800/80 rounded-lg shadow-xs opacity-0 tooltip dark:bg-slate-200/80">
+    <p>
+      state.description.es
+    </p>
+  </div>
 </button>
