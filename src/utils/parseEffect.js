@@ -43,7 +43,7 @@ export function parseEffect (effect, level) {
 
     const state = states.find(state => state.definition.id === effect.effect.definition.params[0])
 
-    return `${state.title.es} ${effectParams[2]}%`
+    return `${state.title.es}`
   }
 
   if (action.definition.id === 39) {

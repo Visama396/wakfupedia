@@ -3,6 +3,7 @@ import { parseEffect } from '@/utils/parseEffect'
 import { parseEffectIcon } from '@/utils/parseEffectIcon'
 import recipes from '@recipes'
 import jobsItems from '@jobsItems'
+import states from '@states'
 import recipeIngredients from '@recipeIngredients'
 import recipeCategories from '@recipeCategories'
 import recipeResults from '@recipeResults'
@@ -46,6 +47,14 @@ if (hasEffects) {
 }
 
 const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll("'", "-")}`
+
+const hasState = (effect) => {
+  if (effect.effect.definition.actionId == 304) {
+    let state = states.find(state => state.definition.id == effect.effect.definition.params[0])
+    return state
+  }
+  return null
+}
 ---
 <button data-name={item.title.es} data-level={item.definition.item.level} data-rarity={rarity} data-type={itemTypeId} data-bonus={effects.join(",")} class="group bg-slate-800/80 rounded-md p-2 flex flex-col gap-4 transition duration-300 cursor-pointer min-h-[500px] hover:bg-slate-900/70 focus:row-span-2 text-left">
   <header>
@@ -95,7 +104,9 @@ const slug = `${item.definition.item.id}-${item.title.es.toLowerCase().replaceAl
                     </figure>
                   ) : ""
                 }
-                <span>{parsedEffect}</span>
+                {
+                  (hasState(effect)!=null) ? <span>{parsedEffect}</span> : <span>{parsedEffect}</span>
+                }
               </div>
             )
           })

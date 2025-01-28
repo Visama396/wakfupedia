@@ -17,9 +17,13 @@
     "@fontsource-variable/onest": "^5.0.3",
     "@fontsource/berkshire-swash": "^5.0.19",
     "@fontsource/kolker-brush": "^5.0.19",
+    "@tailwindcss/vite": "^4.0.0",
     "astro": "^4.4.15",
+    "flowbite": "^3.0.0",
     "netlify": "^13.1.14",
+    "tailwind": "^4.0.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "wakfupedia": "file:"
   }
 }
