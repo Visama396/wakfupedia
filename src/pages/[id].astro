@@ -2,7 +2,15 @@
 import Layout from '@/layouts/Layout.astro'
 import ListOfItems from '@/components/ListOfItems.astro'
 
-
+export async function getStaticPaths() {
+  return [
+    { params: { id: "armas" } },
+    { params: { id: "armaduras" } },
+    { params: { id: "accesorios" } },
+    { params: { id: "familiares" } },
+    { params: { id: "sublimaciones" } }
+  ];
+}
 
 const { id } = Astro.params
 
