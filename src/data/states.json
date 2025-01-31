@@ -1,14 +1,14 @@
 [
   {
     "definition": { "id": 5158 },
+    "description": {
+      "es": ""
+    },
     "title": {
       "fr": "Maniement : Deux mains",
       "en": "Wield type: two-handed",
       "es": "Manejo: Dos manos",
       "pt": "Manejo: Duas mãos"
-    },
-    "description": {
-      "es": ""
     }
   },
   {
@@ -193,6 +193,9 @@
   },
   {
     "definition": { "id": 5448 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un número impar de PA:<br />➢ 250% del nivel en placaje y esquiva"
+    },
     "title": {
       "fr": "Force herculéenne",
       "en": "Herculean Strength",
@@ -341,6 +344,9 @@
   },
   {
     "definition": { "id": 5074 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un 10% del golpe crítico o menos: <br />➢ 20% de daños infligidos<br/>➢ 50 de resistencia crítica"
+    },
     "title": {
       "fr": "Constant",
       "en": "Constant",
@@ -377,6 +383,9 @@
   },
   {
     "definition": { "id": 5452 },
+    "description": {
+      "es": "<strong>ARDIENTE</strong>(+15 niv.) (acumulable) para el portador del estado, con cada hechizo de daños que reciba en melé.<br />100% del nivel en <strong>ARDIENTE</strong> al principio de turno si no hay ningún enemigo en contacto"
+    },
     "title": {
       "fr": "Aura de flammes",
       "en": "Flame Aura",
@@ -562,6 +571,9 @@
   },
   {
     "definition": { "id": 5444 },
+    "description": {
+      "es": "50 de resistencia elemental, -200 de resistencia por la espalda para el portador en el lanzamiento del combate"
+    },
     "title": {
       "fr": "Science du placement",
       "en": "Positioning Knowledge",
@@ -933,6 +945,9 @@
   },
   {
     "definition": { "id": 5443 },
+    "description": {
+      "es": "En el lanzamiento del combate, para el portador del estado:<br />➢ -30 PdV (malus en el modificador de PdV)<br />➢ 30% de curas y armaduras de <img class=\"inline\" src=\"\thttps://tmktahu.github.io/WakfuAssets/misc/ally.png\"> recibidas"
+    },
     "title": {
       "fr": "Santé de fer",
       "en": "Robust Health",
@@ -1000,6 +1015,9 @@
   },
   {
     "definition": { "id": 5078 },
+    "description": {
+      "es": "El primer hechizo que cause daños en el turno le quita un 30% de armadura al objetivo"
+    },
     "title": {
       "fr": "Fracass\u0027carcasse",
       "en": "Smashmouth",
@@ -1018,6 +1036,12 @@
   },
   {
     "definition": { "id": 7076 },
+    "description": {
+      "es": [
+        "-1 PA máx.",
+        "<br />75 resistencia elemental"
+      ]
+    },
     "title": {
       "fr": "Carapace",
       "en": "Carapace",
@@ -1036,6 +1060,9 @@
   },
   {
     "definition": { "id": 5174 },
+    "description": {
+      "es": "Si el portador inflige daños de un elemento, gana +15% de dominio elemental en los otros elementos para el próximo hechizo.<br/> Solo se tiene en cuenta la primera línea de daños ocasionados por el hechizo"
+    },
     "title": {
       "fr": "Alternance II",
       "en": "Alternation II",
@@ -1284,6 +1311,9 @@
   },
   {
     "definition": { "id": 5445 },
+    "description": {
+      "es": "Convierte 50% del dominio elemental en dominio espalda (con una tasa de 1 por 1,30) en el lanzamiento del combate"
+    },
     "title": {
       "fr": "Anatomie",
       "en": "Anatomy",
@@ -1338,6 +1368,9 @@
   },
   {
     "definition": { "id": 5082 },
+    "description": {
+      "es": "100% del nivel en barrera contra los daños recibidos a distancia (permanente)."
+    },
     "title": {
       "fr": "Robuste",
       "en": "Robust",
@@ -1580,6 +1613,9 @@
   },
   {
     "definition": { "id": 5252 },
+    "description": {
+      "es": "En una ronda impar:<br/>El portador gana un 25% de daños infligidos y sufre un 15% de los daños que inflige"
+    },
     "title": {
       "fr": "Sang de la déchirure",
       "en": "Heartbreaking Blood",
@@ -1760,6 +1796,9 @@
   },
   {
     "definition": { "id": 5250 },
+    "description": {
+      "es": "-10% de daños infligidos<br />Cada 10 hechizos lanzados, el portador del estado gana el 100% de los daños infligidos para el próximo hechizo.<br />➢ Los hechizos lanzados deben costar como mínimo 1 PA<br />➢ Una vez alcanzado el nivel 10 del estado, el próximo hechizo se beneficia del bonus de daños"
+    },
     "title": { "fr": "Excès", "en": "Excess", "es": "Exceso", "pt": "Excesso" }
   },
   {
@@ -1782,6 +1821,9 @@
   },
   {
     "definition": { "id": 5077 },
+    "description": {
+      "es": "Convierte el 100% del dominio crítico en dominio elemental en el lanzamiento del combate si el portador del estado posee al menos un 40% de golpe crítico"
+    },
     "title": {
       "fr": "Dénouement",
       "en": "Unraveling",
@@ -1818,6 +1860,9 @@
   },
   {
     "definition": { "id": 5446 },
+    "description": {
+      "es": "Al lanzar el combate, si el portador tiene exactamente 0 de alcance:<br />➢ +20% de daños infligidos en melé y en zona simultáneamente"
+    },
     "title": {
       "fr": "Brutalité",
       "en": "Brutality",
@@ -1836,6 +1881,9 @@
   },
   {
     "definition": { "id": 5453 },
+    "description": {
+      "es": "-30% de daños sufridos a lo largo de su propio turno"
+    },
     "title": {
       "fr": "Garde Levée",
       "en": "Guard Up",
@@ -1854,6 +1902,9 @@
   },
   {
     "definition": { "id": 6331 },
+    "description": {
+      "es": "Al final del turno: <br />➢ 50% de los PM no usados se pasan al turno siguiente <br />➢ Máx. 1 PM"
+    },
     "title": {
       "fr": "Tolérance",
       "en": "Tolerance",
@@ -2104,6 +2155,9 @@
   },
   {
     "definition": { "id": 5080 },
+    "description": {
+      "es": "30% de anticipación si el portador no ha recibido ninguna cura en el turno anterior"
+    },
     "title": {
       "fr": "Confiance",
       "en": "Trust",
@@ -2158,6 +2212,9 @@
   },
   {
     "definition": { "id": 5081 },
+    "description": {
+      "es": "+10% de daños infligidos cuando el portador respeta algunas condiciones (varían cada turno):<br/>➢ Turno 1: el portador está a melé o el hechizo es de objetivo único<br/>➢ Turno 2: el portador está a distancia o el hechizo es de objetivo único<br />➢ Turno 3: el portador está a distancia o el hechizo es de zona<br />➢ Turno 4: el portador está a melé o el hechizo es de zona"
+    },
     "title": {
       "fr": "Brasero",
       "en": "Brazier",
@@ -2176,6 +2233,9 @@
   },
   {
     "definition": { "id": 5076 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene 1 de alcance o menos:<br/>➢ 20% de curas realizadas<br/>➢ 15% de armadura dada y recibida"
+    },
     "title": {
       "fr": "Précis",
       "en": "Precise",
@@ -2185,6 +2245,9 @@
   },
   {
     "definition": { "id": 5073 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene 10 PA o menos:<br />➢ 15% de daños infligidos<br />➢ 10 voluntad (si el personaje tiene nivel 100 o más)"
+    },
     "title": {
       "fr": "Inflexible",
       "en": "Inflexible",
@@ -2402,6 +2465,9 @@
   },
   {
     "definition": { "id": 5075 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un 40% de anticipación o más:<br/>➢ 10% de golpe crítico<br/>➢ 10% de daños infligidos en golpe crítico"
+    },
     "title": { "fr": "Mesure", "en": "Measure", "es": "Medida", "pt": "Medida" }
   },
   {

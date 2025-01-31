@@ -142,11 +142,11 @@ const getState = (effect) => {
       )
     }
   </aside>
-  <div id={`tooltip-${itemId}`} role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-slate-800/80 rounded-lg shadow-xs opacity-0 tooltip dark:bg-slate-200/80">
-    <p>
-      {
-        ( itemState != null )? <p>{itemState.description?.es}</p> : <p>No hay descripción aún</p>
-      }
-    </p>
+  <div id={`tooltip-${itemId}`} role="tooltip" class="absolute z-10 max-w-[300px] invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-slate-800/80 rounded-lg shadow-xs opacity-0 tooltip dark:bg-slate-200/80">
+    {
+      ( itemState != null )?
+          <p set:html={ itemState.description?.es}></p>
+          : <p>No hay descripción aún</p>
+    }
   </div>
 </button>
