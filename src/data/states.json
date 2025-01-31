@@ -791,6 +791,9 @@
   },
   {
     "definition": { "id": 7069 },
+    "description": {
+      "es": "Hola"
+    },
     "title": {
       "fr": "Pacte d\u0027Anathar I",
       "en": "Anathar\u0027s Pact I",
@@ -1905,6 +1908,9 @@
   },
   {
     "definition": { "id": 5079 },
+    "description": {
+      "es": "Si el portador solo ha utilizado un elemento para causar daños durante su turno, gana +20% de domino elemental en sus otros elementos."
+    },
     "title": {
       "fr": "Alternance",
       "en": "Alternation",

@@ -48,10 +48,11 @@ if (hasEffects) {
 const itemId = item.definition.item.id
 const slug = `${itemId}-${item.title.es.toLowerCase().replaceAll(' ', '-').replaceAll("'", "-")}`
 
-
-const hasState = (effect) => {
+let itemState = null
+const getState = (effect) => {
   if (effect.effect.definition.actionId == 304) {
     let state = states.find(state => state.definition.id == effect.effect.definition.params[0])
+    itemState = state
     return state
   }
   return null
@@ -106,7 +107,7 @@ const hasState = (effect) => {
                   ) : ""
                 }
                 {
-                  (hasState(effect)!=null) ? <span data-tooltip-target={`tooltip-${itemId}`} class="font-semibold">{parsedEffect}</span> : <span>{parsedEffect}</span>
+                  (getState(effect)!=null) ? <span data-tooltip-target={`tooltip-${itemId}`} class="font-semibold">{parsedEffect}</span> : <span>{parsedEffect}</span>
                 }
               </div>
             )
@@ -143,7 +144,9 @@ const hasState = (effect) => {
   </aside>
   <div id={`tooltip-${itemId}`} role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-slate-800/80 rounded-lg shadow-xs opacity-0 tooltip dark:bg-slate-200/80">
     <p>
-      state.description.es
+      {
+        ( itemState != null )? <p>{itemState.description?.es}</p> : <p>No hay descripción aún</p>
+      }
     </p>
   </div>
 </button>
