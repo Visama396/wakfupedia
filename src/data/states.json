@@ -194,7 +194,7 @@
   {
     "definition": { "id": 5448 },
     "description": {
-      "es": "En el lanzamiento del combate, si el portador del estado tiene un número impar de PA:<br />➢ 250% del nivel en placaje y esquiva"
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un número impar de PA:<br />➥ 250% del nivel en placaje y esquiva"
     },
     "title": {
       "fr": "Force herculéenne",
@@ -345,7 +345,7 @@
   {
     "definition": { "id": 5074 },
     "description": {
-      "es": "En el lanzamiento del combate, si el portador del estado tiene un 10% del golpe crítico o menos: <br />➢ 20% de daños infligidos<br/>➢ 50 de resistencia crítica"
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un 10% del golpe crítico o menos: <br />➥ 20% de daños infligidos<br/>➥ 50 de resistencia crítica"
     },
     "title": {
       "fr": "Constant",
@@ -824,6 +824,9 @@
   },
   {
     "definition": { "id": 5980 },
+    "description": {
+      "es": "5% de daños indirectos"
+    },
     "title": { "fr": "Ruine", "en": "Ruin", "es": "Ruina", "pt": "Ruína" }
   },
   {
@@ -946,7 +949,7 @@
   {
     "definition": { "id": 5443 },
     "description": {
-      "es": "En el lanzamiento del combate, para el portador del estado:<br />➢ -30 PdV (malus en el modificador de PdV)<br />➢ 30% de curas y armaduras de <img class=\"inline\" src=\"\thttps://tmktahu.github.io/WakfuAssets/misc/ally.png\"> recibidas"
+      "es": "En el lanzamiento del combate, para el portador del estado:<br />➥ -30 PdV (malus en el modificador de PdV)<br />➥ 30% de curas y armaduras de <img class=\"inline\" src=\"\thttps://tmktahu.github.io/WakfuAssets/misc/ally.png\"> recibidas"
     },
     "title": {
       "fr": "Santé de fer",
@@ -1797,7 +1800,7 @@
   {
     "definition": { "id": 5250 },
     "description": {
-      "es": "-10% de daños infligidos<br />Cada 10 hechizos lanzados, el portador del estado gana el 100% de los daños infligidos para el próximo hechizo.<br />➢ Los hechizos lanzados deben costar como mínimo 1 PA<br />➢ Una vez alcanzado el nivel 10 del estado, el próximo hechizo se beneficia del bonus de daños"
+      "es": "-10% de daños infligidos<br />Cada 10 hechizos lanzados, el portador del estado gana el 100% de los daños infligidos para el próximo hechizo.<br />➥ Los hechizos lanzados deben costar como mínimo 1 PA<br />➥ Una vez alcanzado el nivel 10 del estado, el próximo hechizo se beneficia del bonus de daños"
     },
     "title": { "fr": "Excès", "en": "Excess", "es": "Exceso", "pt": "Excesso" }
   },
@@ -1861,7 +1864,7 @@
   {
     "definition": { "id": 5446 },
     "description": {
-      "es": "Al lanzar el combate, si el portador tiene exactamente 0 de alcance:<br />➢ +20% de daños infligidos en melé y en zona simultáneamente"
+      "es": "Al lanzar el combate, si el portador tiene exactamente 0 de alcance:<br />➥ +20% de daños infligidos en melé y en zona simultáneamente"
     },
     "title": {
       "fr": "Brutalité",
@@ -1903,7 +1906,7 @@
   {
     "definition": { "id": 6331 },
     "description": {
-      "es": "Al final del turno: <br />➢ 50% de los PM no usados se pasan al turno siguiente <br />➢ Máx. 1 PM"
+      "es": "Al final del turno: <br />➥ 50% de los PM no usados se pasan al turno siguiente <br />➥ Máx. 1 PM"
     },
     "title": {
       "fr": "Tolérance",
@@ -2213,7 +2216,7 @@
   {
     "definition": { "id": 5081 },
     "description": {
-      "es": "+10% de daños infligidos cuando el portador respeta algunas condiciones (varían cada turno):<br/>➢ Turno 1: el portador está a melé o el hechizo es de objetivo único<br/>➢ Turno 2: el portador está a distancia o el hechizo es de objetivo único<br />➢ Turno 3: el portador está a distancia o el hechizo es de zona<br />➢ Turno 4: el portador está a melé o el hechizo es de zona"
+      "es": "+10% de daños infligidos cuando el portador respeta algunas condiciones (varían cada turno):<br/>➥ Turno 1: el portador está a melé o el hechizo es de objetivo único<br/>➥ Turno 2: el portador está a distancia o el hechizo es de objetivo único<br />➥ Turno 3: el portador está a distancia o el hechizo es de zona<br />➥ Turno 4: el portador está a melé o el hechizo es de zona"
     },
     "title": {
       "fr": "Brasero",
@@ -2234,7 +2237,7 @@
   {
     "definition": { "id": 5076 },
     "description": {
-      "es": "En el lanzamiento del combate, si el portador del estado tiene 1 de alcance o menos:<br/>➢ 20% de curas realizadas<br/>➢ 15% de armadura dada y recibida"
+      "es": "En el lanzamiento del combate, si el portador del estado tiene 1 de alcance o menos:<br/>➥ 20% de curas realizadas<br/>➥ 15% de armadura dada y recibida"
     },
     "title": {
       "fr": "Précis",
@@ -2246,7 +2249,7 @@
   {
     "definition": { "id": 5073 },
     "description": {
-      "es": "En el lanzamiento del combate, si el portador del estado tiene 10 PA o menos:<br />➢ 15% de daños infligidos<br />➢ 10 voluntad (si el personaje tiene nivel 100 o más)"
+      "es": "En el lanzamiento del combate, si el portador del estado tiene 10 PA o menos:<br />➥ 15% de daños infligidos<br />➥ 10 voluntad (si el personaje tiene nivel 100 o más)"
     },
     "title": {
       "fr": "Inflexible",
@@ -2466,7 +2469,7 @@
   {
     "definition": { "id": 5075 },
     "description": {
-      "es": "En el lanzamiento del combate, si el portador del estado tiene un 40% de anticipación o más:<br/>➢ 10% de golpe crítico<br/>➢ 10% de daños infligidos en golpe crítico"
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un 40% de anticipación o más:<br/>➥ 10% de golpe crítico<br/>➥ 10% de daños infligidos en golpe crítico"
     },
     "title": { "fr": "Mesure", "en": "Measure", "es": "Medida", "pt": "Medida" }
   },
