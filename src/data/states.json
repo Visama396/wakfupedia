@@ -134,6 +134,9 @@
   },
   {
     "definition": { "id": 5981 },
+    "description": {
+      "es": "1 PW<br />-[#2*10] Voluntad"
+    },
     "title": {
       "fr": "Dévastation",
       "en": "Devastation",
@@ -825,7 +828,7 @@
   {
     "definition": { "id": 5980 },
     "description": {
-      "es": "5% de daños indirectos"
+      "es": "[#2*5]% de daños indirectos"
     },
     "title": { "fr": "Ruine", "en": "Ruin", "es": "Ruina", "pt": "Ruína" }
   },
@@ -964,6 +967,9 @@
   },
   {
     "definition": { "id": 6932 },
+    "description": {
+      "es": "Al principio del primer turno, si los dominios secundarios son <= 0:<br />➥ 0 PW máx. y 0 alcance<br />➥ -0% de armadura dada y recibida"
+    },
     "title": {
       "fr": "Abandon",
       "en": "Abandon",

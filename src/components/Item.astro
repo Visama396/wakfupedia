@@ -50,10 +50,19 @@ const slug = `${itemId}-${item.title.es.toLowerCase().replaceAll(' ', '-').repla
 
 let itemState = null
 const getState = (effect) => {
+  const effectParams = effect.effect.definition.params
   if (effect.effect.definition.actionId == 304) {
     let state = states.find(state => state.definition.id == effect.effect.definition.params[0])
-    itemState = state
-    return state
+    if (state.description) {
+      itemState = state.description.es
+    }
+    if (itemState != null) {
+      if (itemState.includes("[#2*")) {
+        let ratio = parseInt(itemState.substring(itemState.indexOf("[#2*")+4, itemState.indexOf("]")))
+        itemState = itemState.replace("[#2*"+ratio+"]", ratio*effectParams[2])
+      }
+    }
+    return itemState
   }
   return null
 }
@@ -145,7 +154,7 @@ const getState = (effect) => {
   <div id={`tooltip-${itemId}`} role="tooltip" class="absolute z-10 max-w-[300px] invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-slate-800/80 rounded-lg shadow-xs opacity-0 tooltip dark:bg-slate-200/80">
     {
       ( itemState != null )?
-          <p set:html={ itemState.description?.es}></p>
+          <p set:html={itemState}></p>
           : <p>No hay descripción aún</p>
     }
   </div>

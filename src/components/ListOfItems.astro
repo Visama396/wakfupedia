@@ -6,7 +6,17 @@ import Item from '@/components/Item.astro'
 
 const { title, itemTypeIds = [], itemTypeName } = Astro.props
 
-items.sort((a, b) => b.definition.item.level - a.definition.item.level)
+if (title == "Sublimaciones") {
+  console.log(title)
+  items.sort((a, b) => {
+    if (a.title.es < b.title.es) return -1
+    if (a.title.es > b.title.es) return 1
+    return 0
+  })
+}
+else {
+  items.sort((a, b) => b.definition.item.level - a.definition.item.level)
+}
 ---
 
 <section class="flex flex-col gap-4 px-2">
@@ -27,7 +37,7 @@ items.sort((a, b) => b.definition.item.level - a.definition.item.level)
         <h4 class="font-semibold text-lg text-slate-600">Buscar</h4>
         <input id="filterName" type="text" autocomplete="off" placeholder={`Filtrar[${title}]`} class="text-black outline-none rounded-sm p-1" />
       </div>
-      <div></div>
+      <div>
         <h4 class="font-semibold text-lg text-slate-600">Nivel del objeto</h4>
         <div class="flex gap-2 items-center">
           <span>De</span>
