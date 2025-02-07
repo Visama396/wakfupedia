@@ -31,6 +31,9 @@
   },
   {
     "definition": { "id": 6816 },
+    "description": {
+      "es": "-[#2=1?20:][#2=2?15:][#2=3?10:]% de daos infligidos con una arma<br />Al infligir daos a un enemigo con una arma de a dos manos:<br />➥ <strong>INCURABLE</strong> (nivel: coste en PA del arma) en el enemigo y el portador del estado"
+    },
     "title": {
       "fr": "Arme incurable",
       "en": "Incurable Weapon",
@@ -88,6 +91,9 @@
   },
   {
     "definition": { "id": 7860 },
+    "description": {
+      "es": "Al principio del turno, si los PdV están por encima del 90%:<br />➥ 1 PM"
+    },
     "title": {
       "fr": "Agilité vitale",
       "en": "Vital Agility",
@@ -332,6 +338,9 @@
   },
   {
     "definition": { "id": 8367 },
+    "description": {
+      "es": "-100 de resistencia elemental<br />Cuando el portador inflige daos en melé:<br />➥ Roba el 25% de los daos infligidos"
+    },
     "title": {
       "fr": "Arrogance",
       "en": "Arrogance",
@@ -472,6 +481,9 @@
   },
   {
     "definition": { "id": 6714 },
+    "description": {
+      "es": "En cada movimiento, por PM utilizado:<br />➥ +3% de anticipación (máx. 18)(1 turno)<br />Si el portador del estado efectúa una anticipación fuera de su turno: <br/>➥ El bonus se transforma en golpe crítico en el próximo turno"
+    },
     "title": {
       "fr": "Paisible",
       "en": "Peaceful",
@@ -496,6 +508,9 @@
   },
   {
     "definition": { "id": 6002 },
+    "description": {
+      "es": "-[#2*5]% a los malus de características recibidos.<br />Afecta a todos los malus de características (dominios, resistencias, armadura, golpe crítico...) recibis en combate, lanzados por una entidad que no sea el portador del estado.<br />El valor se redondea siempre a la baja."
+    },
     "title": {
       "fr": "Endurance",
       "en": "Endurance",
@@ -514,6 +529,9 @@
   },
   {
     "definition": { "id": 7719 },
+    "description": {
+      "es": "-20% de curas realizadas<br />Cada turno pasado sin curar:<br />➥ 20% de curas realizadas<br />➥ Acumulable hasta 40%"
+    },
     "title": {
       "fr": "Accumulation",
       "en": "Accumulation",
@@ -847,7 +865,7 @@
   {
     "definition": { "id": 8388 },
     "description": {
-      "es": "[#2*2]% de danos infligidos a los objetivos a 5 casillas o más"
+      "es": "[#2*2]% de daños infligidos a los objetivos a 5 casillas o más"
     },
     "title": {
       "fr": "Acribie",
@@ -903,6 +921,9 @@
   },
   {
     "definition": { "id": 6828 },
+    "description": {
+      "es": "[#2*2]% de curas realizadas a un aliado en línea y a distancia"
+    },
     "title": {
       "fr": "Altruisme",
       "en": "Altruism",
@@ -1003,6 +1024,9 @@
   },
   {
     "definition": { "id": 8131 },
+    "description": {
+      "es": "Si el portador no tiene armadura:<br />➥ [#2*5]% de armadura dada"
+    },
     "title": {
       "fr": "Allocentrisme",
       "en": "Allocentrism",
@@ -1021,6 +1045,9 @@
   },
   {
     "definition": { "id": 7258 },
+    "description": {
+      "es": "-50 resistencia elemental<br />Si el portador del estado sufre daos de un enemigo:<br/>➥ 100 de reistencia en el elemento sufrido (1 turno)"
+    },
     "title": {
       "fr": "Assimilation",
       "en": "Assimilation",
@@ -1138,6 +1165,9 @@
   },
   {
     "definition": { "id": 8380 },
+    "description": {
+      "es": "50 de resistencia elemental si el portador no tiene armadura, si no, -100 de resistencia elemental"
+    },
     "title": {
       "fr": "Aplomb naturel",
       "en": "Natural Poise",
@@ -1156,6 +1186,9 @@
   },
   {
     "definition": { "id": 7077 },
+    "description": {
+      "es": "-1 PM máx.<br/>[#2*5]% de daos infligidos"
+    },
     "title": {
       "fr": "Armure lourde",
       "en": "Heavy Armor",
@@ -1218,6 +1251,9 @@
   },
   {
     "definition": { "id": 6929 },
+    "description": {
+      "es": "Al hacer una anticipación a un ataque directo enemigo:<br />➥ [#2*2]% de daños infligidos (1 turno)<br />➥ -10% de anticipación"
+    },
     "title": {
       "fr": "Parade offensive",
       "en": "Offensive Block",
@@ -1227,6 +1263,9 @@
   },
   {
     "definition": { "id": 8132 },
+    "description": {
+      "es": "Al final del turno, por cada enemigo en cuerpo a cuerpo:<br />➥ [#2*1]% de daños infligidos en el siguiente turno"
+    },
     "title": {
       "fr": "Apprêt",
       "en": "Embellishment",
@@ -1308,6 +1347,9 @@
   },
   {
     "definition": { "id": 6811 },
+    "description": {
+      "es": "Al infligir daos a un enemigo con una arma:<br />➥ Este enemigo reduce sus daos en el portador del estado de -[#2*5]% (1 turno, no acumulable)<br />➥ El portador del estado debe tener equipado un escudo"
+    },
     "title": {
       "fr": "Arme solide",
       "en": "Solid Weapon",
@@ -1649,6 +1691,9 @@
   },
   {
     "definition": { "id": 7711 },
+    "description": {
+      "es": "-[#2*6]% de daos recibidos cuando el portador no está en línea de visión<br/>[#2*3]% de daos recibidos cuando el portador está en línea de visión"
+    },
     "title": {
       "fr": "Art du cachement",
       "en": "Art of Concealment",
@@ -1827,6 +1872,9 @@
   },
   {
     "definition": { "id": 7115 },
+    "description": {
+      "es": "Al principio del primer turno, si los dominios secundarios son <=0:<br />➥ [#2*5]% de golpe crítico"
+    },
     "title": {
       "fr": "Ambition",
       "en": "Ambition",
@@ -1848,6 +1896,9 @@
   },
   {
     "definition": { "id": 6822 },
+    "description": {
+      "es": "Si el portador del estado no posee armadura al final del turno:<br />➥ [#2*50]% del nivel en armadura"
+    },
     "title": {
       "fr": "Arcanes",
       "en": "Arcana",
@@ -1986,6 +2037,9 @@
   },
   {
     "definition": { "id": 5976 },
+    "description": {
+      "es": "Los daños causados por el arma del portador se reducen un 20% y aplican un veneno (<strong>ARMA DE LUZ</strong>) durante tres turnos (segunda mano no incluida) según el número de PA utilizados por el arma"
+    },
     "title": {
       "fr": "Arme de Lumière",
       "en": "Light Weapon",
@@ -2152,6 +2206,9 @@
   },
   {
     "definition": { "id": 6024 },
+    "description": {
+      "es": "Cuando los PdV son inferiores al 50%:<br />➥ [#2*5]% de anticipación"
+    },
     "title": {
       "fr": "Parade Berserk",
       "en": "Berserk Block",
@@ -2399,6 +2456,9 @@
   },
   {
     "definition": { "id": 8382 },
+    "description": {
+      "es": "Si el portador se desplaza con un hechizo:<br />➥ 1 PM<br />➥ 2 máx. por turno"
+    },
     "title": {
       "fr": "Empressement",
       "en": "Gusto",
