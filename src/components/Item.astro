@@ -51,15 +51,34 @@ const slug = `${itemId}-${item.title.es.toLowerCase().replaceAll(' ', '-').repla
 let itemState = null
 const getState = (effect) => {
   const effectParams = effect.effect.definition.params
+  const secondParam = effectParams[2]
   if (effect.effect.definition.actionId == 304) {
     let state = states.find(state => state.definition.id == effect.effect.definition.params[0])
     if (state.description) {
       itemState = state.description.es
     }
     if (itemState != null) {
-      if (itemState.includes("[#2*")) {
-        let ratio = parseInt(itemState.substring(itemState.indexOf("[#2*")+4, itemState.indexOf("]")))
-        itemState = itemState.replace("[#2*"+ratio+"]", ratio*effectParams[2])
+      while (itemState.includes("[")) {
+        // Multiplies value
+        if (itemState.includes("[#2*")) {
+          let ratio = parseInt(itemState.substring(itemState.indexOf("[#2*")+4, itemState.indexOf("]")))
+          itemState = itemState.replace("[#2*"+ratio+"]", ratio*secondParam)
+        }
+        // Compares value
+        else if (itemState.includes("[#2=")) {
+          let computedParam = itemState.substring(itemState.indexOf("["), itemState.indexOf("]")+1)
+          let trueValue = computedParam.substring(computedParam.indexOf("?")+1, computedParam.indexOf(":"))
+          let falseValue = computedParam.substring(computedParam.indexOf(":")+1, computedParam.indexOf("]"))
+
+          let comparedValue = parseInt(computedParam.substring(computedParam.indexOf("=")+1, computedParam.indexOf("?")))
+          if (comparedValue === secondParam) {
+            itemState = itemState.replace(computedParam, trueValue)
+          }
+          else
+          {
+            itemState = itemState.replace(computedParam, falseValue)
+          }
+        }
       }
     }
     return itemState

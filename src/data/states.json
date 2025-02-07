@@ -76,6 +76,9 @@
   },
   {
     "definition": { "id": 7879 },
+    "description": {
+      "es": "En el lanzamiento del combate, convierte un 50% del dominio elemental en dominio cura (con una tasa de 1 por 1,3)"
+    },
     "title": {
       "fr": "Abnégation",
       "en": "Abnegation",
@@ -135,7 +138,7 @@
   {
     "definition": { "id": 5981 },
     "description": {
-      "es": "1 PW<br />-[#2*10] Voluntad"
+      "es": "1 PW<br />-[#2=1?30:][#2=2?20:][#2=3?10:] Voluntad"
     },
     "title": {
       "fr": "Dévastation",
@@ -843,6 +846,9 @@
   },
   {
     "definition": { "id": 8388 },
+    "description": {
+      "es": "[#2*2]% de danos infligidos a los objetivos a 5 casillas o más"
+    },
     "title": {
       "fr": "Acribie",
       "en": "Scrupulosity",
@@ -968,7 +974,7 @@
   {
     "definition": { "id": 6932 },
     "description": {
-      "es": "Al principio del primer turno, si los dominios secundarios son <= 0:<br />➥ 0 PW máx. y 0 alcance<br />➥ -0% de armadura dada y recibida"
+      "es": "Al principio del primer turno, si los dominios secundarios son <= 0:<br />➥ [#2=2?1:0] PW máx. y [#2=2?1:0] alcance<br />➥ -[#2=2?10:0]% de armadura dada y recibida"
     },
     "title": {
       "fr": "Abandon",

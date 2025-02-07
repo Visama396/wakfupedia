@@ -6,17 +6,12 @@ import Item from '@/components/Item.astro'
 
 const { title, itemTypeIds = [], itemTypeName } = Astro.props
 
-if (title == "Sublimaciones") {
-  console.log(title)
-  items.sort((a, b) => {
-    if (a.title.es < b.title.es) return -1
-    if (a.title.es > b.title.es) return 1
-    return 0
-  })
-}
-else {
-  items.sort((a, b) => b.definition.item.level - a.definition.item.level)
-}
+items.sort((a, b) => b.definition.item.level - a.definition.item.level)
+items.sort((a, b) => {
+  if (a.title.es < b.title.es) return -1
+  if (a.title.es > b.title.es) return 1
+  return 0
+})
 ---
 
 <section class="flex flex-col gap-4 px-2">
