@@ -32,7 +32,7 @@
   {
     "definition": { "id": 6816 },
     "description": {
-      "es": "-[#2=1?20:][#2=2?15:][#2=3?10:]% de daos infligidos con una arma<br />Al infligir daos a un enemigo con una arma de a dos manos:<br />➥ <strong>INCURABLE</strong> (nivel: coste en PA del arma) en el enemigo y el portador del estado"
+      "es": "-[#2=1?20:][#2=2?15:][#2=3?10:]% de daños infligidos con una arma<br />Al infligir daños a un enemigo con una arma de a dos manos:<br />➥ <strong>INCURABLE</strong> (nivel: coste en PA del arma) en el enemigo y el portador del estado"
     },
     "title": {
       "fr": "Arme incurable",
@@ -312,7 +312,7 @@
   {
     "definition": { "id": 7081 },
     "description": {
-      "es": "[#2*4]% de daos infligidos a los objetivos sin línea de visión y a 3 casillas o más del portador del estado"
+      "es": "[#2*4]% de daños infligidos a los objetivos sin línea de visión y a 3 casillas o más del portador del estado"
     },
     "title": {
       "fr": "Verrouillage",
@@ -333,7 +333,7 @@
   {
     "definition": { "id": 6020 },
     "description": {
-      "es": "Reduce los daos en melé sufridos un 50% del nivel, [#2*2] veces por turno"
+      "es": "Reduce los daños en melé sufridos un 50% del nivel, [#2*2] veces por turno"
     },
     "title": {
       "fr": "Barrière Mêlée",
@@ -345,7 +345,7 @@
   {
     "definition": { "id": 8367 },
     "description": {
-      "es": "-100 de resistencia elemental<br />Cuando el portador inflige daos en melé:<br />➥ Roba el 25% de los daos infligidos"
+      "es": "-100 de resistencia elemental<br />Cuando el portador inflige daños en melé:<br />➥ Roba el 25% de los daños infligidos"
     },
     "title": {
       "fr": "Arrogance",
@@ -421,7 +421,7 @@
   {
     "definition": { "id": 8376 },
     "description": {
-      "es": "Si el portador ha infligido daos de melé a un enemigo durante su turno:<br/>➥ 10% de daos infligidos a distancia en el turno siguiente (1 vez por turno, acumulable 5 veces)"
+      "es": "Si el portador ha infligido daños de melé a un enemigo durante su turno:<br/>➥ 10% de daños infligidos a distancia en el turno siguiente (1 vez por turno, acumulable 5 veces)"
     },
     "title": {
       "fr": "Calibrage II",
@@ -617,7 +617,7 @@
   {
     "definition": { "id": 7870 },
     "description": {
-      "es": "Al principio del turno, si el portador no tiene armadura:<br />➥ 20% de daos infligidos (1 turno)<br/>Si no:<br/>➥ -10% de daos infligidos (1 turno)"
+      "es": "Al principio del turno, si el portador no tiene armadura:<br />➥ 20% de daños infligidos (1 turno)<br/>Si no:<br/>➥ -10% de daños infligidos (1 turno)"
     },
     "title": {
       "fr": "Pétillance",
@@ -656,7 +656,7 @@
   {
     "definition": { "id": 5175 },
     "description": {
-      "es": "25% a los daos de los hechizos de zona en el objetivo directo del hechizo.<br />-25% a los daos de los hechizos de zona en los demás objetivos."
+      "es": "25% a los daños de los hechizos de zona en el objetivo directo del hechizo.<br />-25% a los daños de los hechizos de zona en los demás objetivos."
     },
     "title": { "fr": "Brise", "en": "Breeze", "es": "Brisa", "pt": "Brisa" }
   },
@@ -874,7 +874,7 @@
   {
     "definition": { "id": 6019 },
     "description": {
-      "es": "Reduce los daos a distancia sufridos un 50% del nivel, [#2*2] veces por turno"
+      "es": "Reduce los daños a distancia sufridos un 50% del nivel, [#2*2] veces por turno"
     },
     "title": {
       "fr": "Barrière Distance",
@@ -906,6 +906,9 @@
   },
   {
     "definition": { "id": 7075 },
+    "description": {
+      "es": "-1 alcance<br/>[#2*50]% del nivel en placaje y esquiva"
+    },
     "title": {
       "fr": "Combat rapproché",
       "en": "Brawling",
@@ -1000,7 +1003,7 @@
   {
     "definition": { "id": 5443 },
     "description": {
-      "es": "En el lanzamiento del combate, para el portador del estado:<br />➥ -30 PdV (malus en el modificador de PdV)<br />➥ 30% de curas y armaduras de <img class=\"inline\" src=\"\thttps://tmktahu.github.io/WakfuAssets/misc/ally.png\"> recibidas"
+      "es": "En el lanzamiento del combate, para el portador del estado:<br />➥ -30 PdV (malus en el modificador de PdV)<br />➥ 30% de curas y armaduras de <img class=\"inline\" src=\"https://tmktahu.github.io/WakfuAssets/misc/ally.png\"> recibidas"
     },
     "title": {
       "fr": "Santé de fer",
@@ -1067,7 +1070,7 @@
   {
     "definition": { "id": 7258 },
     "description": {
-      "es": "-50 resistencia elemental<br />Si el portador del estado sufre daos de un enemigo:<br/>➥ 100 de reistencia en el elemento sufrido (1 turno)"
+      "es": "-50 resistencia elemental<br />Si el portador del estado sufre daños de un enemigo:<br/>➥ 100 de reistencia en el elemento sufrido (1 turno)"
     },
     "title": {
       "fr": "Assimilation",
@@ -1091,7 +1094,7 @@
   {
     "definition": { "id": 7257 },
     "description": {
-      "es": "Al principio del turno:<br/>➥ 3 de alcance<br/>➥ 15% de daos infligidos a distancia<br/>➥ 15% de curas realizadas<br/>El bonus se pierde en el primer desplazamiento (PM) o al final del turno"
+      "es": "Al principio del turno:<br/>➥ 3 de alcance<br/>➥ 15% de daños infligidos a distancia<br/>➥ 15% de curas realizadas<br/>El bonus se pierde en el primer desplazamiento (PM) o al final del turno"
     },
     "title": {
       "fr": "Sentinelle",
@@ -1211,7 +1214,7 @@
   {
     "definition": { "id": 7077 },
     "description": {
-      "es": "-1 PM máx.<br/>[#2*5]% de daos infligidos"
+      "es": "-1 PM máx.<br/>[#2*5]% de daños infligidos"
     },
     "title": {
       "fr": "Armure lourde",
@@ -1299,6 +1302,9 @@
   },
   {
     "definition": { "id": 7880 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado posee 0 de dominio cura o menos:<br/>➥ 30% de curas realizadas"
+    },
     "title": {
       "fr": "Engagement",
       "en": "Engagement",
@@ -1372,7 +1378,7 @@
   {
     "definition": { "id": 6811 },
     "description": {
-      "es": "Al infligir daos a un enemigo con una arma:<br />➥ Este enemigo reduce sus daos en el portador del estado de -[#2*5]% (1 turno, no acumulable)<br />➥ El portador del estado debe tener equipado un escudo"
+      "es": "Al infligir daños a un enemigo con una arma:<br />➥ Este enemigo reduce sus daños en el portador del estado de -[#2*5]% (1 turno, no acumulable)<br />➥ El portador del estado debe tener equipado un escudo"
     },
     "title": {
       "fr": "Arme solide",
@@ -1461,6 +1467,9 @@
   },
   {
     "definition": { "id": 6033 },
+    "description": {
+      "es": "-20 voluntad<br/>Reduce en 1 la próxima pérdida de PM sufrida<br/>El efecto se vuelve a aplicar en cada turno"
+    },
     "title": { "fr": "Clameur", "en": "Clamor", "es": "Clamor", "pt": "Clamor" }
   },
   {
@@ -1595,7 +1604,7 @@
   {
     "definition": { "id": 7878 },
     "description": {
-      "es": "En el lanzamiento del combate, los dominios elementales se fijan en 0<br />20% de daos infligidos y curas realizadas"
+      "es": "En el lanzamiento del combate, los dominios elementales se fijan en 0<br />20% de daños infligidos y curas realizadas"
     },
     "title": { "fr": "Chaos", "en": "Chaos", "es": "Caos", "pt": "Caos" }
   },
@@ -1722,7 +1731,7 @@
   {
     "definition": { "id": 7711 },
     "description": {
-      "es": "-[#2*6]% de daos recibidos cuando el portador no está en línea de visión<br/>[#2*3]% de daos recibidos cuando el portador está en línea de visión"
+      "es": "-[#2*6]% de daños recibidos cuando el portador no está en línea de visión<br/>[#2*3]% de daños recibidos cuando el portador está en línea de visión"
     },
     "title": {
       "fr": "Art du cachement",
@@ -2153,7 +2162,7 @@
   {
     "definition": { "id": 7713 },
     "description": {
-      "es": "[#2*6]% de daos infligidos a un objetivo con armadura"
+      "es": "[#2*6]% de daños infligidos a un objetivo con armadura"
     },
     "title": {
       "fr": "Tabass\u0027Carapace",
@@ -2260,6 +2269,9 @@
   },
   {
     "definition": { "id": 8519 },
+    "description": {
+      "es": "[#2*4]% de daños infligidos con el elemento agua <img class=\"inline\" src=\"https://zenithwakfu.com/images/spells/misc/el2.webp\" alt=\"elemento agua\"/>"
+    },
     "title": {
       "fr": "Gel",
       "en": "Freezing",
@@ -2299,6 +2311,9 @@
   },
   {
     "definition": { "id": 5449 },
+    "description": {
+      "es": "Aumenta el dominio elemental más elevado del portador en un 20% y disminuye los otros en un 30% en el inicio del combate."
+    },
     "title": {
       "fr": "Concentration élémentaire",
       "en": "Elemental Concentration",
@@ -2435,7 +2450,7 @@
   {
     "definition": { "id": 8370 },
     "description": {
-      "es": "Si el portador ha infligidos daos de melé a un enemigo durante su turno:<br/>➥ 25% de daos infligidos a distancia en el turno siguiente"
+      "es": "Si el portador ha infligidos daños de melé a un enemigo durante su turno:<br/>➥ 25% de daños infligidos a distancia en el turno siguiente"
     },
     "title": {
       "fr": "Calibrage",
@@ -2447,6 +2462,9 @@
   { "definition": { "id": 4960 } },
   {
     "definition": { "id": 6030 },
+    "description": {
+      "es": "Tuno par: [#2*10] voluntad<br />Turno impar: -[#2*10] voluntad"
+    },
     "title": {
       "fr": "Cyclothymie",
       "en": "Cyclothymia",
