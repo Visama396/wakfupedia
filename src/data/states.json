@@ -2118,6 +2118,9 @@
   },
   {
     "definition": { "id": 8502 },
+    "description": {
+      "es": "Al lanzar un hechizo <img class=\"inline\" src=\"https://zenithwakfu.com/images/spells/misc/el1.webp\" alt=\"elemento fuego\"/> <img class=\"inline\" src=\"https://zenithwakfu.com/images/spells/misc/el3.webp\" alt=\"elemento tierra\"/> <img class=\"inline\" src=\"https://zenithwakfu.com/images/spells/misc/el4.webp\" alt=\"elemento aire\"/>:<br/>➥ [#2*4]% de daños infligidos con el elemento agua <img class=\"inline\" src=\"https://zenithwakfu.com/images/spells/misc/el2.webp\" alt=\"elemento agua\"/><br/>➥ Acumulable, máx. 30<br/>El efecto se consume con los siguientes daños directos de agua <img class=\"inline\" src=\"https://zenithwakfu.com/images/spells/misc/el2.webp\" alt=\"elemento agua\"/>"
+    },
     "title": {
       "fr": "Gel secondaire",
       "en": "Secondary Freezing",
