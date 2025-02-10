@@ -311,6 +311,9 @@
   },
   {
     "definition": { "id": 7081 },
+    "description": {
+      "es": "[#2*4]% de daos infligidos a los objetivos sin línea de visión y a 3 casillas o más del portador del estado"
+    },
     "title": {
       "fr": "Verrouillage",
       "en": "Locking",
@@ -329,6 +332,9 @@
   },
   {
     "definition": { "id": 6020 },
+    "description": {
+      "es": "Reduce los daos en melé sufridos un 50% del nivel, [#2*2] veces por turno"
+    },
     "title": {
       "fr": "Barrière Mêlée",
       "en": "Melee Barrier",
@@ -414,6 +420,9 @@
   },
   {
     "definition": { "id": 8376 },
+    "description": {
+      "es": "Si el portador ha infligido daos de melé a un enemigo durante su turno:<br/>➥ 10% de daos infligidos a distancia en el turno siguiente (1 vez por turno, acumulable 5 veces)"
+    },
     "title": {
       "fr": "Calibrage II",
       "en": "Calibration II",
@@ -607,6 +616,9 @@
   },
   {
     "definition": { "id": 7870 },
+    "description": {
+      "es": "Al principio del turno, si el portador no tiene armadura:<br />➥ 20% de daos infligidos (1 turno)<br/>Si no:<br/>➥ -10% de daos infligidos (1 turno)"
+    },
     "title": {
       "fr": "Pétillance",
       "en": "Sparkle",
@@ -643,6 +655,9 @@
   },
   {
     "definition": { "id": 5175 },
+    "description": {
+      "es": "25% a los daos de los hechizos de zona en el objetivo directo del hechizo.<br />-25% a los daos de los hechizos de zona en los demás objetivos."
+    },
     "title": { "fr": "Brise", "en": "Breeze", "es": "Brisa", "pt": "Brisa" }
   },
   {
@@ -719,6 +734,9 @@
   },
   {
     "definition": { "id": 8493 },
+    "description": {
+      "es": "Con cada hechizo no crítico lanzado:<br />➥ [#2*2]% de golpe crítico<br/>El bonus se pierde en el siguiente golpe crítico"
+    },
     "title": {
       "fr": "Balance critique",
       "en": "Critical Scale",
@@ -855,6 +873,9 @@
   },
   {
     "definition": { "id": 6019 },
+    "description": {
+      "es": "Reduce los daos a distancia sufridos un 50% del nivel, [#2*2] veces por turno"
+    },
     "title": {
       "fr": "Barrière Distance",
       "en": "Distance Barrier",
@@ -1069,6 +1090,9 @@
   },
   {
     "definition": { "id": 7257 },
+    "description": {
+      "es": "Al principio del turno:<br/>➥ 3 de alcance<br/>➥ 15% de daos infligidos a distancia<br/>➥ 15% de curas realizadas<br/>El bonus se pierde en el primer desplazamiento (PM) o al final del turno"
+    },
     "title": {
       "fr": "Sentinelle",
       "en": "Sentinel",
@@ -1540,6 +1564,9 @@
   },
   {
     "definition": { "id": 5984 },
+    "description": {
+      "es": "[#2*5]% PdV (bonus en el modificador de PdV)"
+    },
     "title": {
       "fr": "Cicatrisation",
       "en": "Healing",
@@ -1567,6 +1594,9 @@
   },
   {
     "definition": { "id": 7878 },
+    "description": {
+      "es": "En el lanzamiento del combate, los dominios elementales se fijan en 0<br />20% de daos infligidos y curas realizadas"
+    },
     "title": { "fr": "Chaos", "en": "Chaos", "es": "Caos", "pt": "Caos" }
   },
   {
@@ -1739,6 +1769,9 @@
   },
   {
     "definition": { "id": 7873 },
+    "description": {
+      "es": "Al final del turno, si el portador se enfrenta a un enemigo en contacto:<br />➥ 10% de los PdV máx. en armadura"
+    },
     "title": {
       "fr": "Face-à-face",
       "en": "Face-to-Face",
@@ -2085,6 +2118,9 @@
   },
   {
     "definition": { "id": 5983 },
+    "description": {
+      "es": "Cuando los PdV superan el 90%:<br/>➥ [#2*15]% del nivel en dominio elemental"
+    },
     "title": {
       "fr": "Carnage",
       "en": "Carnage",
@@ -2116,6 +2152,9 @@
   },
   {
     "definition": { "id": 7713 },
+    "description": {
+      "es": "[#2*6]% de daos infligidos a un objetivo con armadura"
+    },
     "title": {
       "fr": "Tabass\u0027Carapace",
       "en": "Bashell",
@@ -2188,6 +2227,9 @@
   },
   {
     "definition": { "id": 7853 },
+    "description": {
+      "es": "Al principio del turno:<br />➥ Convierte el [#2*10]% de los PdV actuales en armadura"
+    },
     "title": {
       "fr": "Carapace sanguine",
       "en": "Blood Carapace",
@@ -2392,6 +2434,9 @@
   },
   {
     "definition": { "id": 8370 },
+    "description": {
+      "es": "Si el portador ha infligidos daos de melé a un enemigo durante su turno:<br/>➥ 25% de daos infligidos a distancia en el turno siguiente"
+    },
     "title": {
       "fr": "Calibrage",
       "en": "Calibration",

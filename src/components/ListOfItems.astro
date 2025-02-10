@@ -22,7 +22,7 @@ items.sort((a, b) => {
     <div id="items" class="order-2 md:order-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:px-4 md:flex-row gap-4 self-start">
       {
         items.map(item => {
-          if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId) && item.definition.equipEffects.length > 0)
+          if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId) && item.definition.equipEffects.length > 0 && item.definition.item.baseParameters.rarity > 0)
             return (<Item item={item} itemTypeName={itemTypeName} />)
         })
       }

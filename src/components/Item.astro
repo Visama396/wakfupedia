@@ -80,8 +80,8 @@ const getState = (effect) => {
           }
         }
       }
+      return itemState
     }
-    return itemState
   }
   return null
 }
@@ -135,7 +135,7 @@ const getState = (effect) => {
                   ) : ""
                 }
                 {
-                  (getState(effect)!=null) ? <span data-tooltip-target={`tooltip-${itemId}`} class="font-semibold">{parsedEffect}</span> : <span>{parsedEffect}</span>
+                  (getState(effect)!=null) ? <span data-tooltip-target={`tooltip-${itemId}`} class="font-semibold underline underline-offset-4">{parsedEffect}</span> : <span>{parsedEffect}</span>
                 }
               </div>
             )
@@ -172,7 +172,7 @@ const getState = (effect) => {
   </aside>
   <div id={`tooltip-${itemId}`} role="tooltip" class="absolute z-10 max-w-[300px] invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-slate-800/80 rounded-lg shadow-xs opacity-0 tooltip dark:bg-slate-200/80">
     {
-      ( itemState != null )?
+      ( itemState != null && itemState.length > 0 )?
           <p set:html={itemState}></p>
           : <p>No hay descripción aún</p>
     }
