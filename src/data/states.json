@@ -103,6 +103,9 @@
   },
   {
     "definition": { "id": 8375 },
+    "description": {
+      "es": "30% de armadura dada a los objetivos que no tengan armadura<br/>-100% de armadura dada si no"
+    },
     "title": {
       "fr": "Cuirasse singulière",
       "en": "Single Shared Armor",
@@ -155,6 +158,9 @@
   },
   {
     "definition": { "id": 8400 },
+    "description": {
+      "es": "Cuando el portador del estado aplica armadura a un aliado, aplica <strong>CÁSCARA</strong> (niv.[#2])"
+    },
     "title": { "fr": "Coque", "en": "Shell", "es": "Cáscara", "pt": "Casco" }
   },
   {
@@ -293,6 +299,9 @@
   },
   {
     "definition": { "id": 6930 },
+    "description": {
+      "es": "[#2*3]% de daos críticos infligidos si el objetivo tiene > 50% de PdV<br/>-[#2*3]% de daos críticos infligidos si el objetivo tiene <= 50% de PdV"
+    },
     "title": {
       "fr": "Critique tactique",
       "en": "Tactical Critical",
@@ -773,6 +782,9 @@
   },
   {
     "definition": { "id": 6928 },
+    "description": {
+      "es": "El primer golpe crítico del turno inflige [#2*6]% de daos adicionales<br/>Los siguientes infligen un -[#2*3] de daos menos"
+    },
     "title": {
       "fr": "Critique technique",
       "en": "Technical Critical",
@@ -809,6 +821,9 @@
   },
   {
     "definition": { "id": 7255 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene al menos 3 de alcance:<br/>➥ 30% de daos infligidos indirectos"
+    },
     "title": {
       "fr": "Contrôle de l\u0027espace II",
       "en": "Controlling Space II",
@@ -1204,6 +1219,9 @@
   },
   {
     "definition": { "id": 7722 },
+    "description": {
+      "es": "Cuando los PdV superan el 90%:<br/>➥ [#2*10]% de anticipación"
+    },
     "title": {
       "fr": "Conservation",
       "en": "Conservation",
@@ -1419,6 +1437,9 @@
   },
   {
     "definition": { "id": 8494 },
+    "description": {
+      "es": "Con cada hechizo no crítico lanzado:<br/>➥ [#2*2]% de daos infligidos críticos<br/>El bonus se pierde en el siguiente golpe crítico"
+    },
     "title": {
       "fr": "Consolation critique",
       "en": "Critical Consolation",
@@ -1428,6 +1449,9 @@
   },
   {
     "definition": { "id": 8490 },
+    "description": {
+      "es": "Cada 3 hechizos lanzados: fija los golpes críticos en 100"
+    },
     "title": {
       "fr": "Contrôle du temps",
       "en": "Time Control",
@@ -1790,6 +1814,9 @@
   },
   {
     "definition": { "id": 7882 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene más anticipación que golpe crítico:<br/>➥ La anticipación se convierte en golpe crítico"
+    },
     "title": {
       "fr": "Démesuré",
       "en": "Colossal",
@@ -1844,10 +1871,13 @@
   },
   {
     "definition": { "id": 8489 },
+    "description": {
+      "es": "Cada turno, 40% de armadura dada en la primera armadura puesta, -50% de armadura dada en las demás"
+    },
     "title": {
       "fr": "Cuirasse singulière II",
       "en": "Single Shared Armor II",
-      "es": "Cota Singular",
+      "es": "Cota Singular II",
       "pt": "Couraça Singular II"
     }
   },
@@ -1880,6 +1910,9 @@
   },
   {
     "definition": { "id": 7872 },
+    "description": {
+      "es": "Al final del turno, por enemigo en contacto:<br/>➥ 5% de los PdV máx. en armadura"
+    },
     "title": {
       "fr": "Contact",
       "en": "Contact",
@@ -1889,6 +1922,9 @@
   },
   {
     "definition": { "id": 6708 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene exactamente 1 de alcance:<br/>➥ 15% de daos infligidos y curas realizadas en los objetivosa 2, 3 o 4 casillas de distancia del lanzador"
+    },
     "title": {
       "fr": "Contrôle de l\u0027espace",
       "en": "Controlling Space",
@@ -2100,6 +2136,9 @@
   },
   {
     "definition": { "id": 6819 },
+    "description": {
+      "es": "Cuando el portador del estado sufre daos directos en el cuerpo a cuerpo, una vez por turno del atacante:<br/>➥ El portador del estado le inflige daos de luz ([#2*10]% del nivel)"
+    },
     "title": {
       "fr": "Contre-attaque",
       "en": "Counterattack",
@@ -2495,6 +2534,9 @@
   },
   {
     "definition": { "id": 7876 },
+    "description": {
+      "es": "En el lanzamiento del combate, si el portador del estado tiene un 10% de golpe crítico o menos:<br/>➥ 40% de daos indirectos"
+    },
     "title": {
       "fr": "Constant II",
       "en": "Constant II",
@@ -2543,6 +2585,9 @@
   },
   {
     "definition": { "id": 6009 },
+    "description": {
+      "es": "Cuando los PdV son inferiores al 50%:<br/>➥ [#2*5]% de golpe crítico"
+    },
     "title": {
       "fr": "Critique Berserk",
       "en": "Berserk Critical",
