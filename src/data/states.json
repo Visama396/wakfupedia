@@ -365,6 +365,9 @@
   },
   {
     "definition": { "id": 6001 },
+    "description": {
+      "es": "Al matar a un enemigo, recupera 1 PA (2 activaciones por turno)"
+    },
     "title": {
       "fr": "Retour PA",
       "en": "AP Return",
@@ -999,6 +1002,9 @@
   },
   {
     "definition": { "id": 5216 },
+    "description": {
+      "es": "15% de daos infligidos de los hechizos de zona a los objetivos alineados con el portador del estado"
+    },
     "title": {
       "fr": "Directives",
       "en": "Directives",
@@ -1341,6 +1347,9 @@
   },
   {
     "definition": { "id": 6031 },
+    "description": {
+      "es": "Al matar a un enemigo, recupera 1 PM (2 activaciones por turno)"
+    },
     "title": {
       "fr": "Retour PM",
       "en": "MP Return",
@@ -1588,6 +1597,9 @@
   },
   {
     "definition": { "id": 6825 },
+    "description": {
+      "es": "[#2*3]% de daos por la espalda<br/>-[#2*2]% de daos frontales y laterales"
+    },
     "title": {
       "fr": "Destruction",
       "en": "Destruction",
@@ -1634,6 +1646,9 @@
   },
   {
     "definition": { "id": 5987 },
+    "description": {
+      "es": "-15% daos indirectos recibidos"
+    },
     "title": {
       "fr": "Détermination",
       "en": "Determination",
@@ -2251,6 +2266,9 @@
   },
   {
     "definition": { "id": 7875 },
+    "description": {
+      "es": "Cuando el portador cura a un aliado, un 50% de la cura se convierte en armadura"
+    },
     "title": {
       "fr": "Distribution",
       "en": "Distribution",
@@ -2576,6 +2594,9 @@
   },
   {
     "definition": { "id": 5999 },
+    "description": {
+      "es": "En el primer turno del portador del estado:<br/>1 PW (no regenerable)"
+    },
     "title": {
       "fr": "Dimensionnalité",
       "en": "Dimensionality",
