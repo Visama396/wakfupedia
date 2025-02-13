@@ -16,11 +16,18 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Enciclopedia de Wakfu" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta
       name="generator"
       content="Página de ayuda para jugadores de Wakfu en español"
     />
+    <meta name=“robots” content="index, follow, translate, ">
+    <link rel="canonical" href="https://wakpedia.visamalog.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Enciclopedia de Wakfu, armas, armaduras, mascotas y sublimaciones" />
+    <meta property="og:image" content="/favicon.png" />
+    <meta property="og:url" content="https://wakpedia.visamalog.com" />
     <title>{title}</title>
   </head>
   <body>
