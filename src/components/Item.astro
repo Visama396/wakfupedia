@@ -78,7 +78,9 @@ const getState = (effect) => {
           {
             itemState = itemState.replace(computedParam, falseValue)
           }
-        } else if (itemState.includes("[#2]")) itemState = itemState.replace("[#2]", secondParam)
+        } else if (itemState.includes("[#2]")) {
+          itemState = itemState.replace("[#2]", secondParam)
+        }
       }
       return itemState
     }
