@@ -6,12 +6,13 @@ import Item from '@/components/Item.astro'
 
 const { title, itemTypeIds = [], itemTypeName } = Astro.props
 
-items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 items.sort((a, b) => {
   if (a.title.es < b.title.es) return -1
   if (a.title.es > b.title.es) return 1
   return 0
 })
+
+items.sort((a, b) => b.definition.item.level - a.definition.item.level)
 ---
 
 <section class="flex flex-col gap-4 px-2">
@@ -36,9 +37,9 @@ items.sort((a, b) => {
         <h4 class="font-semibold text-lg text-slate-600">Nivel del objeto</h4>
         <div class="flex gap-2 items-center">
           <span>De</span>
-          <input id="filterLevelMin" value="0" min="0" max="230" type="number" class="text-black outline-none rounded-sm p-1" />
+          <input id="filterLevelMin" value="0" min="0" max="245" type="number" class="text-black outline-none rounded-sm p-1" />
           <span>A</span>
-          <input id="filterLevelMax" value="230" min="0" max="230" type="number" class="text-black outline-none rounded-sm p-1" />
+          <input id="filterLevelMax" value="245" min="0" max="245" type="number" class="text-black outline-none rounded-sm p-1" />
         </div>
       </div>
       <div>
@@ -77,12 +78,12 @@ items.sort((a, b) => {
               <input id="levelRange7" type="checkbox" />
               <label for="levelRange7">96 - 110</label>
             </div>
-          </div>
-          <div class="flex flex-col gap-2">
             <div>
               <input id="levelRange8" type="checkbox" />
               <label for="levelRange8">111 - 125</label>
             </div>
+          </div>
+          <div class="flex flex-col gap-2">
             <div>
               <input id="levelRange9" type="checkbox" />
               <label for="levelRange9">126 - 140</label>
@@ -111,6 +112,10 @@ items.sort((a, b) => {
               <input id="levelRange15" type="checkbox" />
               <label for="levelRange15">216 - 230</label>
             </div>
+            <div>
+              <input id="levelRange16" type="checkbox" />
+              <label for="levelRange16">231 - 245</label>
+            </div>
           </div>
         </div>
       </div>
@@ -123,7 +128,7 @@ items.sort((a, b) => {
               return (
                 <div>
                   <input id={"itemType"+index} class="itemTypeCheckbox" value={id} type="checkbox" />
-                  <label for="">{type?.title?.es || ""}</label>
+                  <label for={"itemType"+index}>{type?.title?.es || ""}</label>
                 </div>
               )
             })
@@ -250,6 +255,7 @@ const range12 = document.getElementById("levelRange12")
 const range13 = document.getElementById("levelRange13")
 const range14 = document.getElementById("levelRange14")
 const range15 = document.getElementById("levelRange15")
+const range16 = document.getElementById("levelRange16")
 const rarity1 = document.getElementById("rarity1")
 const rarity2 = document.getElementById("rarity2")
 const rarity3 = document.getElementById("rarity3")
@@ -261,7 +267,7 @@ const itemTypeCheckboxes = document.querySelectorAll(".itemTypeCheckbox")
 const bonusCheckboxes = document.querySelectorAll(".bonusCheckbox")
 
 let min = 0
-let max = 230
+let max = 245
 let ranges: number[] = []
 let rarities: number[] = []
 let types: number[] = []
@@ -270,7 +276,7 @@ let bonuses: number[] = []
 const updateFilter = () => {
   let name: string = nameFilter?.value || ""
   let minLevel: number = parseInt((minLevelFilter as any)?.value) || 0
-  let maxLevel: number = parseInt((maxLevelFilter as any)?.value) || 230
+  let maxLevel: number = parseInt((maxLevelFilter as any)?.value) || 245
 
   if (items != null) {
     for (let item of items.children) {
@@ -290,7 +296,7 @@ const updateFilter = () => {
           maxLevelFilter.setAttribute("disabled", "")
         }
 
-        if ((min >= 0 && min < max) && (max <= 230)) { // Level range is correct
+        if ((min >= 0 && min < max) && (max <= 245)) { // Level range is correct
           const level = item.getAttribute('data-level') 
           if (level) {
             if (item.getAttribute('data-level') 
@@ -307,7 +313,7 @@ const updateFilter = () => {
         if (maxLevelFilter) {
           maxLevelFilter.removeAttribute("disabled")
         }
-        if ((minLevel >= 0 && minLevel < maxLevel) && (maxLevel <= 230)) { // Level range is correct
+        if ((minLevel >= 0 && minLevel < maxLevel) && (maxLevel <= 245)) { // Level range is correct
           const level = item.getAttribute('data-level')
           if (level) {
             if (item.getAttribute('data-level') 
@@ -489,6 +495,14 @@ const updateRange = (e) => {
     if (ranges.includes(230)) ranges.splice(ranges.indexOf(230), 1);
   }
 
+  if (range16?.getAttribute('checked') == "true") {
+    if (!ranges.includes(231)) ranges.push(231);
+    if (!ranges.includes(245)) ranges.push(245);
+  } else {
+    if (ranges.includes(231)) ranges.splice(ranges.indexOf(231), 1);
+    if (ranges.includes(245)) ranges.splice(ranges.indexOf(245), 1);
+  }
+
   ranges.sort((a, b) => a - b)
   min = ranges[0]
   max = ranges[ranges.length - 1]
@@ -593,6 +607,7 @@ range12?.addEventListener("change", updateRange)
 range13?.addEventListener("change", updateRange)
 range14?.addEventListener("change", updateRange)
 range15?.addEventListener("change", updateRange)
+range16?.addEventListener("change", updateRange)
 rarity1?.addEventListener("change", updateRarities)
 rarity2?.addEventListener("change", updateRarities)
 rarity3?.addEventListener("change", updateRarities)
