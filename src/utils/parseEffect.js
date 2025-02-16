@@ -48,6 +48,8 @@ export function parseEffect (effect, level) {
 
   if (action.definition.id === 39) {
     actionDescription = effect.effect.description.es
+    let toReplace = actionDescription.substring(actionDescription.indexOf("["), actionDescription.indexOf("]")+1)
+    actionDescription = actionDescription.replace(toReplace, "")
   }
 
   if (action.definition.id === 2001) {
