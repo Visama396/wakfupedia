@@ -1,8 +1,6 @@
 ---
-import "@fontsource/kolker-brush";
 import "@fontsource-variable/onest";
 
-import Hero from "@/components/Hero.astro";
 interface Props {
   title: string;
 }
@@ -25,13 +23,12 @@ const { title } = Astro.props;
     <link rel="canonical" href="https://wakpedia.visamalog.com" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Enciclopedia de Wakfu, armas, armaduras, mascotas y sublimaciones" />
+    <meta property="og:description" content="Constructor de equipamientos para personajes en Wakfu" />
     <meta property="og:image" content="/favicon.png" />
     <meta property="og:url" content="https://wakpedia.visamalog.com" />
     <title>{title}</title>
   </head>
   <body>
-    <Hero />
     <slot />
     <script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@3.0.0/dist/flowbite.min.js"></script>
   </body>
@@ -42,13 +39,20 @@ const { title } = Astro.props;
     font-family: "Onest Variable", sans-serif;
   }
 
-  h1 {
-    font-family: "Kolker Brush", sans-serif;
-  }
-
   body {
     background-color: #334;
     color: white;
+  }
+
+  main.builder {
+    grid-template-areas: "stats items";
+  }
+
+  section.items {
+    grid-template-areas: 
+      "build"
+      "filters"
+      "results";
   }
 
   @media (prefers-color-scheme: light) {
