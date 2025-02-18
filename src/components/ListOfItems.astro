@@ -588,7 +588,13 @@ const updateBonuses = (e) => {
   updateFilter()
 }
 
-nameFilter?.addEventListener("input", updateFilter)
+const onNameChange = (evt) => {
+  if (evt.key == "Enter") {
+    updateFilter()
+  }
+}
+
+nameFilter?.addEventListener("keyup", onNameChange)
 minLevelFilter?.addEventListener("input", updateFilter)
 maxLevelFilter?.addEventListener("input", updateFilter)
 range0?.addEventListener("change", updateRange)
