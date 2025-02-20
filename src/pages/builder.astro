@@ -120,12 +120,16 @@ const classes = [
             if (charLevelInput != null) {
                 charLevelInput.addEventListener("input", (e) => {
                     let level = parseInt(e.target.value)
-                    if (level <= 0) {
-                        charLevelInput.value = 1
-                    } else if (level > 245) {
-                        charLevelInput.value = 245
+                    if (typeof level === "number") {
+                        if (level <= 0) {
+                            charLevelInput.value = 1
+                        } else if (level > 245) {
+                            charLevelInput.value = 245
+                        }
+                        if (pdvLabel != null) pdvLabel.innerText = level*10+50
                     }
-                    if (pdvLabel != null) pdvLabel.innerText = level*10+40
+                    else
+                        if (pdvLabel != null) pdvLabel.innerText = "50"
                 })
             }
         });
