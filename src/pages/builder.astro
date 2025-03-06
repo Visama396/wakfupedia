@@ -83,33 +83,38 @@ const classes = [
             <div style="grid-area: filters" class="filters"><p>filters</p></div>
             <div style="grid-area: results" class="results"><p>results</p></div>
         </section>
-        <section style="grid-area: stats" class="stats bg-slate-600 rounded-md p-2">
-            <div class="flex gap-2 items-center mb-2">
-                <h1>Visama</h1>
-                <select class="rounded-md bg-slate-700 w-[100%] border-slate-400" name="classes" id="classes">
-                    {classes.map((clase) => 
-                        <option value={clase.code}>{clase.nombre}</option>
-                    )}
-                </select>
-                <input id="char_level" class="rounded-md bg-slate-700 w-[100%] border-slate-400" type="number" value="1" />
+        <section style="grid-area: stats" class="stats flex gap-2 flex-col">
+            <div class="bg-slate-600 rounded-md p-3">
+                <div class="flex gap-2 items-center mb-2">
+                    <h1>Visama</h1>
+                    <select class="rounded-md bg-slate-700 w-[100%] border-slate-400" name="classes" id="classes">
+                        {classes.map((clase) => 
+                            <option value={clase.code}>{clase.nombre}</option>
+                        )}
+                    </select>
+                    <input id="char_level" class="rounded-md bg-slate-700 w-[100%] border-slate-400" type="number" value="1" />
+                </div>
             </div>
-            <div class="flex gap-2">
-                <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
-                    <img src="https://vertylo.github.io/wakassets/icons/hp.png" class="inline" alt="pdv"> PdV
-                    <p id="pdv_label" class="text-center">50</p>
+            <div class="bg-slate-600 rounded-md p-3">
+                <div class="flex gap-2">
+                    <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
+                        <img src="https://vertylo.github.io/wakassets/icons/hp.png" class="inline" alt="pdv"> PdV
+                        <p id="pdv_label" class="text-center">60</p>
+                    </div>
+                    <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
+                        <img src="https://vertylo.github.io/wakassets/icons/ap.png" class="inline" alt="pa"> PA
+                        <p id="pa_label" class="text-center">6</p>
+                    </div>
+                    <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
+                        <img src="https://vertylo.github.io/wakassets/icons/mp.png" class="inline" alt="pm"> PM
+                        <p id="pm_label" class="text-center">3</p>
+                    </div>
+                    <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
+                        <img src="https://vertylo.github.io/wakassets/icons/wp.png" class="inline" alt="pw"> PW
+                        <p id="pw_label" class="text-center">6</p>
+                    </div>
                 </div>
-                <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
-                    <img src="https://vertylo.github.io/wakassets/icons/ap.png" class="inline" alt="pa"> PA
-                    <p id="pa_label" class="text-center">6</p>
-                </div>
-                <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
-                    <img src="https://vertylo.github.io/wakassets/icons/mp.png" class="inline" alt="pm"> PM
-                    <p id="pm_label" class="text-center">3</p>
-                </div>
-                <div class="bg-slate-700 rounded-md inline p-2 border border-slate-400">
-                    <img src="https://vertylo.github.io/wakassets/icons/wp.png" class="inline" alt="pw"> PW
-                    <p id="pw_label" class="text-center">6</p>
-                </div>
+                <h1>Hola</h1>
             </div>
         </section>
     </main>
@@ -129,7 +134,7 @@ const classes = [
                         if (pdvLabel != null) pdvLabel.innerText = level*10+50
                     }
                     else
-                        if (pdvLabel != null) pdvLabel.innerText = "50"
+                        if (pdvLabel != null) pdvLabel.innerText = "60"
                 })
             }
         });
