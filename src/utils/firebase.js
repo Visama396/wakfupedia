@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
     apiKey: import.meta.env.FIREBASE_API_KEY,
@@ -10,13 +9,7 @@ const firebaseConfig = {
     appId: import.meta.env.FIREBASE_APP_ID,
     measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID,
 }
-let app;
-if (!firebase.apps.length) {
-    app = initializeApp(firebaseConfig);
-}
-let analytics;
-if (firebase.analytics.isSupported()) {
-    analytics = getAnalytics(app)
-}
+
+let app = initializeApp(firebaseConfig)
 
 export default app;
