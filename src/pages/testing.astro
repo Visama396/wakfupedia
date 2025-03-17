@@ -1,29 +1,18 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import firebaseApp from '../utils/firebase'
-import { getFirestore, collection, doc, setDoc, getDoc } from 'firebase/firestore'
 import items from '@items'
+import { insertEffect } from '../utils/insertItem'
 
-const db = getFirestore(firebaseApp)
-const itemsRef = collection(db, '134')
+let helmet1 = items.find(item => item.definition.item.baseParameters.itemTypeId == 134)
+let effects = helmet1.definition.equipEffects
 
-items.forEach(async item => {
-    if (item.definition.item.baseParameters.itemTypeId == 134) {
-        await setDoc(doc(itemsRef, "items"), {
-            id: item.definition.item.id, level: item.definition.item.level, name_es: item.title.es, name_en: item.title.en, name_fr: item.title.fr, name_pt: item.title.pt, rarity: item.definition.baseParameters.rarity, sprite_id: item.definition.graphicParameters.gfxId, desc_es: item.description.es, desc_en: item.description.en, desc_pt: item.description.pt, desc_fr: item.description.fr
-        })
-    }
-})
+const effect = effects[0]
 
-/*const docRef = doc(db, "items", "espada")
-const docSnap = await getDoc(docRef)
+console.log(effect.id)
 
-if (docSnap.exists()) {
-    console.log("Document data: ", docSnap.data());
-} else {
-    console.log("No such document");
-}*/
+const response = await insertEffect(effect.id, effect.actionId, effect.params)
 
+console.log(response)
 ---
 <Layout title="Testing">
 
