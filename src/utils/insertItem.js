@@ -8,8 +8,8 @@ const databases = new Databases(client)
 
 const insertEffect = async (id, actionId, params) => {
     const result = await databases.createDocument(
-        'databaseid', // databaseId
-        'collectionid', // collectionId
+        import.meta.env.APPWRITE_DATABASE_ID, // databaseId
+        import.meta.env.APPWRITE_EFFECTS_COLLECTION_ID, // collectionId
         ID.unique(), // documentId
         {
             id: id,
