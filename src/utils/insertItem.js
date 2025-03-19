@@ -24,7 +24,7 @@ const insertItem = async (itemTypeId,item) => {
     const effects = item.definition.equipEffects
     
     for (const effect of effects) {
-        const response = await insertEffect(effect.effect)
+        const response = await insertEffect(effect.effect).catch(error => {});
     }
 
     const equipEffects = effects.map(effect => effect.effect.definition.id)

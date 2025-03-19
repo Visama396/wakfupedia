@@ -3,15 +3,17 @@ import Layout from '@/layouts/Layout.astro'
 import items from '@items'
 import { insertItem } from '../utils/insertItem'
 
+const itemTypeIds = [103, 119, 120, 132, 133, 136, 138]
+
 for (const item of items) {
-    if (item.definition.item.baseParameters.itemTypeId == 134) {
-        const response = await insertItem(item.definition.item.baseParameters.itemTypeId, item)
+    if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId)) {
+        const response = await insertItem(item.definition.item.baseParameters.itemTypeId, item).catch(error => {})
         console.log(response)
     }
 }
 
 /**
- * {
+ {
     "name": "armas",
     "ids": [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254]
   }, 
