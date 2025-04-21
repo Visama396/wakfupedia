@@ -12,7 +12,7 @@
       "@itemTypes": [
         "src/data/itemTypes.json"
       ],
-      "@actions" : [
+      "@actions": [
         "src/data/actions.json"
       ],
       "@recipeCategories": [
@@ -45,6 +45,8 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

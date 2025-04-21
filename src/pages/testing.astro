@@ -1,29 +1,53 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import items from '@items'
-/*import { insertItem } from '../utils/insertItem'
+import client  from '../utils/database'
 
-const itemTypeIds = [103, 119, 120, 132, 133, 136, 138]
-
+const itemTypeIds = [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254, 103, 119, 120, 132, 133, 136, 138, 537, 646, 582, 812]
 for (const item of items) {
-    if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId)) {
-        const response = await insertItem(item.definition.item.baseParameters.itemTypeId, item).catch(error => {})
-        console.log(response)
+  if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId)) {
+    
+    const name_es: string = item.title?.es || ""
+    const name_en: string = item.title?.en || ""
+    const name_fr: string = item.title?.fr || ""
+    const name_pt: string = item.title?.pt || ""
+    const desc_es: string = item.description?.es || ""
+    const desc_en: string = item.description?.en || ""
+    const desc_fr: string = item.description?.fr || ""
+    const desc_pt: string = item.description?.pt || ""
+    const itemId: number = item.definition.item.id
+    const itemLevel: number = item.definition.item.level
+    const itemRarity: number = item.definition.item.baseParameters.rarity
+    const itemType: number = item.definition.item.baseParameters.itemTypeId
+    const spriteId: number = item.definition.item.graphicParameters.gfxId
+    let effects: number[] = []
+    const equipEffects = item.definition.equipEffects
+
+    for (const effect of equipEffects) {
+      effects.push(effect.effect.definition.id)
+
+      const effectId: number = effect.effect.definition.id
+      const actionId: number = effect.effect.definition.actionId
+      const params: number[] = effect.effect.definition.params
+
+      const query_text = 'INSERT INTO effects(effect_id, action_id, params) VALUES ($1, $2, $3) RETURNING *'
+      const values = [effectId, actionId, params]
+
+      client.query(query_text, values, (err, res) => {
+        if (err) return
+      })
     }
+
+    const query_text = 'INSERT INTO equipments(item_id, item_level, item_rarity, item_type, sprite_id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt, effects) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *'
+    const values = [itemId, itemLevel, itemRarity, itemType, spriteId, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt, effects]
+
+    client.query(query_text, values, (err, res) => {
+      if (err) return
+    })
+  }
 }
-*/
-/**
- {
-    "name": "armas",
-    "ids": [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254]
-  }, 
-  {
-    "name": "armaduras",
-    "ids": [103, 119, 120, 132, 133, 134, 136, 138]
-  }, 
- */
 
 ---
 <Layout title="Testing">
-    <h2>Testing Appwrite</h2>
+    <h2>Inserting into database</h2>
 </Layout>
