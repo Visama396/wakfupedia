@@ -42,7 +42,10 @@ for (const item of items) {
     const values = [itemId, itemLevel, itemRarity, itemType, spriteId, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt, effects]
 
     client.query(query_text, values, (err, res) => {
-      if (err) return
+      if (err) {
+        console.log(err)
+        return
+      }
     })
   }
 }

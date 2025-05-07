@@ -1,6 +1,6 @@
-import { Client } from 'pg' 
+import pg from 'pg' 
 
-const client = new Client({
+const client = new pg.Client({
     user: import.meta.env.DB_USER,
     host: import.meta.env.DB_HOST,
     database: import.meta.env.DB_DATABASE,
