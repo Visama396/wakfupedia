@@ -1127,10 +1127,7 @@
   {
     "definition": { "id": 7076 },
     "description": {
-      "es": [
-        "-1 PA máx.",
-        "<br />75 resistencia elemental"
-      ]
+      "es": "-1 PA máx.<br />75 resistencia elemental"
     },
     "title": {
       "fr": "Carapace",

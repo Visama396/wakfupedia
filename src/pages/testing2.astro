@@ -1,8 +1,45 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import ItemsList from '@/components/ItemsList.jsx'
+import client from '../utils/database'
+
+import states from "@states"
+import actions from "@actions"
+
+for (const action of actions) {
+    const id: number = action.definition.id
+    const desc_es: string = action.description?.es || ""
+    const desc_en: string = action.description?.en || ""
+    const desc_fr: string = action.description?.fr || ""
+    const desc_pt: string = action.description?.pt || ""
+    
+    const query_text = 'INSERT INTO actions(id, desc_es, desc_en, desc_fr, desc_pt) VALUES ($1, $2, $3, $4, $5) RETURNING *'
+    const values = [id, desc_es, desc_en, desc_fr, desc_pt]
+
+    client.query(query_text, values, (err, res) => {
+        if (err) return
+    })
+}
+
+for (const state of states) {
+    const id: number = state.definition.id
+    const name_es: string = state.title?.es || ""
+    const name_en: string = state.title?.en || ""
+    const name_fr: string = state.title?.fr || ""
+    const name_pt: string = state.title?.pt || ""
+    const desc_es: string = state.description?.es || ""
+    const desc_en: string = state.description?.en || ""
+    const desc_fr: string = state.description?.fr || ""
+    const desc_pt: string = state.description?.pt || ""
+
+    const query_text = 'INSERT INTO states(id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *'
+    const values = [id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt]
+
+    client.query(query_text, values, (err, res) => {
+        if (err) return
+    })
+}
+
 ---
 <Layout title="Testing 2">
-    <h2>React Testing</h2>
-    <ItemsList client:load />
+    <h2>Inserting actions and states</h2>
 </Layout>
