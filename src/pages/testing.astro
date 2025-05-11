@@ -1,6 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import items from '@items'
+import states from "@states"
+import actions from "@actions"
+import recipeCategories from "@recipeCategories"
 import client from '../utils/database'
 
 const itemTypeIds = [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254, 103, 119, 120, 132, 133, 134, 136, 138, 537, 646, 582, 812]
@@ -16,9 +19,9 @@ for (const item of items) {
     const desc_fr: string = item.description?.fr || ""
     const desc_pt: string = item.description?.pt || ""
     const itemId: number = item.definition.item.id
-    const itemLevel: number = item.definition.item.level
-    const itemRarity: number = item.definition.item.baseParameters.rarity
     const itemType: number = item.definition.item.baseParameters.itemTypeId
+    const itemLevel: number = itemType === 582? 50 : item.definition.item.level
+    const itemRarity: number = item.definition.item.baseParameters.rarity
     const spriteId: number = item.definition.item.graphicParameters.gfxId
     let effects: number[] = []
     const equipEffects = item.definition.equipEffects
@@ -30,7 +33,7 @@ for (const item of items) {
       const actionId: number = effect.effect.definition.actionId
       const params: number[] = effect.effect.definition.params
 
-      const query_text = 'INSERT INTO effects(effect_id, action_id, params) VALUES ($1, $2, $3) RETURNING *'
+      const query_text = 'INSERT INTO effects(id, action, params) VALUES ($1, $2, $3) RETURNING *'
       const values = [effectId, actionId, params]
 
       client.query(query_text, values, (err, res) => {
@@ -38,16 +41,64 @@ for (const item of items) {
       })
     }
 
-    const query_text = 'INSERT INTO equipments(item_id, item_level, item_rarity, item_type, sprite_id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt, effects) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *'
+    const query_text = 'INSERT INTO equipments(id, level, rarity, type, sprite, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt, effects) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *'
     const values = [itemId, itemLevel, itemRarity, itemType, spriteId, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt, effects]
 
     client.query(query_text, values, (err, res) => {
       if (err) {
-        console.log(err)
         return
       }
     })
   }
+}
+
+for (const action of actions) {
+    const id: number = action.definition.id
+    const desc_es: string = action.description?.es || ""
+    const desc_en: string = action.description?.en || ""
+    const desc_fr: string = action.description?.fr || ""
+    const desc_pt: string = action.description?.pt || ""
+    
+    const query_text = 'INSERT INTO actions(id, desc_es, desc_en, desc_fr, desc_pt) VALUES ($1, $2, $3, $4, $5) RETURNING *'
+    const values = [id, desc_es, desc_en, desc_fr, desc_pt]
+
+    client.query(query_text, values, (err, res) => {
+        if (err) return
+    })
+}
+
+for (const state of states) {
+    const id: number = state.definition.id
+    const name_es: string = state.title?.es || ""
+    const name_en: string = state.title?.en || ""
+    const name_fr: string = state.title?.fr || ""
+    const name_pt: string = state.title?.pt || ""
+    const desc_es: string = state.description?.es || ""
+    const desc_en: string = state.description?.en || ""
+    const desc_fr: string = state.description?.fr || ""
+    const desc_pt: string = state.description?.pt || ""
+
+    const query_text = 'INSERT INTO states(id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *'
+    const values = [id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt]
+
+    client.query(query_text, values, (err, res) => {
+        if (err) return
+    })
+}
+
+for (const recipeCategory of recipeCategories) {
+  const id: number = recipeCategory.definition.id
+  const name_es: string = recipeCategory.title.es
+  const name_en: string = recipeCategory.title.en
+  const name_fr: string = recipeCategory.title.fr
+  const name_pt: string = recipeCategory.title.pt
+
+  const query_text = 'INSERT INTO jobs(id, name_es, name_en, name_fr, name_pt) VALUES ($1, $2, $3, $4, $5) RETURNING *'
+  const values = [id, name_es, name_en, name_fr, name_pt]
+
+  client.query(query_text, values, (err, res) => {
+    if (err) return
+  }) 
 }
 
 ---
