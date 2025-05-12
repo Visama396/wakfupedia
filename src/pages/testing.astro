@@ -6,7 +6,7 @@ import actions from "@actions"
 import recipeCategories from "@recipeCategories"
 import client from '../utils/database'
 
-const itemTypeIds = [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254, 103, 119, 120, 132, 133, 134, 136, 138, 537, 646, 582, 812]
+const itemTypeIds = [101, 108, 110, 111, 112, 113, 114, 115, 117, 189, 223, 253, 254, 103, 119, 120, 132, 133, 134, 136, 138, 537, 646, 582, 611, 812]
 for (const item of items) {
   if (itemTypeIds.includes(item.definition.item.baseParameters.itemTypeId)) {
     
@@ -20,7 +20,7 @@ for (const item of items) {
     const desc_pt: string = item.description?.pt || ""
     const itemId: number = item.definition.item.id
     const itemType: number = item.definition.item.baseParameters.itemTypeId
-    const itemLevel: number = itemType === 582? 50 : item.definition.item.level
+    const itemLevel: number = itemType == 582 || itemType == 611? 50 : item.definition.item.level
     const itemRarity: number = item.definition.item.baseParameters.rarity
     const spriteId: number = item.definition.item.graphicParameters.gfxId
     let effects: number[] = []
