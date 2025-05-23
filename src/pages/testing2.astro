@@ -2,43 +2,11 @@
 import Layout from '@/layouts/Layout.astro'
 import client from '../utils/database'
 
-import states from "@states"
-import actions from "@actions"
-
-for (const action of actions) {
-    const id: number = action.definition.id
-    const desc_es: string = action.description?.es || ""
-    const desc_en: string = action.description?.en || ""
-    const desc_fr: string = action.description?.fr || ""
-    const desc_pt: string = action.description?.pt || ""
-    
-    const query_text = 'INSERT INTO actions(id, desc_es, desc_en, desc_fr, desc_pt) VALUES ($1, $2, $3, $4, $5) RETURNING *'
-    const values = [id, desc_es, desc_en, desc_fr, desc_pt]
-
-    client.query(query_text, values, (err, res) => {
-        if (err) return
-    })
-}
-
-for (const state of states) {
-    const id: number = state.definition.id
-    const name_es: string = state.title?.es || ""
-    const name_en: string = state.title?.en || ""
-    const name_fr: string = state.title?.fr || ""
-    const name_pt: string = state.title?.pt || ""
-    const desc_es: string = state.description?.es || ""
-    const desc_en: string = state.description?.en || ""
-    const desc_fr: string = state.description?.fr || ""
-    const desc_pt: string = state.description?.pt || ""
-
-    const query_text = 'INSERT INTO states(id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *'
-    const values = [id, name_es, name_en, name_fr, name_pt, desc_es, desc_en, desc_fr, desc_pt]
-
-    client.query(query_text, values, (err, res) => {
-        if (err) return
-    })
-}
-
+client.query("CREATE TABLE IF NOT EXISTS equipments( id integer NOT NULL, level integer, rarity integer, type integer, sprite integer, name_es text, name_en text, name_fr text, name_pt text, desc_es text, desc_en text, desc_fr text, desc_pt text, effects integer[], CONSTRAINT equipments_pkey PRIMARY KEY (id))")
+client.query("CREATE TABLE IF NOT EXISTS jobs( id integer NOT NULL, name_es text, name_en text, name_fr text, name_pt text, CONSTRAINT jobs_pkey PRIMARY KEY (id))")
+client.query("CREATE TABLE IF NOT EXISTS states( id integer NOT NULL, name_es text, name_en text, name_fr text, name_pt text, desc_es text, desc_en text, desc_fr text, desc_pt text, CONSTRAINT states_pkey PRIMARY KEY (id))")
+client.query("CREATE TABLE IF NOT EXISTS actions( id integer NOT NULL, desc_es text, desc_en text, desc_fr text, desc_pt text, CONSTRAINT actions_pkey PRIMARY KEY (id))")
+client.query("CREATE TABLE IF NOT EXISTS effects( id integer NOT NULL, action integer, params real[], CONSTRAINT effects_pkey PRIMARY KEY (id))")
 ---
 <Layout title="Testing 2">
     <h2>Inserting actions and states</h2>
