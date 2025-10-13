@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro'
+import OpenAI from 'openai'
+import items from '@items'
+import states from '@states'
+import actions from '@actions'
+
+console.log(import.meta.env.OPENAI_API_KEY)
+
+const client = new OpenAI({ apiKey: import.meta.env.OPENAI_API_KEY })
+
+const response = await client.responses.create({
+    model: "gpt-4o-mini",
+    input: "Write a motivational sentence."
+});
+---
+
+<Layout title="Experimental">
+    {response.output_text}
+</Layout>

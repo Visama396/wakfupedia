@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.2",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
+    "dev": "npm install && astro dev",
+    "start": "npm install && astro dev",
+    "build": "npm install && astro check && astro build",
+    "preview": "npm install && astro preview",
     "astro": "astro"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@types/react-dom": "^19.0.4",
     "astro": "^5.13.10",
     "flowbite": "^3.1.2",
+    "openai": "^6.3.0",
     "pg": "^8.14.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
