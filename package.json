@@ -3,10 +3,10 @@
   "type": "module",
   "version": "0.0.2",
   "scripts": {
-    "dev": "npm install && astro dev",
-    "start": "npm install && astro dev",
-    "build": "npm install && astro check && astro build",
-    "preview": "npm install && astro preview",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
