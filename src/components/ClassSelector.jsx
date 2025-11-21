@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 function ClassSelector({ onClassSelectedChange }) {
-    const [selectedClass, setSelectedClass] = useState("sacrier")
+    const [selectedClass, setSelectedClass] = useState("huppermage")
     const [open, setOpen] = useState(false)
     const classes = [
         {
@@ -82,13 +82,13 @@ function ClassSelector({ onClassSelectedChange }) {
         <div className='relative'>
             <div id='selected-class'>
                 <button onClick={() => setOpen(!open)}>
-                    <img src={`https://raw.githubusercontent.com/Tmktahu/WakfuAssets/refs/heads/main/classes/${selectedClass}.png`} alt={classes.find(item => item.code == selectedClass).nombre} />
+                    <img className='rounded-md' src={`https://raw.githubusercontent.com/Tmktahu/WakfuAssets/refs/heads/main/classes/${selectedClass}.png`} alt={classes.find(item => item.code == selectedClass).nombre} />
                 </button>
             </div>
             {open && (
                 <div id='classes-list' className='grid grid-cols-6 gap-2 bg-slate-700/80 rounded-md p-2 absolute w-[500px]'>
                     {classes.map(item => (
-                        <button key={item.code} className='transition hover:scale-[1.05]' onClick={() => {setSelectedClass(item.code); onClassSelectedChange(item)}} >
+                        <button key={item.code} className='transition hover:scale-[1.05]' onClick={() => {setSelectedClass(item.code); onClassSelectedChange(item); setOpen(false)}} >
                             <img src={`https://raw.githubusercontent.com/Tmktahu/WakfuAssets/refs/heads/main/classes/${item.code}.png`} alt={item.nombre} />
                         </button>
                     ))}
